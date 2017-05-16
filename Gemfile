@@ -15,6 +15,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry'

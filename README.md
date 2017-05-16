@@ -1,18 +1,18 @@
 # README
 
-# Notes from the team
+## Notes from the team
 
-## Cody
+### Cody
 
-## Jack
+### Jack
 
-## Josh
+### Josh
 
-## Mark
+### Mark
 
-## Sergey
+### Sergey
 
 
-# Misc resources we've used
+## Misc resources we've used
 
-- 
+-
