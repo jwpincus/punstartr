@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Notes from the team
 
-Things you may want to cover:
+## Cody
 
-* Ruby version
+## Jack
 
-* System dependencies
+## Josh
 
-* Configuration
+## Mark
 
-* Database creation
+## Sergey
 
-* Database initialization
 
-* How to run the test suite
+# Misc resources we've used
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 
