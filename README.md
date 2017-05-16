@@ -5,7 +5,7 @@
 ## Cody
 
 ## Jack
-
+ Pivotal integration check
 ## Josh
 
 ## Mark
@@ -15,4 +15,4 @@
 
 # Misc resources we've used
 
-- 
+-
