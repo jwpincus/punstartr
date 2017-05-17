@@ -1,512 +1,57 @@
-  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-16 20:12:36.599557"], ["updated_at", "2017-05-16 20:12:36.599557"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (38.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (2.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to CreateProjects (20170517202244)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (31.5ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517202244"]]
-  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 20:24:36.283886"], ["updated_at", "2017-05-17 20:24:36.283886"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Started GET "/" for 127.0.0.1 at 2017-05-17 14:36:52 -0600
-  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  Rendered home/index.html.erb within layouts/application (2.6ms)
-Completed 200 OK in 1003ms (Views: 1000.3ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 14:38:04 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  Rendered home/index.html.erb within layouts/application (5.7ms)
-Completed 200 OK in 5686ms (Views: 5671.1ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:02:46 -0600
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (13.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (21.0ms)
-Completed 200 OK in 932ms (Views: 908.6ms | ActiveRecord: 16.2ms)
-
-
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (9.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gorgeous Marble Knife"], ["description", "Typewriter organic narwhal. Scenester humblebrag skateboard irony lomo pop-up. Deep v 8-bit ethical salvia hella leggings poutine. Quinoa banjo hoodie food truck flexitarian ugh stumptown yr."], ["image_url", "https://robohash.org/ipsumpraesentiuma.png?size=300x300&set=set1"], ["target_amount", "83601.0"], ["created_at", "2017-05-17 21:09:01.656565"], ["updated_at", "2017-05-17 21:09:01.656565"]]
-  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Aerodynamic Concrete Car"], ["description", "Meh microdosing marfa. Chicharrones mixtape craft beer lo-fi. Celiac deep v cleanse."], ["image_url", "https://robohash.org/suscipitestnobis.png?size=300x300&set=set1"], ["target_amount", "58430.0"], ["created_at", "2017-05-17 21:09:01.691960"], ["updated_at", "2017-05-17 21:09:01.691960"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gorgeous Rubber Pants"], ["description", "Beard xoxo banjo bespoke portland godard. Green juice wolf offal ethical mixtape selvage. Kombucha flexitarian banjo dreamcatcher ramps gentrify vhs farm-to-table."], ["image_url", "https://robohash.org/idveniamet.png?size=300x300&set=set1"], ["target_amount", "6785.0"], ["created_at", "2017-05-17 21:09:01.696442"], ["updated_at", "2017-05-17 21:09:01.696442"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Mediocre Concrete Bag"], ["description", "Occupy put a bird on it schlitz. Echo brooklyn yr pork belly knausgaard. Typewriter lo-fi selvage viral readymade retro vinegar organic."], ["image_url", "https://robohash.org/delenitiutnihil.png?size=300x300&set=set1"], ["target_amount", "59861.0"], ["created_at", "2017-05-17 21:09:01.701063"], ["updated_at", "2017-05-17 21:09:01.701063"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Intelligent Linen Table"], ["description", "Goth single-origin coffee try-hard organic food truck. Microdosing seitan retro drinking helvetica. Semiotics pop-up bespoke sriracha biodiesel iphone. Mumblecore slow-carb single-origin coffee. Crucifix fixie cred church-key kogi slow-carb godard."], ["image_url", "https://robohash.org/modiquascum.png?size=300x300&set=set1"], ["target_amount", "34453.0"], ["created_at", "2017-05-17 21:09:01.705221"], ["updated_at", "2017-05-17 21:09:01.705221"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Lightweight Steel Shirt"], ["description", "Mlkshk direct trade 8-bit truffaut microdosing master bitters kogi. Waistcoat sustainable fingerstache paleo roof seitan. Chambray flexitarian photo booth."], ["image_url", "https://robohash.org/velitvelillo.png?size=300x300&set=set1"], ["target_amount", "17039.0"], ["created_at", "2017-05-17 21:09:01.709658"], ["updated_at", "2017-05-17 21:09:01.709658"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Durable Iron Plate"], ["description", "Brooklyn freegan irony pork belly cray hoodie. You probably haven't heard of them single-origin coffee wolf post-ironic. Vhs photo booth organic dreamcatcher portland listicle gastropub."], ["image_url", "https://robohash.org/autdolorererum.png?size=300x300&set=set1"], ["target_amount", "27488.0"], ["created_at", "2017-05-17 21:09:01.713968"], ["updated_at", "2017-05-17 21:09:01.713968"]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Heavy Duty Granite Plate"], ["description", "Diy tacos flexitarian venmo meditation polaroid. Franzen try-hard mixtape offal. Food truck organic green juice ennui seitan keffiyeh distillery retro. Photo booth schlitz five dollar toast mustache. Put a bird on it skateboard hashtag."], ["image_url", "https://robohash.org/remnonlibero.png?size=300x300&set=set1"], ["target_amount", "53738.0"], ["created_at", "2017-05-17 21:09:01.719482"], ["updated_at", "2017-05-17 21:09:01.719482"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Fantastic Aluminum Gloves"], ["description", "Drinking hashtag sriracha. Listicle readymade intelligentsia beard vinegar stumptown truffaut hoodie. Polaroid jean shorts single-origin coffee schlitz cronut."], ["image_url", "https://robohash.org/maioresdebitistempore.png?size=300x300&set=set1"], ["target_amount", "78914.0"], ["created_at", "2017-05-17 21:09:01.723917"], ["updated_at", "2017-05-17 21:09:01.723917"]]
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Small Bronze Gloves"], ["description", "Lomo venmo carry. Deep v you probably haven't heard of them tilde crucifix. Pitchfork blog sriracha. Pabst trust fund cardigan echo selfies. Cold-pressed semiotics drinking pabst put a bird on it."], ["image_url", "https://robohash.org/cumnatuset.png?size=300x300&set=set1"], ["target_amount", "29990.0"], ["created_at", "2017-05-17 21:09:01.728063"], ["updated_at", "2017-05-17 21:09:01.728063"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:09:04 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (85.0ms)
-Completed 200 OK in 367ms (Views: 349.0ms | ActiveRecord: 8.3ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:10:34 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (6.0ms)
-Completed 200 OK in 137ms (Views: 130.1ms | ActiveRecord: 0.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:14:07 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (7.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (26.2ms)
-Completed 200 OK in 224ms (Views: 209.7ms | ActiveRecord: 7.4ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:15:03 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (3.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (8.5ms)
-Completed 200 OK in 158ms (Views: 148.9ms | ActiveRecord: 3.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:15:57 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (23.3ms)
-Completed 200 OK in 376ms (Views: 366.8ms | ActiveRecord: 1.5ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:16:07 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (7.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (19.2ms)
-Completed 200 OK in 415ms (Views: 404.2ms | ActiveRecord: 7.2ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:16:29 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (3.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (23.2ms)
-Completed 200 OK in 203ms (Views: 189.8ms | ActiveRecord: 3.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:17:01 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.6ms)
-Completed 200 OK in 125ms (Views: 122.2ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:17:26 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (4.1ms)
-Completed 200 OK in 106ms (Views: 102.4ms | ActiveRecord: 0.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:17:42 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.5ms)
-Completed 200 OK in 107ms (Views: 102.9ms | ActiveRecord: 0.6ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:18:36 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (4.5ms)
-Completed 200 OK in 147ms (Views: 144.3ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:19:28 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.4ms)
-Completed 200 OK in 92ms (Views: 89.0ms | ActiveRecord: 0.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:22:18 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (18.6ms)
-Completed 200 OK in 243ms (Views: 235.2ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:23:20 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (17.5ms)
-Completed 200 OK in 213ms (Views: 205.1ms | ActiveRecord: 1.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:23:42 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (4.1ms)
-Completed 200 OK in 116ms (Views: 113.5ms | ActiveRecord: 0.8ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:24:00 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.2ms)
-Completed 200 OK in 101ms (Views: 98.8ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:24:12 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.3ms)
-Completed 200 OK in 99ms (Views: 95.5ms | ActiveRecord: 0.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:24:47 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (15.9ms)
-Completed 200 OK in 146ms (Views: 140.0ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:24:55 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.7ms)
-Completed 200 OK in 102ms (Views: 98.9ms | ActiveRecord: 0.6ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:25:22 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.9ms)
-Completed 200 OK in 114ms (Views: 110.7ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:26:21 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (14.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (318.9ms)
-Completed 200 OK in 1672ms (Views: 1532.9ms | ActiveRecord: 14.4ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:26:45 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (11.8ms)
-Completed 200 OK in 368ms (Views: 358.0ms | ActiveRecord: 1.5ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:27:12 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (2.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (16.3ms)
-Completed 200 OK in 494ms (Views: 484.8ms | ActiveRecord: 2.1ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:27:25 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (10.8ms)
-Completed 200 OK in 363ms (Views: 353.1ms | ActiveRecord: 1.4ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:27:45 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (8.6ms)
-Completed 200 OK in 358ms (Views: 348.2ms | ActiveRecord: 1.4ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:29:32 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (2.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (64.3ms)
-Completed 200 OK in 748ms (Views: 720.5ms | ActiveRecord: 2.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:29:58 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (1.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (10.7ms)
-Completed 200 OK in 381ms (Views: 371.1ms | ActiveRecord: 1.9ms)
-
-
-Started GET "/" for 127.0.0.1 at 2017-05-17 15:31:18 -0600
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (3.5ms)
-Completed 200 OK in 132ms (Views: 125.4ms | ActiveRecord: 0.4ms)
-
-
-  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateProjects (20170517202244)
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (27.8ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517202244"]]
   [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (4.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+Migrating to CreateUsers (20170517224600)
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "role" integer, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517224600"]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 23:05:34.999309"], ["updated_at", "2017-05-17 23:05:34.999309"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
-  [1m[35m (125.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_development"[0m
-  [1m[35m (124.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
-  [1m[35m (365.7ms)[0m  [1m[35mCREATE DATABASE "puntstartr_development" ENCODING = 'unicode'[0m
-  [1m[35m (252.5ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE "order_details" CASCADE[0m
-  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
-  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "orders" CASCADE[0m
-  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
-  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
-  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE "product_vendors" CASCADE[0m
-  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
-  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "ztblpurchasecoupons" CASCADE[0m
-  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
-  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE "ztblseqnumbers" CASCADE[0m
-  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517202244)[0m
-  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 22:05:26.452308"], ["updated_at", "2017-05-17 22:05:26.452308"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE "order_details" CASCADE[0m
-  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
-  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
-  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "orders" CASCADE[0m
-  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
-  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
-  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "product_vendors" CASCADE[0m
-  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
-  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
-  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
-  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "ztblpurchasecoupons" CASCADE[0m
-  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
-  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
-  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "ztblseqnumbers" CASCADE[0m
-  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
-  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517202244)[0m
-  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 22:05:26.604103"], ["updated_at", "2017-05-17 22:05:26.604103"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (127.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_development"[0m
+  [1m[35m (127.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (259.2ms)[0m  [1m[35mCREATE DATABASE "puntstartr_development" ENCODING = 'unicode'[0m
+  [1m[35m (258.4ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Fantastic Linen Chair"], ["description", "Green juice jean shorts asymmetrical church-key drinking viral tattooed brunch. Master schlitz swag diy. Fashion axe viral you probably haven't heard of them. Selvage 8-bit banh mi shoreditch master tacos."], ["image_url", "https://robohash.org/deseruntrationeeos.png?size=300x300&set=set1"], ["target_amount", "58786.0"], ["created_at", "2017-05-17 22:05:26.663966"], ["updated_at", "2017-05-17 22:05:26.663966"]]
+Migrating to CreateProjects (20170517202244)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517202244"]]
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Incredible Linen Watch"], ["description", "Shoreditch kickstarter fashion axe mustache celiac typewriter. Etsy wes anderson asymmetrical freegan photo booth tattooed. Paleo leggings retro slow-carb humblebrag street thundercats dreamcatcher. Leggings authentic keffiyeh occupy food truck pickled etsy."], ["image_url", "https://robohash.org/etnobisnam.png?size=300x300&set=set1"], ["target_amount", "40095.0"], ["created_at", "2017-05-17 22:05:26.669576"], ["updated_at", "2017-05-17 22:05:26.669576"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Lightweight Marble Plate"], ["description", "Scenester chia cliche meditation microdosing. Deep v everyday swag bespoke bicycle rights brunch whatever. Migas heirloom chia wayfarers bitters distillery pbr&b. Hoodie kale chips asymmetrical lo-fi single-origin coffee 8-bit. Food truck 8-bit chambray biodiesel viral."], ["image_url", "https://robohash.org/beataeconsequaturvel.png?size=300x300&set=set1"], ["target_amount", "59643.0"], ["created_at", "2017-05-17 22:05:26.672458"], ["updated_at", "2017-05-17 22:05:26.672458"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Intelligent Silk Plate"], ["description", "Lomo locavore next level selfies flexitarian. Bespoke hammock cleanse small batch. Selfies knausgaard trust fund. Disrupt cleanse hammock."], ["image_url", "https://robohash.org/commodicuminventore.png?size=300x300&set=set1"], ["target_amount", "49400.0"], ["created_at", "2017-05-17 22:05:26.675120"], ["updated_at", "2017-05-17 22:05:26.675120"]]
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Synergistic Marble Wallet"], ["description", "Distillery marfa roof sriracha loko bespoke park gluten-free. Fixie pbr&b cleanse slow-carb. Gentrify wolf semiotics beard flexitarian."], ["image_url", "https://robohash.org/voluptatesquamconsequuntur.png?size=300x300&set=set1"], ["target_amount", "95891.0"], ["created_at", "2017-05-17 22:05:26.677678"], ["updated_at", "2017-05-17 22:05:26.677678"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Sleek Granite Pants"], ["description", "Put a bird on it disrupt yr readymade pbr&b iphone vhs. Meh gluten-free selfies chicharrones fanny pack butcher kitsch. Migas before they sold out everyday green juice. Kombucha authentic disrupt godard letterpress chillwave pabst master."], ["image_url", "https://robohash.org/architectoexpeditaquaerat.png?size=300x300&set=set1"], ["target_amount", "11807.0"], ["created_at", "2017-05-17 22:05:26.680542"], ["updated_at", "2017-05-17 22:05:26.680542"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Heavy Duty Leather Clock"], ["description", "Whatever tousled neutra jean shorts tacos kitsch. Selvage roof cold-pressed raw denim. Before they sold out meggings forage. Cornhole cliche crucifix meditation asymmetrical whatever single-origin coffee bespoke. Fashion axe keffiyeh poutine post-ironic single-origin coffee."], ["image_url", "https://robohash.org/aliquidearumlabore.png?size=300x300&set=set1"], ["target_amount", "70145.0"], ["created_at", "2017-05-17 22:05:26.683328"], ["updated_at", "2017-05-17 22:05:26.683328"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gorgeous Linen Table"], ["description", "Skateboard meditation tattooed paleo yolo sartorial. Tofu pour-over disrupt pork belly typewriter. Paleo typewriter pug lomo deep v marfa synth. Narwhal hella small batch diy pug selfies vhs. Lo-fi fixie 8-bit kombucha."], ["image_url", "https://robohash.org/errorfugitnumquam.png?size=300x300&set=set1"], ["target_amount", "77317.0"], ["created_at", "2017-05-17 22:05:26.685858"], ["updated_at", "2017-05-17 22:05:26.685858"]]
-  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Ergonomic Silk Lamp"], ["description", "Art party deep v butcher. Chillwave iphone whatever trust fund park retro gastropub fashion axe. Tumblr stumptown pop-up ugh."], ["image_url", "https://robohash.org/possimusdeseruntadipisci.png?size=300x300&set=set1"], ["target_amount", "74073.0"], ["created_at", "2017-05-17 22:05:26.688675"], ["updated_at", "2017-05-17 22:05:26.688675"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Durable Copper Coat"], ["description", "Fanny pack you probably haven't heard of them meh schlitz bushwick microdosing artisan. Lo-fi pickled vegan. Squid helvetica art party tacos salvia beard hella. Pork belly authentic direct trade truffaut."], ["image_url", "https://robohash.org/possimusrecusandaevoluptas.png?size=300x300&set=set1"], ["target_amount", "93455.0"], ["created_at", "2017-05-17 22:05:26.691491"], ["updated_at", "2017-05-17 22:05:26.691491"]]
-  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
-Started GET "/" for 127.0.0.1 at 2017-05-17 16:28:10 -0600
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
-  Rendered home/index.html.erb within layouts/application (15.4ms)
-Completed 200 OK in 2511ms (Views: 2501.2ms | ActiveRecord: 5.6ms)
-
-
-Started GET "/login" for 127.0.0.1 at 2017-05-17 16:28:22 -0600
-  
-ActionController::RoutingError (No route matches [GET] "/login"):
-  
-actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.3) lib/rack/method_override.rb:22:in `call'
-rack (2.0.3) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.3) lib/rails/engine.rb:522:in `call'
-puma (3.8.2) lib/puma/configuration.rb:224:in `call'
-puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
-puma (3.8.2) lib/puma/server.rb:435:in `process_client'
-puma (3.8.2) lib/puma/server.rb:299:in `block in run'
-puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-  Rendering /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
-  Rendering /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
-  Rendered collection of /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [2 times] (3.2ms)
-  Rendered /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.4ms)
-  Rendering /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
-  Rendered /Users/joshthompson/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (89.0ms)
-Started GET "/signup" for 127.0.0.1 at 2017-05-17 16:28:28 -0600
-Processing by SessionsController#new as HTML
-  Rendering sessions/new.html.erb within layouts/application
-  Rendered sessions/new.html.erb within layouts/application (0.3ms)
-Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
-
-
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to CreateUsers (20170517224600)
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "role" integer, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517224600"]]
-  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "role" integer, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517224600"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 23:09:32.955370"], ["updated_at", "2017-05-17 23:09:32.955370"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
