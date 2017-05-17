@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 RSpec.feature "as a guest user" do
-  xcontext "when visiting /signup" do
+  context "when visiting /signup" do
     it "can create account" do
       visit signup_path
-      save_and_open_page
-      fill_in "Name", with: "User Name"
-      fill_in "email", with: "user@user.com"
-      fill_in "email confirmation", with: "user@user.com"
-      fill_in "password", with: "password"
-      fill_in "password confirmation", with: "password"
 
-      click_on "Create Account"
+      fill_in "Name", with: "User Name"
+      fill_in "Email", with: "user@user.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+
+      click_on "Create account"
 
       expect(current_path).to be(dashboard_path)
       expect(page).to have("welcome to Puntstartr, User Name")

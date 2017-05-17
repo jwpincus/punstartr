@@ -55,3 +55,88 @@ Migrating to CreateUsers (20170517224600)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_development"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (422.9ms)[0m  [1m[35mCREATE DATABASE "puntstartr_development" ENCODING = 'unicode'[0m
+  [1m[35m (372.3ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4437748337026493580);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProjects (20170517202244)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517202244"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20170517224600)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "role" integer, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517224600"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 23:17:05.905543"], ["updated_at", "2017-05-17 23:17:05.905543"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4437748337026493580)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Intelligent Aluminum Clock"], ["description", "Chia pitchfork forage truffaut. Tacos kitsch bushwick. Put a bird on it keffiyeh keytar freegan. Pork belly park pabst."], ["image_url", "https://robohash.org/reiciendisnamomnis.png?size=300x300&set=set1"], ["target_amount", "30289.0"], ["created_at", "2017-05-17 23:17:05.951230"], ["updated_at", "2017-05-17 23:17:05.951230"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (6.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Aerodynamic Steel Clock"], ["description", "Scenester hashtag cold-pressed food truck hammock disrupt wayfarers. Fashion axe pitchfork leggings. Keffiyeh forage single-origin coffee locavore flannel. 90's occupy wes anderson lomo."], ["image_url", "https://robohash.org/accusantiumquisdolor.png?size=300x300&set=set1"], ["target_amount", "92774.0"], ["created_at", "2017-05-17 23:17:05.978853"], ["updated_at", "2017-05-17 23:17:05.978853"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Awesome Wool Bench"], ["description", "Fanny pack humblebrag carry whatever. Health tilde hashtag post-ironic occupy tumblr. Meggings tumblr wes anderson cornhole."], ["image_url", "https://robohash.org/uteiusexercitationem.png?size=300x300&set=set1"], ["target_amount", "66879.0"], ["created_at", "2017-05-17 23:17:05.981502"], ["updated_at", "2017-05-17 23:17:05.981502"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Fantastic Leather Chair"], ["description", "Shabby chic normcore vinyl brunch post-ironic. Fashion axe lumbersexual jean shorts church-key. Ethical migas brunch meggings celiac asymmetrical raw denim lomo. Single-origin coffee iphone 3 wolf moon chartreuse hammock portland messenger bag."], ["image_url", "https://robohash.org/exadipiscifugiat.png?size=300x300&set=set1"], ["target_amount", "48656.0"], ["created_at", "2017-05-17 23:17:05.984232"], ["updated_at", "2017-05-17 23:17:05.984232"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Heavy Duty Steel Table"], ["description", "Bushwick stumptown aesthetic semiotics knausgaard. Pug lomo xoxo schlitz. Pabst tattooed yr. +1 banh mi cold-pressed bespoke salvia. Put a bird on it next level pop-up freegan kogi williamsburg artisan bicycle rights."], ["image_url", "https://robohash.org/doloresculpaconsequuntur.png?size=300x300&set=set1"], ["target_amount", "93959.0"], ["created_at", "2017-05-17 23:17:05.987258"], ["updated_at", "2017-05-17 23:17:05.987258"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Practical Steel Shirt"], ["description", "Lo-fi brooklyn austin literally. Celiac sustainable mlkshk brunch +1. Tofu literally cleanse crucifix street. Wayfarers locavore blog brunch direct trade lumbersexual banh mi tote bag."], ["image_url", "https://robohash.org/areprehenderitqui.png?size=300x300&set=set1"], ["target_amount", "81325.0"], ["created_at", "2017-05-17 23:17:05.990217"], ["updated_at", "2017-05-17 23:17:05.990217"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Ergonomic Iron Bag"], ["description", "Pug retro selfies cardigan. Yuccie banjo swag kogi chia slow-carb godard ugh. Cornhole next level distillery meditation cronut photo booth."], ["image_url", "https://robohash.org/voluptatibusdelectuset.png?size=300x300&set=set1"], ["target_amount", "24525.0"], ["created_at", "2017-05-17 23:17:05.993134"], ["updated_at", "2017-05-17 23:17:05.993134"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Intelligent Rubber Coat"], ["description", "Echo hoodie tumblr narwhal. Kitsch normcore helvetica marfa kickstarter. Salvia squid disrupt keffiyeh keytar. Venmo lomo helvetica loko paleo squid. Butcher vinegar echo wayfarers."], ["image_url", "https://robohash.org/deseruntilloexpedita.png?size=300x300&set=set1"], ["target_amount", "95850.0"], ["created_at", "2017-05-17 23:17:05.995990"], ["updated_at", "2017-05-17 23:17:05.995990"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Fantastic Linen Plate"], ["description", "Thundercats crucifix cred deep v street cleanse mlkshk. Cleanse post-ironic literally letterpress twee echo. Poutine kinfolk quinoa dreamcatcher five dollar toast twee ramps."], ["image_url", "https://robohash.org/harumitaqueconsequatur.png?size=300x300&set=set1"], ["target_amount", "92554.0"], ["created_at", "2017-05-17 23:17:05.999293"], ["updated_at", "2017-05-17 23:17:05.999293"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Synergistic Cotton Clock"], ["description", "Waistcoat art party +1 blog kale chips church-key seitan godard. Pbr&b cray church-key literally farm-to-table. Paleo butcher forage shoreditch. Humblebrag 3 wolf moon asymmetrical celiac yr."], ["image_url", "https://robohash.org/dolorumsuntdolor.png?size=300x300&set=set1"], ["target_amount", "64953.0"], ["created_at", "2017-05-17 23:17:06.002044"], ["updated_at", "2017-05-17 23:17:06.002044"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (194.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (316.5ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "role" integer, "name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517224600)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170517202244);
+
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 23:17:06.565265"], ["updated_at", "2017-05-17 23:17:06.565265"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
