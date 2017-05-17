@@ -1,6 +1,17 @@
 <h3>Puntstartr</h3>
-<% @projects.each do |project| %>
-  <%= project.title %><br>
-  <%= project.description %><br>
-  <%= image_tag project.image_url, size: 100 %>
-<% end %>
+<div class="project-list row container">
+  <% @projects.each do |project| %>
+  <div class="card medium col s4 m3 l3">
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= image_tag project.image_url, class: "activator responsive-img" %>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= project.title %><i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <%= project.description %>
+    </div>
+  </div>
+  <% end %>
+</div>
