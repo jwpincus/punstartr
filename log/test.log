@@ -212,3 +212,940 @@
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (207.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (729.5ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (9.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 19:57:05.038249"], ["updated_at", "2017-05-17 19:57:05.038249"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (6.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (208.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (604.4ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (28.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 19:57:54.648324"], ["updated_at", "2017-05-17 19:57:54.648324"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (211.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (627.6ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 19:59:45.329717"], ["updated_at", "2017-05-17 19:59:45.329717"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (9.0ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (7.1ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (17.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (15.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (12.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (206.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (660.8ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (25.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 20:19:57.440350"], ["updated_at", "2017-05-17 20:19:57.440350"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.8ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.5ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (55.9ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (13.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (197.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (575.3ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "order_details" ("ordernumber" integer DEFAULT 0 NOT NULL, "productnumber" integer DEFAULT 0 NOT NULL, "quotedprice" decimal(15,2) DEFAULT '0.0', "quantityordered" smallint DEFAULT 0, PRIMARY KEY (ordernumber, productnumber))[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "ordersorderdetails" ON "order_details" USING btree ("ordernumber")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "productsorderdetails" ON "order_details" USING btree ("productnumber")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "orders" ("ordernumber" integer DEFAULT 0 PRIMARY KEY, "orderdate" date, "shipdate" date, "customerid" integer DEFAULT 0, "employeeid" integer DEFAULT 0)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "customerid" ON "orders" USING btree ("customerid")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "employeeid" ON "orders" USING btree ("employeeid")[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "product_vendors" ("productnumber" integer DEFAULT 0 NOT NULL, "vendorid" integer DEFAULT 0 NOT NULL, "wholesaleprice" decimal(15,2) DEFAULT '0.0', "daystodeliver" smallint DEFAULT 0, PRIMARY KEY (productnumber, vendorid))[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "productsproductvendors" ON "product_vendors" USING btree ("productnumber")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "vendorid" ON "product_vendors" USING btree ("vendorid")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ztblpurchasecoupons" ("lowspend" decimal(15,2) PRIMARY KEY, "highspend" decimal(15,2), "numcoupons" smallint DEFAULT 0)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "num_coupons" ON "ztblpurchasecoupons" USING btree ("numcoupons")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ztblseqnumbers" ("sequence" integer DEFAULT 0 PRIMARY KEY)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (21.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 20:20:25.869726"], ["updated_at", "2017-05-17 20:20:25.869726"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.9ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.6ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (24.0ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "order_details" DISABLE TRIGGER ALL;ALTER TABLE "orders" DISABLE TRIGGER ALL;ALTER TABLE "product_vendors" DISABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" DISABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (14.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."order_details", "public"."orders", "public"."product_vendors", "public"."ztblpurchasecoupons", "public"."ztblseqnumbers", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "order_details" ENABLE TRIGGER ALL;ALTER TABLE "orders" ENABLE TRIGGER ALL;ALTER TABLE "product_vendors" ENABLE TRIGGER ALL;ALTER TABLE "ztblpurchasecoupons" ENABLE TRIGGER ALL;ALTER TABLE "ztblseqnumbers" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (212.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "puntstartr_test"[0m
+  [1m[35m (616.8ms)[0m  [1m[35mCREATE DATABASE "puntstartr_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial primary key, "title" text, "description" text, "image_url" text, "target_amount" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517202244)[0m
+  [1m[35m (25.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2017-05-17 20:24:49.430045"], ["updated_at", "2017-05-17 20:24:49.430045"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.8ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.8ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (21.1ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Tenetur inventore nam est voluptas ipsum explicabo. Dolorum sed et non. Quis dolores et illum nesciunt quia eius voluptatibus. Sit dolores illo quam quis."], ["image_url", "https://robohash.org/doloribusisteaspernatur.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:24:49.646011"], ["updated_at", "2017-05-17 20:24:49.646011"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (16.5ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Tenetur inventore nam est voluptas ipsum explicabo. Dolorum sed et non. Quis dolores et illum nesciunt quia eius voluptatibus. Sit dolores illo quam quis."], ["image_url", "https://robohash.org/doloribusisteaspernatur.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:24:49.686679"], ["updated_at", "2017-05-17 20:24:49.686679"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Tenetur inventore nam est voluptas ipsum explicabo. Dolorum sed et non. Quis dolores et illum nesciunt quia eius voluptatibus. Sit dolores illo quam quis."], ["image_url", "https://robohash.org/doloribusisteaspernatur.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:24:49.689626"], ["updated_at", "2017-05-17 20:24:49.689626"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Tenetur inventore nam est voluptas ipsum explicabo. Dolorum sed et non. Quis dolores et illum nesciunt quia eius voluptatibus. Sit dolores illo quam quis."], ["image_url", "https://robohash.org/doloribusisteaspernatur.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:24:49.692064"], ["updated_at", "2017-05-17 20:24:49.692064"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (11.4ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.9ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.5ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (23.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Vel omnis earum libero. Aut aspernatur blanditiis. Quis consequuntur consequatur qui possimus illo."], ["image_url", "https://robohash.org/eiusconsequaturarchitecto.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:25:52.329888"], ["updated_at", "2017-05-17 20:25:52.329888"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.1ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Vel omnis earum libero. Aut aspernatur blanditiis. Quis consequuntur consequatur qui possimus illo."], ["image_url", "https://robohash.org/eiusconsequaturarchitecto.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:25:52.374172"], ["updated_at", "2017-05-17 20:25:52.374172"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Vel omnis earum libero. Aut aspernatur blanditiis. Quis consequuntur consequatur qui possimus illo."], ["image_url", "https://robohash.org/eiusconsequaturarchitecto.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:25:52.379412"], ["updated_at", "2017-05-17 20:25:52.379412"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Vel omnis earum libero. Aut aspernatur blanditiis. Quis consequuntur consequatur qui possimus illo."], ["image_url", "https://robohash.org/eiusconsequaturarchitecto.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:25:52.383282"], ["updated_at", "2017-05-17 20:25:52.383282"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 14:25:52 -0600
+
+ActionController::RoutingError - uninitialized constant HomeController:
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:46:in `rescue in controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.3) lib/rails/engine.rb:522:in `call'
+  rack (2.0.3) lib/rack/urlmap.rb:68:in `block in call'
+  rack (2.0.3) lib/rack/urlmap.rb:53:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/forwardable.rb:184:in `get'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:64:in `process'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:22:in `visit'
+  capybara (2.14.0) lib/capybara/rack_test/driver.rb:43:in `visit'
+  capybara (2.14.0) lib/capybara/session.rb:269:in `visit'
+  capybara (2.14.0) lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+  rspec-rails (3.6.0) lib/rspec/rails/example/feature_example_group.rb:29:in `visit'
+  spec/features/guest_user_can_visit_home_page_spec.rb:10:in `block (3 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:254:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:604:in `block in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-rails (3.6.0) lib/rspec/rails/adapters.rb:127:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  spec/support/factory_girl.rb:18:in `block (3 levels) in <top (required)>'
+  database_cleaner (1.5.3) lib/database_cleaner/generic/base.rb:16:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/base.rb:98:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:87:in `cleaning'
+  spec/support/factory_girl.rb:17:in `block (2 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:607:in `run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:251:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:627:in `block in run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:623:in `run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:589:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/configuration.rb:1894:in `with_suite_hooks'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:113:in `block in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/reporter.rb:79:in `report'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:112:in `run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:87:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:71:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:45:in `invoke'
+  rspec-core (3.6.0) exe/rspec:4:in `<top (required)>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `<main>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.8ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.6ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (18.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Fuga corrupti non autem accusamus rem ex dolor. Recusandae eos et adipisci libero est dolores odio. Est sed architecto dignissimos deserunt. Et sit debitis fugit. Eaque nulla labore facilis non reprehenderit quod ad."], ["image_url", "https://robohash.org/velitetut.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:26:49.057830"], ["updated_at", "2017-05-17 20:26:49.057830"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (6.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Fuga corrupti non autem accusamus rem ex dolor. Recusandae eos et adipisci libero est dolores odio. Est sed architecto dignissimos deserunt. Et sit debitis fugit. Eaque nulla labore facilis non reprehenderit quod ad."], ["image_url", "https://robohash.org/velitetut.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:26:49.077989"], ["updated_at", "2017-05-17 20:26:49.077989"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Fuga corrupti non autem accusamus rem ex dolor. Recusandae eos et adipisci libero est dolores odio. Est sed architecto dignissimos deserunt. Et sit debitis fugit. Eaque nulla labore facilis non reprehenderit quod ad."], ["image_url", "https://robohash.org/velitetut.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:26:49.083857"], ["updated_at", "2017-05-17 20:26:49.083857"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Fuga corrupti non autem accusamus rem ex dolor. Recusandae eos et adipisci libero est dolores odio. Est sed architecto dignissimos deserunt. Et sit debitis fugit. Eaque nulla labore facilis non reprehenderit quod ad."], ["image_url", "https://robohash.org/velitetut.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:26:49.087942"], ["updated_at", "2017-05-17 20:26:49.087942"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 14:26:49 -0600
+
+ActionController::RoutingError - uninitialized constant HomeController:
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:46:in `rescue in controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.3) lib/rails/engine.rb:522:in `call'
+  rack (2.0.3) lib/rack/urlmap.rb:68:in `block in call'
+  rack (2.0.3) lib/rack/urlmap.rb:53:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/forwardable.rb:184:in `get'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:64:in `process'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:22:in `visit'
+  capybara (2.14.0) lib/capybara/rack_test/driver.rb:43:in `visit'
+  capybara (2.14.0) lib/capybara/session.rb:269:in `visit'
+  capybara (2.14.0) lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+  rspec-rails (3.6.0) lib/rspec/rails/example/feature_example_group.rb:29:in `visit'
+  spec/features/guest_user_can_visit_home_page_spec.rb:10:in `block (3 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:254:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:604:in `block in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-rails (3.6.0) lib/rspec/rails/adapters.rb:127:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  spec/support/factory_girl.rb:18:in `block (3 levels) in <top (required)>'
+  database_cleaner (1.5.3) lib/database_cleaner/generic/base.rb:16:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/base.rb:98:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:87:in `cleaning'
+  spec/support/factory_girl.rb:17:in `block (2 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:607:in `run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:251:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:627:in `block in run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:623:in `run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:589:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/configuration.rb:1894:in `with_suite_hooks'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:113:in `block in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/reporter.rb:79:in `report'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:112:in `run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:87:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:71:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:45:in `invoke'
+  rspec-core (3.6.0) exe/rspec:4:in `<top (required)>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `<main>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (25.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.2ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.3ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (20.2ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Ab omnis officia. Expedita ut commodi suscipit tempore earum. Est dignissimos voluptatibus pariatur repudiandae sed est."], ["image_url", "https://robohash.org/consequaturutinventore.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:27:29.850425"], ["updated_at", "2017-05-17 20:27:29.850425"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.9ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Ab omnis officia. Expedita ut commodi suscipit tempore earum. Est dignissimos voluptatibus pariatur repudiandae sed est."], ["image_url", "https://robohash.org/consequaturutinventore.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:27:29.868552"], ["updated_at", "2017-05-17 20:27:29.868552"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Ab omnis officia. Expedita ut commodi suscipit tempore earum. Est dignissimos voluptatibus pariatur repudiandae sed est."], ["image_url", "https://robohash.org/consequaturutinventore.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:27:29.873497"], ["updated_at", "2017-05-17 20:27:29.873497"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Ab omnis officia. Expedita ut commodi suscipit tempore earum. Est dignissimos voluptatibus pariatur repudiandae sed est."], ["image_url", "https://robohash.org/consequaturutinventore.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:27:29.877385"], ["updated_at", "2017-05-17 20:27:29.877385"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 14:27:29 -0600
+
+ActionController::RoutingError - uninitialized constant HomeController:
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:46:in `rescue in controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.3) lib/rails/engine.rb:522:in `call'
+  rack (2.0.3) lib/rack/urlmap.rb:68:in `block in call'
+  rack (2.0.3) lib/rack/urlmap.rb:53:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/forwardable.rb:184:in `get'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:64:in `process'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:22:in `visit'
+  capybara (2.14.0) lib/capybara/rack_test/driver.rb:43:in `visit'
+  capybara (2.14.0) lib/capybara/session.rb:269:in `visit'
+  capybara (2.14.0) lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+  rspec-rails (3.6.0) lib/rspec/rails/example/feature_example_group.rb:29:in `visit'
+  spec/features/guest_user_can_visit_home_page_spec.rb:10:in `block (3 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:254:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:604:in `block in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-rails (3.6.0) lib/rspec/rails/adapters.rb:127:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  spec/support/factory_girl.rb:18:in `block (3 levels) in <top (required)>'
+  database_cleaner (1.5.3) lib/database_cleaner/generic/base.rb:16:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/base.rb:98:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:87:in `cleaning'
+  spec/support/factory_girl.rb:17:in `block (2 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:607:in `run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:251:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:627:in `block in run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:623:in `run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:589:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/configuration.rb:1894:in `with_suite_hooks'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:113:in `block in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/reporter.rb:79:in `report'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:112:in `run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:87:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:71:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:45:in `invoke'
+  rspec-core (3.6.0) exe/rspec:4:in `<top (required)>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `<main>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (25.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (3.1ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.4ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (26.6ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Ut aliquam non repellendus. Et consequatur est velit et quia. Quod repellendus aut ea facilis."], ["image_url", "https://robohash.org/natusdolorharum.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:28:57.455142"], ["updated_at", "2017-05-17 20:28:57.455142"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.5ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Ut aliquam non repellendus. Et consequatur est velit et quia. Quod repellendus aut ea facilis."], ["image_url", "https://robohash.org/natusdolorharum.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:28:57.474015"], ["updated_at", "2017-05-17 20:28:57.474015"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Ut aliquam non repellendus. Et consequatur est velit et quia. Quod repellendus aut ea facilis."], ["image_url", "https://robohash.org/natusdolorharum.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:28:57.478575"], ["updated_at", "2017-05-17 20:28:57.478575"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Ut aliquam non repellendus. Et consequatur est velit et quia. Quod repellendus aut ea facilis."], ["image_url", "https://robohash.org/natusdolorharum.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:28:57.482612"], ["updated_at", "2017-05-17 20:28:57.482612"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 14:28:57 -0600
+Processing by HomeController#index as HTML
+Completed 406 Not Acceptable in 77ms (ActiveRecord: 0.0ms)
+
+ActionController::UnknownFormat - HomeController#index is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+  actionpack (5.0.3) lib/action_controller/metal/implicit_render.rb:56:in `default_render'
+  actionpack (5.0.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.3) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.3) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.3) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.3) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.3) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.3) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.3) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.3) lib/rails/engine.rb:522:in `call'
+  rack (2.0.3) lib/rack/urlmap.rb:68:in `block in call'
+  rack (2.0.3) lib/rack/urlmap.rb:53:in `call'
+  rack-test (0.6.3) lib/rack/mock_session.rb:30:in `request'
+  rack-test (0.6.3) lib/rack/test.rb:244:in `process_request'
+  rack-test (0.6.3) lib/rack/test.rb:58:in `get'
+  /Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/forwardable.rb:184:in `get'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:64:in `process'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'
+  capybara (2.14.0) lib/capybara/rack_test/browser.rb:22:in `visit'
+  capybara (2.14.0) lib/capybara/rack_test/driver.rb:43:in `visit'
+  capybara (2.14.0) lib/capybara/session.rb:269:in `visit'
+  capybara (2.14.0) lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'
+  rspec-rails (3.6.0) lib/rspec/rails/example/feature_example_group.rb:29:in `visit'
+  spec/features/guest_user_can_visit_home_page_spec.rb:10:in `block (3 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:254:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:604:in `block in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-rails (3.6.0) lib/rspec/rails/adapters.rb:127:in `block (2 levels) in <module:MinitestLifecycleAdapter>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  spec/support/factory_girl.rb:18:in `block (3 levels) in <top (required)>'
+  database_cleaner (1.5.3) lib/database_cleaner/generic/base.rb:16:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/base.rb:98:in `cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'
+  database_cleaner (1.5.3) lib/database_cleaner/configuration.rb:87:in `cleaning'
+  spec/support/factory_girl.rb:17:in `block (2 levels) in <top (required)>'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:447:in `instance_exec'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:375:in `execute_with'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:342:in `call'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:607:in `run_around_example_hooks_for'
+  rspec-core (3.6.0) lib/rspec/core/hooks.rb:464:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:457:in `with_around_example_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'
+  rspec-core (3.6.0) lib/rspec/core/example.rb:251:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:627:in `block in run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:623:in `run_examples'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:589:in `run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `block in run'
+  rspec-core (3.6.0) lib/rspec/core/example_group.rb:590:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/configuration.rb:1894:in `with_suite_hooks'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:113:in `block in run_specs'
+  rspec-core (3.6.0) lib/rspec/core/reporter.rb:79:in `report'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:112:in `run_specs'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:87:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:71:in `run'
+  rspec-core (3.6.0) lib/rspec/core/runner.rb:45:in `invoke'
+  rspec-core (3.6.0) exe/rspec:4:in `<top (required)>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `<main>'
+   () Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'
+
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (25.0ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.7ms)[0m  [1m[34m          SELECT schemaname || '.' || tablename
+          FROM pg_tables
+          WHERE
+            tablename !~ '_prt_' AND
+            tablename <> 'schema_migrations' AND
+            schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35m (2.7ms)[0m  [1m[34mselect table_name from information_schema.views where table_schema = 'puntstartr_test'[0m
+  [1m[35m (34.7ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "1 project"], ["description", "Libero et impedit similique quis quod minus aliquam. Sequi provident laborum praesentium accusamus illo tenetur error. Sit quia eveniet beatae dolor est nostrum exercitationem."], ["image_url", "https://robohash.org/necessitatibusoditaspernatur.png?size=300x300&set=set1"], ["target_amount", "1000.0"], ["created_at", "2017-05-17 20:29:36.423602"], ["updated_at", "2017-05-17 20:29:36.423602"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.8ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "2 project"], ["description", "Libero et impedit similique quis quod minus aliquam. Sequi provident laborum praesentium accusamus illo tenetur error. Sit quia eveniet beatae dolor est nostrum exercitationem."], ["image_url", "https://robohash.org/necessitatibusoditaspernatur.png?size=300x300&set=set1"], ["target_amount", "2000.0"], ["created_at", "2017-05-17 20:29:36.440626"], ["updated_at", "2017-05-17 20:29:36.440626"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "3 project"], ["description", "Libero et impedit similique quis quod minus aliquam. Sequi provident laborum praesentium accusamus illo tenetur error. Sit quia eveniet beatae dolor est nostrum exercitationem."], ["image_url", "https://robohash.org/necessitatibusoditaspernatur.png?size=300x300&set=set1"], ["target_amount", "3000.0"], ["created_at", "2017-05-17 20:29:36.445320"], ["updated_at", "2017-05-17 20:29:36.445320"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "projects" ("title", "description", "image_url", "target_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "4 project"], ["description", "Libero et impedit similique quis quod minus aliquam. Sequi provident laborum praesentium accusamus illo tenetur error. Sit quia eveniet beatae dolor est nostrum exercitationem."], ["image_url", "https://robohash.org/necessitatibusoditaspernatur.png?size=300x300&set=set1"], ["target_amount", "4000.0"], ["created_at", "2017-05-17 20:29:36.449385"], ["updated_at", "2017-05-17 20:29:36.449385"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 14:29:36 -0600
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Could not log "render_template.action_view" event. NoMethodError: undefined method `render_views?' for RSpec::ExampleGroups::UserCanVisitHomePage::AsAGuestUser:Class ["/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:732:in `method_missing'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-rails-3.6.0/lib/rspec/rails/view_rendering.rb:71:in `render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/subscriber.rb:95:in `finish'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/log_subscriber.rb:83:in `finish'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/fanout.rb:102:in `finish'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/fanout.rb:46:in `block in finish'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/fanout.rb:46:in `each'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/fanout.rb:46:in `finish'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/instrumenter.rb:42:in `finish_with_state'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/instrumenter.rb:27:in `instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications.rb:164:in `instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/template_renderer.rb:52:in `render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/template_renderer.rb:14:in `render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/renderer.rb:42:in `render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/renderer/renderer.rb:23:in `render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/rendering.rb:104:in `_render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/streaming.rb:217:in `_render_template'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/rendering.rb:83:in `render_to_body'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/rendering.rb:52:in `render_to_body'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/renderers.rb:142:in `render_to_body'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/abstract_controller/rendering.rb:26:in `render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/rendering.rb:36:in `render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'", "/Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/core_ext/benchmark.rb:12:in `ms'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:44:in `block in render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activerecord-5.0.3/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:43:in `render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/implicit_render.rb:36:in `default_render'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/abstract_controller/base.rb:188:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/rendering.rb:30:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/abstract_controller/callbacks.rb:20:in `block in process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:126:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:455:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:101:in `__run_callbacks__'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:90:in `run_callbacks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/abstract_controller/callbacks.rb:19:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/rescue.rb:20:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications.rb:164:in `block in instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/notifications.rb:164:in `instrument'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/instrumentation.rb:30:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal/params_wrapper.rb:248:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activerecord-5.0.3/lib/active_record/railties/controller_runtime.rb:18:in `process_action'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/abstract_controller/base.rb:126:in `process'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionview-5.0.3/lib/action_view/rendering.rb:30:in `process'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal.rb:190:in `dispatch'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_controller/metal.rb:262:in `dispatch'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/routing/route_set.rb:32:in `serve'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/journey/router.rb:39:in `block in serve'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/journey/router.rb:26:in `each'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/journey/router.rb:26:in `serve'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/routing/route_set.rb:725:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/etag.rb:25:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/conditional_get.rb:25:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/head.rb:12:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:232:in `context'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/session/abstract/id.rb:226:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/cookies.rb:613:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:97:in `__run_callbacks__'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:750:in `_run_call_callbacks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/callbacks.rb:90:in `run_callbacks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/callbacks.rb:36:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/better_errors-2.1.1/lib/better_errors/middleware.rb:84:in `protected_app_call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/better_errors-2.1.1/lib/better_errors/middleware.rb:79:in `better_errors_call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/better_errors-2.1.1/lib/better_errors/middleware.rb:57:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/railties-5.0.3/lib/rails/rack/logger.rb:36:in `call_app'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/railties-5.0.3/lib/rails/rack/logger.rb:24:in `block in call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/tagged_logging.rb:69:in `block in tagged'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/tagged_logging.rb:26:in `tagged'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/tagged_logging.rb:69:in `tagged'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/railties-5.0.3/lib/rails/rack/logger.rb:24:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/request_id.rb:24:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/method_override.rb:22:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/runtime.rb:22:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/activesupport-5.0.3/lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/executor.rb:12:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/static.rb:136:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/sendfile.rb:111:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/railties-5.0.3/lib/rails/engine.rb:522:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/urlmap.rb:68:in `block in call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `each'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-2.0.3/lib/rack/urlmap.rb:53:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-test-0.6.3/lib/rack/mock_session.rb:30:in `request'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-test-0.6.3/lib/rack/test.rb:244:in `process_request'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rack-test-0.6.3/lib/rack/test.rb:58:in `get'", "/Users/jwpincus/.rvm/rubies/ruby-2.3.0/lib/ruby/2.3.0/forwardable.rb:184:in `get'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/rack_test/browser.rb:64:in `process'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/rack_test/browser.rb:36:in `process_and_follow_redirects'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/rack_test/browser.rb:22:in `visit'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/rack_test/driver.rb:43:in `visit'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/session.rb:269:in `visit'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/capybara-2.14.0/lib/capybara/dsl.rb:50:in `block (2 levels) in <module:DSL>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-rails-3.6.0/lib/rspec/rails/example/feature_example_group.rb:29:in `visit'", "/Users/jwpincus/turing/3module/cloney_island/spec/features/guest_user_can_visit_home_page_spec.rb:10:in `block (3 levels) in <top (required)>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:254:in `instance_exec'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:254:in `block in run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:464:in `block in run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:604:in `block in run_around_example_hooks_for'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:342:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-rails-3.6.0/lib/rspec/rails/adapters.rb:127:in `block (2 levels) in <module:MinitestLifecycleAdapter>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:447:in `instance_exec'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:447:in `instance_exec'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:375:in `execute_with'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:342:in `call'", "/Users/jwpincus/turing/3module/cloney_island/spec/support/factory_girl.rb:18:in `block (3 levels) in <top (required)>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/database_cleaner-1.5.3/lib/database_cleaner/generic/base.rb:16:in `cleaning'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/database_cleaner-1.5.3/lib/database_cleaner/base.rb:98:in `cleaning'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/database_cleaner-1.5.3/lib/database_cleaner/configuration.rb:86:in `block (2 levels) in cleaning'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/database_cleaner-1.5.3/lib/database_cleaner/configuration.rb:87:in `cleaning'", "/Users/jwpincus/turing/3module/cloney_island/spec/support/factory_girl.rb:17:in `block (2 levels) in <top (required)>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:447:in `instance_exec'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:447:in `instance_exec'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:375:in `execute_with'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:606:in `block (2 levels) in run_around_example_hooks_for'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:342:in `call'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:607:in `run_around_example_hooks_for'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/hooks.rb:464:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:457:in `with_around_example_hooks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example.rb:251:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:627:in `block in run_examples'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:623:in `map'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:623:in `run_examples'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:589:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:590:in `block in run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:590:in `map'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/example_group.rb:590:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:118:in `map'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/configuration.rb:1894:in `with_suite_hooks'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:113:in `block in run_specs'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/reporter.rb:79:in `report'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:112:in `run_specs'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:87:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:71:in `run'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/lib/rspec/core/runner.rb:45:in `invoke'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/gems/rspec-core-3.6.0/exe/rspec:4:in `<top (required)>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `load'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/rspec:22:in `<main>'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'", "/Users/jwpincus/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `<main>'"]
+Completed 200 OK in 461ms (Views: 458.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (29.9ms)[0m  [1m[35mTRUNCATE TABLE "public"."projects", "public"."ar_internal_metadata" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m

@@ -21,6 +21,9 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry'
   gem 'awesome_print'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'faker'
   gem 'byebug', platform: :mri
 end
 
