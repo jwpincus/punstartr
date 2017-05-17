@@ -1,1 +1,6 @@
-Punstartr
+<h3>Puntstartr</h3>
+<% @projects.each do |project| %>
+  <%= project.title %><br>
+  <%= project.description %><br>
+  <%= image_tag project.image_url, size: 100 %>
+<% end %>
