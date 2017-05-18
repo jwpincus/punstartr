@@ -18,15 +18,3 @@ RSpec.feature "as a guest user" do
     end
   end
 end
-
-
-# as a guest user
-# when I visit `/signup`
-#
-# I expect to see "sign up"
-# I expect to see a text field for ["name", "email", "email confirmation", "password","password confirmation"]
-#
-# And when I fill those fields in with valid information
-#
-# I expect to be on `dashboard_path`
-# i expect to see "welcome to puntstartr, user.name"
