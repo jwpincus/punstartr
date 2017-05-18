@@ -15,10 +15,17 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry'
   gem 'awesome_print'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'materialize-rails'
+  gem 'launchy'
   gem 'byebug', platform: :mri
 end
 
