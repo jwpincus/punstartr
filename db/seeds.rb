@@ -9,10 +9,12 @@ class Seed
   def self.start
     seed = Seed.new
     seed.generate_projects
+    seed.generate_categories
+    seed.categorize_projects
   end
 
   def generate_projects
-    10.times do
+    100.times do
       Project.create!(
         title: Faker::Commerce.product_name,
         description: Faker::Hipster.paragraph,
@@ -20,6 +22,19 @@ class Seed
         target_amount: rand(1000..100000).to_f
       )
       puts "Project #{Project.all.last.title} created"
+    end
+  end
+
+  def generate_categories
+    categories = ['Art', 'Technology', 'Design', 'Games', 'Fashion']
+    categories.each do |category|
+      Category.create(name: category)
+    end
+  end
+
+  def categorize_projects
+    Project.all.each do |project|
+      Category.all.sample.projects << project
     end
   end
 end
