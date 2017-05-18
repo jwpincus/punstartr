@@ -6,11 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success]
       session[:id] = @user.id
       redirect_to root_path
     else
-      flash[:warning] = "try again"
+      flash[:warning] = "Please fill out all fields"
       redirect_to signup_path
     end
   end

@@ -14,7 +14,17 @@ RSpec.feature "as a guest user" do
 
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Puntstartr")
+    end
 
+    it "validates all form fields" do
+      visit signup_path
+
+      fill_in "Name", with: "User Name_1"
+      fill_in "Password", with: "password_1"
+
+      click_on "Create account"
+
+      expect(current_path).to eq(signup_path)
     end
   end
 end
