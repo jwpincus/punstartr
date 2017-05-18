@@ -11,7 +11,17 @@ describe "As a user" do
     it 'I expect to see a list of category names' do
       category_1, category_2 = create_list(:category, 2)
       visit '/categories'
-      expect(page).to have_select('category', options: [category_1.name, category_2.name])
+      expect(page).to have_css('a.categories')
+      expect(page).to have_selector(:link_or_button, category_1.name)
+      expect(page).to have_selector(:link_or_button, category_2.name)
+    end
+    it "I expect to see three projects from each category" do
+      category_1, category_2 = create_list(:category, 2)
+      visit '/categories'
+      save_and_open_page
+      within("div.#{category_1.name}") do
+        expect(page).to have_selector('card', 3)
+      end
     end
   end
 end
