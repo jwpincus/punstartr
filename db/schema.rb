@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517202244) do
+
+
+ActiveRecord::Schema.define(version: 20170518165441) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.text     "title"
@@ -22,6 +31,21 @@ ActiveRecord::Schema.define(version: 20170517202244) do
     t.decimal  "target_amount"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
   end
+
+
+  create_table "rewards", force: :cascade do |t|
+    t.string  "title"
+    t.text    "description"
+    t.decimal "pledge_amount"
+    t.integer "limit"
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_rewards_on_project_id", using: :btree
+  end
+  
+  add_foreign_key "projects", "categories"
+  add_foreign_key "rewards", "projects"
 
 end
