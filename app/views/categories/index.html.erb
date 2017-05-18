@@ -1,0 +1,7 @@
+<div class="input-field col s12">
+  <%= form_tag("/categories/filter", method: "get") do %>
+    <%= select_tag('category', options_for_select(@categories.collect{ |u| [u.name, u.id] })) %>
+    <%= label_tag('category', "Select category:") %>
+    <%= submit_tag("Filter") %>
+  <% end %>
+</div>
