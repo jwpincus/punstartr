@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success]
       session[:id] = @user.id
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       flash[:warning] = "try again"
       redirect_to signup_path

@@ -12,8 +12,8 @@ RSpec.feature "as a guest user" do
 
       click_on "Create account"
 
-      expect(current_path).to be(dashboard_path)
-      expect(page).to have("welcome to Puntstartr, User Name")
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("Puntstartr")
 
     end
   end

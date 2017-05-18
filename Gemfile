@@ -22,6 +22,7 @@ group :development, :test do
   gem 'rspec-rails'
   # gem 'better_errors'
   # gem 'binding_of_caller'
+  gem 'harry_potter_faker'
   gem 'pry'
   gem 'awesome_print'
   gem 'factory_girl_rails'
