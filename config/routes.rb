@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
-  resources :rewards, only: [:index, :create]
+ 
+  resources :projects
+  namespace :projects do
+    resources :rewards, only: [:index, :create]
+  end
 end
