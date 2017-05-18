@@ -8,7 +8,7 @@ FactoryGirl.define do
       x * 1000
     end
     description  Faker::Lorem.paragraph
-    image_url Faker::Avatar.image
+    image_url    Faker::Avatar.image
   end
 
   # factory :user do

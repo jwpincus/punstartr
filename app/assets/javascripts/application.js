@@ -15,3 +15,6 @@
 //= require_tree .
 //= require jquery2
 //= require materialize
+$(document).ready(function() {
+    $('select').material_select();
+  });
