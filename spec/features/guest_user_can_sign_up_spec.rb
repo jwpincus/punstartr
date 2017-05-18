@@ -23,7 +23,6 @@ RSpec.feature "as a guest user" do
       fill_in "Password", with: "password_1"
 
       click_on "Create account"
-      
       expect(page).to have_content("Please fill out all fields")
       expect(current_path).to eq(signup_path)
     end

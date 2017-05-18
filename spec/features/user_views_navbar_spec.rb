@@ -14,8 +14,13 @@ RSpec.feature "User views navbar" do
     end
   end
 
-  scenario "logged in user see's name in navbar" do
-    
+  scenario "as a logged in user" do
+    it "should see user name in nav bar" do
+      user = create(:user)
+      login(user)
 
+      expect
+
+    end
   end
 end
