@@ -218,6 +218,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bcrypt
+  binding_of_caller
   byebug
   capybara
   coffee-rails (~> 4.2)
