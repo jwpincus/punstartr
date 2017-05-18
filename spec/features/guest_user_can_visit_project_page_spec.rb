@@ -15,6 +15,7 @@ RSpec.feature "As a guest user" do
 
       expect(page).to have_content(project.title)
       expect(page).to have_css("img[src*='#{project.image_url}']")
+      expect(page).to have_content(project.target_amount)
       expect(page).to have_content(project.description)
 
       expect(page).to have_content("About this project")

@@ -2409,3 +2409,596 @@ Processing by ProjectsController#show as HTML
 Completed 200 OK in 91ms (Views: 88.6ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:46:33 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (255.2ms)
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 4.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `project' for #<#<Class:0x007f8170001768>:0x007f8170041a20>
+Did you mean?  @project):
+     8:     <div class="card-stacked">
+     9:       <div class="card-content">
+    10:         <div class="divider green lighten-0" ></div><br>
+    11:           <div class="amount">$<%= project.target_amount %></div>
+    12:           pledged of $3,000 goal
+    13:           <h5>157</h5>
+    14:           backers
+  
+app/views/projects/show.html.erb:11:in `_app_views_projects_show_html_erb___1019594766591833095_70096953283420'
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (13.2ms)
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.6ms)
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:46:48 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 616ms (Views: 612.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:48:50 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 87.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:51:36 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 110ms (Views: 106.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:53:51 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:21: syntax error, unexpected tIDENTIFIER, expecting ')'
+...o "All or nothing." basics_path);@output_buffer.safe_append=...
+...                               ^):
+  
+app/views/projects/show.html.erb:21: syntax error, unexpected tIDENTIFIER, expecting ')'
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.3ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.6ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (74.4ms)
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:54:04 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (258.2ms)
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `basics_path' for #<#<Class:0x007f8170001768>:0x007f8170568530>
+Did you mean?  asset_path):
+    18:       <div class="card-action">
+    19:         <a class="waves-effect waves-light btn">Back this project</a>
+    20:       </div>
+    21:       <%= link_to "All or nothing.", basics_path%> This project will only be funded if it reaches its goal by Thu, May 25 2017 11:34 PM MDT.
+    22:     </div>
+    23:   </div>
+    24: </div>
+  
+app/views/projects/show.html.erb:21:in `_app_views_projects_show_html_erb___1019594766591833095_70096943653720'
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (75.1ms)
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:54:21 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:54:36 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 74ms (Views: 68.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:54:53 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 105ms (Views: 102.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:56:40 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+Completed 200 OK in 101ms (Views: 96.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:56:49 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (7.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 114ms (Views: 104.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:58:25 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 111ms (Views: 107.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 13:59:10 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 1719ms (Views: 1715.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:05:01 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:22: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...er.append=( project.Thu, May 25 2017 11:34 PM MDT.</p>
+...                               ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:23: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:24: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:25: syntax error, unexpected '<'
+</div>
+ ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:27: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:27: syntax error, unexpected '<'
+<div class="divider green lighten-0" ></div><br>
+                                             ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:29: syntax error, unexpected '<'
+  <div class="col s8">
+   ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:30: syntax error, unexpected '<'
+  <h5>About this project</h5><br>
+   ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:30: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+  <h5>About this project</h5><br>
+                ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:32: unknown regexp options - dv
+unmatched close parenthesis: /h5><br>
+    <%= @project.description );@output_buffer.safe_append='<br>
+  </i
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:34: syntax error, unexpected '<'
+  <div class="col s4">
+   ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:35: syntax error, unexpected '<'
+    <h5>Support this project</h5><br>
+     ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:35: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+    <h5>Support this project</h5><br>
+                    ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:38: unknown regexp options - pa
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:39: syntax error, unexpected '<'
+          <p>I am a very simple card. I ...
+           ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+          <p>I am a very simple card. I am goo...
+                 ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:41: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:42: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:43: syntax error, unexpected '<'
+    <div class="card blue-grey lighten-3">
+     ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:44: syntax error, unexpected '<'
+      <div class="card-content white-text">
+       ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:45: syntax error, unexpected '<'
+        <span class="card-title purple-text">Pledge $30 or more</span>
+         ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:45: syntax error, unexpected tNTH_REF, expecting keyword_do or '{' or '('
+        <span class="card-title purple-text">Pledge $30 or more</span>
+                                                       ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:47: unknown regexp option - p
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:48: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:49: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:50: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:51: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:54: unterminated string meets end of file
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:54: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/projects/show.html.erb:22: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:23: syntax error, unexpected '<'
+app/views/projects/show.html.erb:24: unknown regexp options - dv
+app/views/projects/show.html.erb:25: syntax error, unexpected '<'
+app/views/projects/show.html.erb:27: unknown regexp options - dv
+app/views/projects/show.html.erb:27: syntax error, unexpected '<'
+app/views/projects/show.html.erb:29: syntax error, unexpected '<'
+app/views/projects/show.html.erb:30: syntax error, unexpected '<'
+app/views/projects/show.html.erb:30: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:32: unknown regexp options - dv
+app/views/projects/show.html.erb:34: syntax error, unexpected '<'
+app/views/projects/show.html.erb:35: syntax error, unexpected '<'
+app/views/projects/show.html.erb:35: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:38: unknown regexp options - pa
+app/views/projects/show.html.erb:39: syntax error, unexpected '<'
+app/views/projects/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:41: syntax error, unexpected '<'
+app/views/projects/show.html.erb:42: unknown regexp options - dv
+app/views/projects/show.html.erb:43: syntax error, unexpected '<'
+app/views/projects/show.html.erb:44: syntax error, unexpected '<'
+app/views/projects/show.html.erb:45: syntax error, unexpected '<'
+app/views/projects/show.html.erb:45: syntax error, unexpected tNTH_REF, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:47: unknown regexp option - p
+app/views/projects/show.html.erb:48: syntax error, unexpected '<'
+app/views/projects/show.html.erb:49: unknown regexp options - dv
+app/views/projects/show.html.erb:50: syntax error, unexpected '<'
+app/views/projects/show.html.erb:51: unknown regexp options - dv
+app/views/projects/show.html.erb:54: unterminated string meets end of file
+app/views/projects/show.html.erb:54: syntax error, unexpected end-of-input, expecting ')'
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.3ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.2ms)
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:05:22 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:22: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+...er.append=( project.Thu, May 25 2017 11:34 PM MDT.</p>
+...                               ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:23: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:24: unknown regexp options - dv
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:25: syntax error, unexpected '<'
+</div>
+ ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:30: unknown regexp option - h
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:30: syntax error, unexpected tINTEGER, expecting ')'
+  <h5>About this project</h5><br>
+                            ^
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:55: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/sergeylukyanenko/turing/project/punstartr/app/views/projects/show.html.erb:57: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/projects/show.html.erb:22: syntax error, unexpected tINTEGER, expecting keyword_do or '{' or '('
+app/views/projects/show.html.erb:23: syntax error, unexpected '<'
+app/views/projects/show.html.erb:24: unknown regexp options - dv
+app/views/projects/show.html.erb:25: syntax error, unexpected '<'
+app/views/projects/show.html.erb:30: unknown regexp option - h
+app/views/projects/show.html.erb:30: syntax error, unexpected tINTEGER, expecting ')'
+app/views/projects/show.html.erb:55: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/projects/show.html.erb:57: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/sergeylukyanenko/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.1ms)
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:05:58 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 137ms (Views: 126.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:06:15 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 77ms (Views: 73.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:06:48 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 91ms (Views: 88.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:06:58 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 82ms (Views: 79.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:07:15 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 106ms (Views: 103.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:08:19 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+Completed 200 OK in 128ms (Views: 125.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:08:49 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navbar.html.erb (0.7ms)
+Completed 200 OK in 119ms (Views: 116.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-05-18 14:08:55 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 91ms (Views: 88.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:09:03 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (3.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 95ms (Views: 88.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:11:26 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 1980ms (Views: 1971.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:11:54 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 1472ms (Views: 1469.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:12:01 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 1721ms (Views: 1717.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:12:13 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+Completed 200 OK in 1528ms (Views: 1525.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:12:19 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 1613ms (Views: 1610.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:12:53 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 1789ms (Views: 1786.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:13:47 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 1697ms (Views: 1694.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:13:57 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:04 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:10 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 70ms (Views: 68.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:14 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 70ms (Views: 67.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:17 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 73ms (Views: 70.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:26 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 70ms (Views: 66.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:14:47 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 1650ms (Views: 1648.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:15:21 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 120ms (Views: 116.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/3" for 127.0.0.1 at 2017-05-18 14:15:29 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navbar.html.erb (0.3ms)
+Completed 200 OK in 79ms (Views: 75.1ms | ActiveRecord: 0.3ms)
+
+
