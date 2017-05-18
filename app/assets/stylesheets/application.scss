@@ -20,3 +20,29 @@
         display: -ms-flexbox;
         display: flex;
     }
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.divider {
+height: 5px;
+}
+
+.amount {
+  color: #43a047;
+  font-size: 25px;
+}
+
+.waves-effect {
+  width: 400px;
+  height: 50px;
+  background-color: #43a047;
+  text-align: center; 
+  padding: 8px;
+}
+
+.flow-text {
+  font-size: 10px;
+}

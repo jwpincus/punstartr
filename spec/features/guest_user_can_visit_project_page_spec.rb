@@ -3,7 +3,6 @@ require "rails_helper"
 RSpec.feature "As a guest user" do
   context "they can click on project" do
     it "and can visit project page" do
-      # user = User.create(name: "John", email: "email@mail.com", phone: "(333) 333-3333")
       project = create(:project)
 
       visit root_path
@@ -16,10 +15,11 @@ RSpec.feature "As a guest user" do
 
       expect(page).to have_content(project.title)
       expect(page).to have_css("img[src*='#{project.image_url}']")
+      expect(page).to have_content(project.target_amount)
       expect(page).to have_content(project.description)
 
-      expect(page).to have_content("Funding info")
-      expect(page).to have_content("Rewards")  
+      expect(page).to have_content("About this project")
+      expect(page).to have_content("Support this project")  
     end
   end
 end
