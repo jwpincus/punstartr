@@ -17,10 +17,11 @@ describe "As a user" do
     end
     it "I expect to see three projects from each category" do
       category_1, category_2 = create_list(:category, 2)
+      category_1.projects << create_list(:project, 4)
+      category_2.projects << create_list(:project, 4)
       visit '/categories'
-      save_and_open_page
       within("div.#{category_1.name}") do
-        expect(page).to have_selector('card', 3)
+        expect(page).to have_selector('div.card', count: 4)
       end
     end
   end
