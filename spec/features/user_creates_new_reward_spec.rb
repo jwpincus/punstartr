@@ -4,7 +4,7 @@ RSpec.feature "User adds a new reward to the database" do
   scenario "user can fill out a form and generate a new reward" do
     project = create(:project)
 
-    visit "new_reward_path"
+    visit rewards_path
 
     fill_in "reward[title]", with: "Raw Denim Romphim"
     fill_in "reward[description]", with: "24 ounce Kahari Mills left-hand twill denim"
