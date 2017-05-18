@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index]
 
-  resources :rewards, only: [:index, :create]
+  resources :rewards, only: [:index, :create, :new]
 
   resources :projects, only: [:index, :show]
 end

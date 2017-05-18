@@ -7,7 +7,12 @@ class RewardsController < ApplicationController
     @reward = Reward.new(reward_params)
     
     @reward.save
-    end
+
+    redirect_to new_reward_path
+  end
+
+  def new
+    @reward = Reward.new
   end
 
   private
