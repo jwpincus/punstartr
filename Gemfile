@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
+gem 'sorcery'
 
 group :development, :test do
   gem 'shoulda-matchers'
