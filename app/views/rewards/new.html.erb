@@ -1,0 +1,17 @@
+<%= form_for @reward do |f| %>
+	<%= f.label :title %>
+  <%= f.text_field :title, placeholder: "Title" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  
+	<div class="field">
+    <%= f.label :pledge_amount %>
+    <%= f.number_field :pledge_amount, placeholder: "Pledge Amount" %>
+  </div>
+	<div class="field">
+    <%= f.label :limit %>
+    <%= f.number_field :limit, placeholder: "Limit" %>
+  </div>
+	<%= f.submit "Save and Continue" %>
+ <% end %> 
