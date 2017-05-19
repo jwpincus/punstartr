@@ -21,17 +21,7 @@ RSpec.feature "As a guest user" do
       expect(page).to have_content(project.completion_date)
 
       expect(page).to have_content("About this project")
-      expect(page).to have_content("Support this project")  
+      expect(page).to have_content("Support this project")
     end
   end
 end
-# As a guest user
-# when I visit root 
-# and I click on a project
-# then I expect the path to be a the name of the project (slug)
-# I expect to see the navbar
-# I expect to see project image
-# I expect to see project title
-# I expect to see project description
-# I expect to see funding info
-# I expect to see rewards
