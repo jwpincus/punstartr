@@ -9,7 +9,8 @@
       <div class="card-content">
         <div class="divider green lighten-0" ></div><br>
           <div class="amount">$11,595</div>
-          pledged of $<%= @project.target_amount %> goal
+    
+          pledged of <%= @project.format_price %> goal
           <h5>157</h5>
           backers
           <h5>7</h5>
@@ -19,7 +20,7 @@
         <a class="waves-effect waves-light btn">Back this project</a>
       </div>
       <p class="flow-text">
-      <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by project.Thu, May 25 2017 11:34 PM MDT.</p>
+      <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by <%= @project.completion_date %>.</p>
     </div>
   </div>
 </div>

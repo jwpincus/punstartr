@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 class Seed
+  
   def self.start
+    Project.delete_all
     seed = Seed.new
     seed.generate_projects
     seed.generate_categories
@@ -19,7 +21,8 @@ class Seed
         title: Faker::Commerce.product_name,
         description: Faker::Hipster.paragraph,
         image_url: Faker::Avatar.image,
-        target_amount: rand(1000..100000).to_f
+        target_amount: rand(1000..100000).to_f,
+        completion_date: Faker::Time.forward(30)
       )
       puts "Project #{Project.all.last.title} created"
     end
