@@ -15,11 +15,3 @@ RSpec.feature "As a guest user" do
     end
   end
 end
-
-#As a user
-#When I visit the root
-#inside of a categories list div
-#on the right side of the page
-#I expect to see list of categories
-#Each category can link to a category show page
-#that shows all projects within that category
