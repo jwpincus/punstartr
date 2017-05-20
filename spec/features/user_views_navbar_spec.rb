@@ -16,17 +16,13 @@ RSpec.feature "User views navbar" do
 
   describe "as a logged in user" do
     it "should see user name in nav bar" do
-      visit signup_path
-      fill_in "Name", with: "mark"
-      fill_in "Email", with: "m@m.com"
-      fill_in "Password", with: "password"
-      fill_in "Password confirmation", with: "password"
-      click_on "Create account"
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      
+      visit root_path
 
-      within(".dropdown-button") do
-        expect(page).to have_content("mark")
+      within(".nav-wrapper") do
+        expect(page).to have_content(user.name)
       end
     end
   end

@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "You have signed up!"
-      
       redirect_to root_path
     else
       flash[:warning] = "Please fill out all fields"
