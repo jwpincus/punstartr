@@ -22,6 +22,6 @@ describe "user can create a project" do
 
     click 'Save and continue'
 
-    expect(current_page).to eq('/user/projects/crafters-paradise')
+    expect(current_page).to eq('/:user/projects/crafters-paradise')
   end
 end

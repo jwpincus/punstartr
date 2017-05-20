@@ -12,6 +12,14 @@ RSpec.describe Project, type: :model do
     end
   end
 
+  describe ".create_slug" do
+    it "returns name to be used in place of id" do
+      project = create(:project)
+
+      expect(project.slug). to eq "2-project"
+    end
+  end
+
   describe "associations" do
     it { should belong_to(:category) }
     it { should have_many(:rewards) }
