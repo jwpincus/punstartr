@@ -16,7 +16,7 @@ RSpec.describe Project, type: :model do
     it "returns name to be used in place of id" do
       project = create(:project)
 
-      expect(project.slug). to eq "2-project"
+      expect(project.slug). to eq project.title.parameterize
     end
   end
 
