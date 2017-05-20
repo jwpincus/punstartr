@@ -1,1 +1,15 @@
-you're at the signup page
+<h3>Log In</h3>
+
+<div class="login_form_container">
+  <%= form_tag sessions_path, method: :post do %>
+    <div class="field">
+      <%= label_tag :email %>
+      <%= email_field_tag :email, nil, required: true %>
+    </div>
+    <div class="field">
+      <%= label_tag :password%>
+      <%= password_field_tag :password, nil, required: true %>
+    </div>
+  <%= submit_tag "Log In" %>
+  <% end %>
+</div>
