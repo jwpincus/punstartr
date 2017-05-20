@@ -13,7 +13,7 @@ class Seed
     seed = Seed.new
     seed.generate_categories
     seed.generate_projects
-    # seed.categorize_projects
+    seed.generate_user_with_projects
   end
 
   def generate_projects
@@ -37,11 +37,17 @@ class Seed
     end
   end
 
-  def categorize_projects
-    Project.all.each do |project|
-      Category.all.sample.projects << project
-    end
+  def generate_user_with_projects
+    user = User.create!(
+    name: "Sample User",
+    email: "email@email.com",
+    password: "password",
+    password_confirmation: "password"
+    )
+    user.projects << Project.all.shuffle[0..4]
   end
+
 end
+
 
 Seed.start
