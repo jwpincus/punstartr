@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
     if login(params[:email], params[:password])
       flash[:success] = 'Welcome back!'
       redirect_to root_path
