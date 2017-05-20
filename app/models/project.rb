@@ -6,12 +6,19 @@ class Project < ApplicationRecord
 
   validates :title, :description, :image_url, :target_amount, :category_id, :completion_date, presence: true
 
-  def project_amount(id)
-    project = Project.find(id)
-    project["target_amount"]
+  def formatted_price
+    number_to_currency(target_amount, unit: "$", format: "%u%n", precision: 0)
   end
 
-  def format_price
-    number_to_currency(project_amount(id), unit: "€", precision: 0, format: "%u %n")
+  def end_date
+    completion_date.strftime("%B %d, %Y")
+  end
+
+  def end_time
+    completion_date.strftime("%l:%M %p")
+  end
+
+  def end_date_time
+   "#{end_date} at #{end_time}"
   end
 end
