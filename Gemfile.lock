@@ -218,7 +218,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bcrypt
-  binding_of_caller
   byebug
   capybara
   coffee-rails (~> 4.2)
@@ -244,4 +243,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.0

@@ -1,23 +1,13 @@
-	<nav>
+<nav>
 
-    <div class="nav-wrapper">
+  <div class="nav-wrapper">
 
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-				<li><a href="about.html">About Us</a></li>
-				<li><a href="/categories">Categories</a></li>
-				<li><a href="projects/create">Start a Project</a></li>
-      <a href="#" class="brand-logo center">Logo</a>
-			</ul>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-			  <li><a href="sass.html">Log In</a></li>
-        <li><a href="badges.html">Sign Up</a></li>
-      </ul>
-			<% if current_user %>
-			<ul id="dropdown1" class="dropdown-content">
-				<li><a href="#!"><%= @user.name %></a></li>
-				<li><a href="#!">My Projects</a></li>
-				<li class="divider">Backed Projects</li>
-				<li><a href="#!">Profile</a></li>
-			</ul>
-    </div>
-  </nav>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><a href="about.html">About Us</a></li>
+			<li><a href="/categories">Categories</a></li>
+			<li><a href="projects/create">Start a Project</a></li>
+			<%= content_tag :a, "Puntstartr", class: "brand-logo center" %>
+		</ul>
+    <%= current_user_nav_element %>
+  </div>
+</nav>

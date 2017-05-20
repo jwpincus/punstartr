@@ -21,9 +21,6 @@ RSpec.feature "user can visit home page" do
     xit "can see list of categories in sidebar" do
     end
 
-    xit "can see login/logout link" do
-    end
-
   end
 
 end
