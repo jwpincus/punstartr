@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :user do
     HPFaker               = HarryPotterFaker.new()
-
     name                  HPFaker.name
     sequence :email do |n|
       Faker::Internet.email(n)
