@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "As a guest user" do
   context "they can click on project" do
-    it "and can visit project page" do
+    xit "and can visit project page" do
       project = create(:project)
 
       visit root_path
