@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signup',    to: "users#new"
   get '/login',     to: "sessions#new"
   get '/logout',    to: "sessions#destroy"
+  get '/projects/new', to: "users/projects#new"
 
   resources :users, only: [:new, :create, :index]
   namespace :users, as: :user, path: ':user' do

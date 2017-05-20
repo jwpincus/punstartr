@@ -1,7 +1,13 @@
 class Users::ProjectsController < UsersController
-  # before_action :user_logged_in?
+  before_action :require_login, only: [:new]
 
   def index
-    @projects = User.find(params[:user_id]).projects
+    @projects = current_user.projects
   end
+
+  def new
+    @project = Project.new
+  end
+
+  
 end

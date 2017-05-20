@@ -1,21 +1,22 @@
 require 'rails_helper'
 
 describe "user can create a project" do
-  before do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  end
-  xit "takes user to new page" do
-    visit root_path
-    within('div.nav-wrapper ul#nav-mobile a.start-project') do
-      click_on "Start a project"
-    end
+  context "when user is not logged in" do
+    it "takes user to login page" do
+      visit root_path
+      within('.nav-wrapper') do
+        click_on "Start a project"
 
-    expect(current_page).to eq '/:user/projects/new'
+        expect(current_path).to eq login_path
+      end
+  end
+
   end
 
   xit "fill in category and location" do
-    
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     click_on "Start a new project"
 
     fill_in 'category', with: 'Art'

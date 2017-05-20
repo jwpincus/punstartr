@@ -22,6 +22,7 @@ RSpec.describe Project, type: :model do
 
   describe "associations" do
     it { should belong_to(:category) }
+    it { should belong_to(:country)}
     it { should have_many(:rewards) }
   end
 
