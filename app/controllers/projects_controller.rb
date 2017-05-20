@@ -10,4 +10,8 @@ class ProjectsController < ApplicationController
       render login_path
     end
   end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
 end

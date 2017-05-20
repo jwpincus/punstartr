@@ -1,12 +1,13 @@
 <nav>
 
-  <div class="nav-wrapper">
+  <div class="nav-wrapper grey">
+
 
     <ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="about.html">About Us</a></li>
+			<li><a href="about.html" >About Us</a></li>
 			<li><a href="/categories">Categories</a></li>
-			<li><a class='start-project' href="projects/new">Start a project</a></li>
-			<%= content_tag :a, "Puntstartr", class: "brand-logo center" %>
+			<li><a href="projects/create">Start a Project</a></li>
+			<%= link_to((image_tag "logo 1", class: "brand-logo center", width: "250"), root_path) %>
 		</ul>
     <%= current_user_nav_element %>
   </div>
