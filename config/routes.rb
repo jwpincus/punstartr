@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/logout',    to: "sessions#destroy"
 
   resources :users, only: [:new, :create, :index]
+  namespace :users do
+    get '/:user_id/projects', to: "projects#index"
+  end
 
   resources :categories, only: [:index]
 
