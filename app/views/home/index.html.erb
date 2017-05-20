@@ -1,7 +1,7 @@
 <h3>Puntstartr</h3>
 <div class="row">
-  <div class="col s5">
-  <h5>Trending</h5>
+	<div class="col s5">
+  	<h5>Trending</h5>
   </div>
   <div class="col s5">
     <h5>Nearly Funded</h5>
@@ -10,11 +10,11 @@
     <div class="categories">
       <div class="card-panel teal">
         <span class="white-text">
-	     <h5>Categories</h5>
-	       <% @categories.each do |category| %>
-		    <li><%= link_to category.name, category_path(category) %></li>
+	     		<h5>Categories</h5>
+	       		<% @categories.each do |category| %>
+		    			<li><%= link_to category.name, category_path(category) %></li>
             <% end %>
-	   </span>
+	   		</span>
       </div>
     </div>
   </div>
