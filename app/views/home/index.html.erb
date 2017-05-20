@@ -1,4 +1,26 @@
 <h3>Puntstartr</h3>
+<div class="row">
+  <div class="col s5">
+  <h5>Trending</h5>
+  </div>
+  <div class="col s5">
+    <h5>Nearly Funded</h5>
+  </div>  
+  <div class="col s2">
+    <div class="categories">
+      <div class="card-panel teal">
+        <span class="white-text">
+	     <h5>Categories</h5>
+	       <% @categories.each do |category| %>
+		    <li><%= link_to category.name, category_path(category) %></li>
+            <% end %>
+	   </span>
+      </div>
+    </div>
+  </div>
+<div>
+
+
 <div class="project-list row container">
   <% @projects.each do |project| %>
   <div class="card medium col s4 m3 l3">
@@ -14,27 +36,5 @@
     </div>
   </div>
   <% end %>
-
 </div>
 
-<div class="row">
-  <div class="col s5">
-		slkjsfkjlfs
-</div>
-  <div class="col s5">
-	sdkskkhds
-</div>  
-<div class="col s2">
-
-<div class="categories">
-        <div class="card-panel teal">
-          <span class="white-text">
-						<h5>Categories</h5>
-						<% @categories.each do |category| %>
-							<li><%= link_to category.name, category_path(category) %></li>
-          	<% end %>
-					</span>
-        </div>
-</div>
-</div>
-<div>
