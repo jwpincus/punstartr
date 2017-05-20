@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/login',     to: "sessions#new"
   get '/logout',    to: "sessions#destroy"
 
-  resources :users, only: [:new, :create, :index] do
-    resources :projects, only: [:index]
+  namespace :users do
+      get '/:user_id/projects', to: "projects#index"
   end
+  resources :users, only: [:new, :create, :index]
 
   resources :categories, only: [:index]
 
