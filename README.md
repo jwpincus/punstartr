@@ -9,6 +9,8 @@
 
 ### Josh
 
+- For user authentication, we're using [sorcery](https://github.com/NoamB/sorcery)
+
 
 ### Mark
 

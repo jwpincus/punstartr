@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   resources :rewards, only: [:index, :create, :new]
 
-  resources :projects, only: [:index, :show]
+  resources :projects, only: [:index, :show, :edit]
 end
