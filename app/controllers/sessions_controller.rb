@@ -1,6 +1,18 @@
 class SessionsController < ApplicationController
 
   def new
+
+  end
+
+  def create
+    binding.pry
+    if login(params[:email], params[:password])
+      flash[:success] = 'Welcome back!'
+      redirect_to root_path
+    else
+      flash.now[:warning] = 'E-mail and/or password is incorrect.'
+      render 'new'
+    end
   end
 
   def destroy

@@ -1,1 +1,13 @@
-you're at the signup page
+<div class="container">
+  <%= form_for sessions_path, pethod: :post do |f| %>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "Email" %>
+    </div>
+    <div class="field">
+      <%= f.label :password%>
+      <%= f.password_field :password, placeholder: "Password" %>
+    </div>
+  <%= f.submit "Log in" %>
+  <% end %>
+</div>
