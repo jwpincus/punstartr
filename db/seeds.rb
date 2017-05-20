@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 class Seed
-  
+
   def self.start
     Project.delete_all
     seed = Seed.new
-    seed.generate_projects
     seed.generate_categories
-    seed.categorize_projects
+    seed.generate_projects
+    # seed.categorize_projects
   end
 
   def generate_projects
@@ -23,7 +23,8 @@ class Seed
         description: Faker::Hipster.paragraph,
         image_url: Faker::Avatar.image,
         target_amount: rand(1000..100000).to_f,
-        completion_date: Faker::Time.forward(30)
+        completion_date: Faker::Time.forward(30),
+        category: Category.all.sample
       )
       puts "Project #{Project.all.last.title} created"
     end
