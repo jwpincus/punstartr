@@ -3,10 +3,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:id] = @user.id
+      session[:user_id] = @user.id
+      flash[:success] = "You have signed up!"
       redirect_to root_path
     else
       flash[:warning] = "Please fill out all fields"
@@ -14,9 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-
-  end
 
   private
     def user_params
