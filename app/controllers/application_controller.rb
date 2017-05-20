@@ -15,5 +15,7 @@ class ApplicationController < ActionController::Base
     if current_user
       true
     else
-      redirect_to root
+      redirect_to root_path
+    end
+  end
 end
