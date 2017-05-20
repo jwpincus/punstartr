@@ -1,7 +1,8 @@
 class Project < ApplicationRecord
    include ActionView::Helpers::NumberHelper
   belongs_to :category, required: false
-
+  has_many :project_owners
+  has_many :owners, through: :project_owners, source: :user
   has_many :rewards
 
   def project_amount(id)
