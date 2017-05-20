@@ -10,6 +10,7 @@
 ### Josh
 
 - For user authentication, we're using [sorcery](https://github.com/NoamB/sorcery)
+- [this guide](https://www.sitepoint.com/magical-authentication-sorcery/) is what got it working. Top notch!
 
 
 ### Mark

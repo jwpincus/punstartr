@@ -3,4 +3,13 @@ class ApplicationController < ActionController::Base
 
 #working on this, might not use
   before_action :require_login, only: [:edit]
+  # before_action :require_login, only: [:edit]
+
+  private
+
+    def not_authenticated
+      flash[:warning] = "permission not allowed"
+    end
+
+
 end
