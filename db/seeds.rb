@@ -9,19 +9,29 @@ require 'faker'
 class Seed
 
   def self.start
-    Project.delete_all
     seed = Seed.new
+    # seed.prepare_db
     seed.generate_categories
     seed.generate_projects
     seed.generate_user_with_projects
   end
 
+  def prepare_db
+    Project.delete_all
+    User.delete_all
+    Category.delete_all
+  end
+
+  def generate_random_image
+    Faker::LoremPixel.image("820x460", false, 'technics')
+  end
+
   def generate_projects
-    100.times do
+    50.times do
       Project.create!(
         title: Faker::Commerce.product_name,
         description: Faker::Hipster.paragraph,
-        image_url: Faker::Avatar.image,
+        image_url: generate_random_image,
         target_amount: rand(1000..100000).to_f,
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample
@@ -48,6 +58,5 @@ class Seed
   end
 
 end
-
 
 Seed.start
