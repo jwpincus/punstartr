@@ -13,5 +13,14 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :rewards, only: [:index, :create, :new]
   resources :projects, only: [:index, :show, :edit]
+
+  namespace :projects do
+    get '/:project_id/rewards', to: "rewards#index", as: "rewards"
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
+  resources :payments, only: [:create]
+  get '/checkout', to: "payments#new"
+
+  resource :cart, only: [:create, :index, :destroy, :update]
 end

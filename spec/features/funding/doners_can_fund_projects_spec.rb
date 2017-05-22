@@ -9,8 +9,12 @@ RSpec.feature "doners can fund projects" do
         to receive(:current_user).
         and_return(user)
 
-      binding.pry
       visit project_path(project)
+
+      click_on("Back this project")
+
+      expect(current_path).to match(/#{project.slug}\/rewards/)
+
       within(".rewards_list") do
         within(".default_reward") do
           fill_in "Amount", with: 30

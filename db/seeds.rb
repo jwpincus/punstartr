@@ -23,9 +23,19 @@ class Seed
         image_url: "https://unsplash.it/600/400?image=#{rand(0..100)}",
         target_amount: rand(1000..100000).to_f,
         completion_date: Faker::Time.forward(30),
-        category: Category.all.sample
+        category: Category.all.sample,
+        rewards: generate_rewards
       )
       puts "Project #{Project.all.last.title} created"
+    end
+  end
+
+  def generate_rewards
+    4.times.map do |n|
+      Reward.create!({title: "reward_#{n}",
+                      description: Faker::Hipster.paragraph,
+                      pledge_amount: n * 100,
+                      limit: 4})
     end
   end
 
