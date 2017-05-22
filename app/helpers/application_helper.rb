@@ -7,4 +7,5 @@ module ApplicationHelper
       render "helpers/not_logged_in"
     end
   end
+
 end
