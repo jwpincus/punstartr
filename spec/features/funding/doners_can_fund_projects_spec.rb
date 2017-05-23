@@ -22,12 +22,11 @@ RSpec.feature "doners can fund projects" do
 
       expect(current_path).to match(/checkout/)
       click_on "Confirm Pledge"
-
-      expect(current_path).to be(confirmation_page_path)
+      expect(current_path).to eq(confirmation_path)
       within(".confirmation_page") do
-        expect(page).to have_content "Thanks for funding #{project.name}!"
-        expect(page).to have_content "Your card will be charged $30"
-        expect(page).to have_content project.end_date
+        expect(page).to have_content "Thanks for funding #{project.title}!"
+        expect(page).to have_content "Your card has been charged $"
+        expect(page).to have_content(/\$[,\d]+/)
       end
     end
   end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signup',    to: "users#new"
   get '/login',     to: "sessions#new"
   get '/logout',    to: "sessions#destroy"
+  get '/confirmation', to: "confirmation#show"
 
   resources :users, only: [:new, :create, :index]
 
