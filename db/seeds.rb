@@ -12,6 +12,7 @@ class Seed
     seed = Seed.new
     seed.generate_categories
     seed.generate_projects
+    seed.generate_countries
     seed.generate_user_with_projects
     seed.generate_users
     seed.generate_project_backers
@@ -68,6 +69,13 @@ class Seed
     categories = ['Art', 'Technology', 'Design', 'Games', 'Fashion']
     categories.each do |category|
       Category.create(name: category)
+    end
+  end
+
+  def generate_countries
+    countries = ['United States', 'Canada', 'Mexico']
+    countries.each do |country|
+      Country.create(name: country)
     end
   end
 
