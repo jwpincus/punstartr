@@ -10,6 +10,8 @@ RSpec.describe User, type: :model do
     describe "associations" do
       it { should have_many(:project_owners) }
       it { should have_many(:projects).through(:project_owners) }
+      it { should have_many(:project_backers) }
+      it { should have_many(:backed_projects).through(:project_backers) }
     end
   end
 

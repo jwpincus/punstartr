@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     # post '/:project_id/rewards', to: "rewards#create"
   end
 
-  get '/checkout', to: "payments#new"
+  get '/checkout/:reward_id', to: "payments#new", as: "checkout"
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :payments, only: [:create]

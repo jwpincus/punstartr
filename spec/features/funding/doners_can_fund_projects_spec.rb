@@ -13,17 +13,15 @@ RSpec.feature "doners can fund projects" do
 
       click_on("Back this project")
 
-      expect(current_path).to match(/#{project.slug}\/rewards/)
+      expect(current_path).to match(/#{project.id}\/rewards/)
 
       within(".rewards_list") do
-        within(".default_reward") do
-          fill_in "Amount", with: 30
-          click_on "Fund this project!"
-        end
+          click_on "Continue", match: :first
+          # anki this ^^^
       end
 
-      expect(current_path).to be("/payments")
-      click_on "Fund this project"
+      expect(current_path).to match(/checkout/)
+      click_on "Confirm Pledge"
 
       expect(current_path).to be(confirmation_page_path)
       within(".confirmation_page") do

@@ -15,8 +15,8 @@ RSpec.describe Project, type: :model do
   describe "associations" do
     it { should belong_to(:category) }
     it { should have_many(:rewards) }
-    it { should have_many(:project_funders) }
-    it { should have_many(:funders).through(:project_funders) }
+    it { should have_many(:project_backers) }
+    it { should have_many(:backers).through(:project_backers) }
   end
 
   describe "#target_amount" do
