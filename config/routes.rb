@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   namespace :projects do
     get '/:project_id/rewards', to: "rewards#index", as: "rewards"
-    # post '/:project_id/rewards', to: "rewards#create"
   end
 
   get '/checkout/:reward_id', to: "payments#new", as: "checkout"

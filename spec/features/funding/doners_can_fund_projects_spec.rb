@@ -17,7 +17,6 @@ RSpec.feature "doners can fund projects" do
 
       within(".rewards_list") do
           click_on "Continue", match: :first
-          # anki this ^^^
       end
 
       expect(current_path).to match(/checkout/)

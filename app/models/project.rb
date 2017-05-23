@@ -6,7 +6,6 @@ class Project < ApplicationRecord
   has_many :owners, through: :project_owners, source: :user
   has_many :project_backers
   has_many :backers, through: :project_backers, source: :user
-  # anki this ^^ (soure: :users)
 
   has_many :rewards
 

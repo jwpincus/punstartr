@@ -13,6 +13,31 @@ class Seed
     seed.generate_categories
     seed.generate_projects
     seed.generate_user_with_projects
+    seed.generate_users
+    seed.generate_project_backers
+  end
+
+  def generate_project_backers
+    50.times do
+      proj = ProjectBacker.create!(
+                            project: Project.all.shuffle.first,
+                            user: User.all.shuffle.first,
+                            reward: Reward.all.shuffle.first,
+                            pledge_amount: rand(10..1000)
+      )
+      puts "ProjectBacker #{proj.user} backing #{proj.project.title} created"
+    end
+  end
+
+  def generate_users
+    10.times do |n|
+      u = User.create!(name: "user #{n}",
+                   email: "user#{n}@example.com",
+                   password: "password",
+                   password_confirmation: "password"
+                   )
+      puts "User #{u.name}, #{u.email} created"
+    end
   end
 
   def generate_projects
@@ -49,7 +74,7 @@ class Seed
   def generate_user_with_projects
     user = User.create!(
     name: "Sample User",
-    email: "email@email.com",
+    email: "email#{rand(5000)}@email.com",
     password: "password",
     password_confirmation: "password"
     )
