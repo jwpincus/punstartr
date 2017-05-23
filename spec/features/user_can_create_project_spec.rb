@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe "user can create a project" do
+  before :each do
+    create(:project)
+  end
   context "when a user is logged in" do
     it "takes user to new project page" do
       user = create(:user)
@@ -32,7 +35,7 @@ describe "user can create a project" do
 
     click_on 'Save and continue'
 
-    expect(current_path).to eq('/projects/1')
+    expect(current_path).to eq('/projects/2')
     expect(page).to have_content('Crafters Paradise')
     expect(page).to have_content('Lots of paint')
     expect(page).to have_css("img[src*='#{image_url}']")
