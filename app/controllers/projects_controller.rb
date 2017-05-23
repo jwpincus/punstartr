@@ -14,9 +14,9 @@ class ProjectsController < ApplicationController
     @category = Category.find_by(name: params[:project][:category])
     @country = Country.find_by(name: params[:project][:country])
     @project = current_user.projects.new(project_params)
-    
+
     if @project.save
-      redirect_to new_reward_path(@project)
+      redirect_to new_reward_path(project_id: @project.id)
     else
       redirect_to new_project_path
       flash[:warning] = "Please fill in all fields."
