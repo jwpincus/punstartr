@@ -33,12 +33,10 @@ describe "user can create a project" do
     click_on 'Save and continue'
 
     expect(current_path).to eq('/projects/1')
-    # expect(page).to have_content(cagtegory.name)
-    # expect(page).to have_content('Crafters Paradise')
-    # expect(page).to have_content('Lots of paint')
-    # expect(page).to have_content(image_url)
-    # expect(page).to have_content('10000')
-    # expect(page).to have_content('12/12/2020')
-    # expect(page).to have_content(country.name)
+    expect(page).to have_content('Crafters Paradise')
+    expect(page).to have_content('Lots of paint')
+    expect(page).to have_css("img[src*='#{image_url}']")
+    expect(page).to have_content('$10,000')
+    expect(page).to have_content('December 12, 2020')
   end
 end
