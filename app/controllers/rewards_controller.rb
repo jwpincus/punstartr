@@ -4,11 +4,14 @@ class RewardsController < ApplicationController
   end
 
   def create
-    @reward = Reward.new(reward_params)
+byebug
+    @project =  
+@reward = Reward.new(reward_params)
+
     
     @reward.save
 
-    redirect_to new_reward_path
+    redirect_to project_path(@project)
   end
 
   def new
