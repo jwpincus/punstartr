@@ -1,13 +1,30 @@
 class Project < ApplicationRecord
 
-   include ActionView::Helpers::NumberHelper
+ include ActionView::Helpers::NumberHelper
+
+  belongs_to :country
   belongs_to :category, required: false
-  has_many :project_owners
-  has_many :owners, through: :project_owners, source: :user
+  has_many   :project_owners
+  has_many   :owners, through: :project_owners, source: :user
+  has_many   :rewards
+  has_many :project_backers
+  has_many :backers, through: :project_backers, source: :user
 
-  has_many :rewards
+  validates  :title,
+             :description,
+             :image_url,
+             :target_amount,
+             :category_id,
+             :completion_date,
+             presence: true
 
-  validates :title, :description, :image_url, :target_amount, :category_id, :completion_date, presence: true
+  validates :slug, uniqueness: true
+
+  before_create :create_slug
+
+  def create_slug
+    self.slug = self.title.parameterize
+  end
 
   def formatted_price
     number_to_currency(target_amount, unit: "$", format: "%u%n", precision: 0)
