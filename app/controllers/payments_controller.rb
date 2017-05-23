@@ -7,11 +7,12 @@ class PaymentsController < ApplicationController
 
   def create
     @reward = Reward.find(params[:reward_id])
-    current_user.backed_projects.create(
+    proj = current_user.project_backers.create!(
                                         reward: @reward,
                                         project: @reward.project,
                                         pledge_amount: @reward.pledge_amount
                                         )
+    binding.pry
   end
 
 end
