@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   get '/logout',    to: "sessions#destroy"
   get '/confirmation', to: "confirmation#show"
 
-  resources :users, only: [:new, :create, :index]
-  namespace :users, as: :user, path: ':profile' do
+  namespace :users, as: :user, path: 'users' do
     get '/:user_id/projects', to: "projects#index"
-
   end
-  
+  resources :users, only: [:new, :create, :index]
+
   resources :categories, only: [:index, :show]
   resources :rewards, only: [:index, :create, :new]
   resources :projects, only: [:index, :show, :edit, :new, :create]
