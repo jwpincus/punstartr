@@ -9,12 +9,14 @@ class Project < ApplicationRecord
   has_many   :rewards
 
   validates  :title,
-            #  :description,
-            #  :image_url,
-            #  :target_amount,
+             :description,
+             :image_url,
+             :target_amount,
              :category_id,
-            #  :completion_date,
+             :completion_date,
              presence: true
+
+  validates :slug, uniqueness: true
 
   before_create :create_slug
 

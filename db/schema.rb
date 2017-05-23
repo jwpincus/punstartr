@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520225929) do
+ActiveRecord::Schema.define(version: 20170522235719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 20170520225929) do
     t.integer  "category_id"
     t.datetime "completion_date"
     t.string   "slug"
-    t.integer  "countries_id"
+    t.integer  "country_id"
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
-    t.index ["countries_id"], name: "index_projects_on_countries_id", using: :btree
+    t.index ["country_id"], name: "index_projects_on_country_id", using: :btree
   end
 
   create_table "rewards", force: :cascade do |t|
@@ -73,6 +73,6 @@ ActiveRecord::Schema.define(version: 20170520225929) do
   add_foreign_key "project_owners", "projects"
   add_foreign_key "project_owners", "users"
   add_foreign_key "projects", "categories"
-  add_foreign_key "projects", "countries", column: "countries_id"
+  add_foreign_key "projects", "countries"
   add_foreign_key "rewards", "projects"
 end

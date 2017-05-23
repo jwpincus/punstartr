@@ -13,7 +13,10 @@ class ProjectsController < ApplicationController
     @country = Country.find_by(name: params[:project][:country])
     @project = current_user.projects.new(project_params)
     if @project.save
-      byebug
+      redirect_to project_path(@project)
+    else
+      redirect_to new_project_path
+      flash[:warning] = "Please fill in all fields."
     end
   end
 
@@ -24,7 +27,7 @@ class ProjectsController < ApplicationController
   private
     def project_params
       params.require(:project)
-      .permit(:title)
+      .permit(:title, :description, :image_url, :target_amount,:completion_date)
       .merge(category_id: @category.id, country_id: @country.id)
     end
 end

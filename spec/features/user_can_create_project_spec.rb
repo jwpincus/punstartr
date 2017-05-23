@@ -18,15 +18,27 @@ describe "user can create a project" do
     category = create(:category)
     country = create(:country)
     user = create(:user)
+    image_url =  Faker::Avatar.image
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit new_project_path
 
-    fill_in 'project[category]', with: category.name
-    fill_in 'project[title]',    with: 'Crafters Paradise'
-    fill_in 'project[country]',  with: country.name
+    fill_in 'project[category]',         with: category.name
+    fill_in 'project[title]',            with: 'Crafters Paradise'
+    fill_in 'project[description]',      with: 'Lots of paint'
+    fill_in 'project[image_url]',        with: image_url
+    fill_in 'project[target_amount]',    with: '10000'
+    fill_in 'project[completion_date]',  with: '12/12/2020'
+    fill_in 'project[country]',          with: country.name
 
     click_on 'Save and continue'
 
-    expect(current_path).to eq('/projects/crafters-paradise')
+    expect(current_path).to eq('/projects/1')
+    # expect(page).to have_content(cagtegory.name)
+    # expect(page).to have_content('Crafters Paradise')
+    # expect(page).to have_content('Lots of paint')
+    # expect(page).to have_content(image_url)
+    # expect(page).to have_content('10000')
+    # expect(page).to have_content('12/12/2020')
+    # expect(page).to have_content(country.name)
   end
 end
