@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170522235719) do
-
+ActiveRecord::Schema.define(version: 20170523003915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +21,11 @@ ActiveRecord::Schema.define(version: 20170522235719) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "project_backers", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,12 +37,6 @@ ActiveRecord::Schema.define(version: 20170522235719) do
     t.index ["project_id"], name: "index_project_backers_on_project_id", using: :btree
     t.index ["reward_id"], name: "index_project_backers_on_reward_id", using: :btree
     t.index ["user_id"], name: "index_project_backers_on_user_id", using: :btree
-  end
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
   end
 
   create_table "project_owners", force: :cascade do |t|
