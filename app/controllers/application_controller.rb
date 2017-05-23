@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
     def not_authenticated
-      flash[:warning] = "permission not allowed"
+      flash[:warning] = "Please log in to continue!"
+      redirect_to login_path
     end
 end

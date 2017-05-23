@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project_owner do
     user
-    project 
+    project
   end
 end

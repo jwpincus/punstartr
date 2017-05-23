@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_many   :project_owners
   has_many   :owners, through: :project_owners, source: :user
   has_many   :rewards
+  has_many :project_backers
+  has_many :backers, through: :project_backers, source: :user
 
   validates  :title,
              :description,
