@@ -19,6 +19,12 @@ RSpec.feature "returning user can log in" do
       within(".login_form_container") do
         click_on "Log In"
       end
+      last_message = FakeSMS.messages.last
+      fill_in "confirmation", with: '1234'
+      within(".Confirm_form_container") do
+        click_on "Log In"
+      end
+
 
       within(".nav-wrapper") do
         expect(page).to have_content(user.name)
@@ -35,6 +41,11 @@ RSpec.feature "returning user can log in" do
       fill_in "Email", with: user.email
       fill_in "Password", with: "password"
       within(".login_form_container") do
+        click_on "Log In"
+      end
+      last_message = FakeSMS.messages.last
+      fill_in "confirmation", with: '1234'
+      within(".Confirm_form_container") do
         click_on "Log In"
       end
 

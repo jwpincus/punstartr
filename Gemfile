@@ -16,6 +16,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'sorcery'
 gem 'rails-erd'
+gem 'twilio-ruby'
+gem 'figaro'
+
 group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
