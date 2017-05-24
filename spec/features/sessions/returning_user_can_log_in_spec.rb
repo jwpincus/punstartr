@@ -20,7 +20,7 @@ RSpec.feature "returning user can log in" do
         click_on "Log In"
       end
       last_message = FakeSMS.messages.last
-      fill_in "confirmation", with: '1234'
+      fill_in "confirmation", with: last_message[:from][:body]
       within(".Confirm_form_container") do
         click_on "Log In"
       end
@@ -44,7 +44,7 @@ RSpec.feature "returning user can log in" do
         click_on "Log In"
       end
       last_message = FakeSMS.messages.last
-      fill_in "confirmation", with: '1234'
+      fill_in "confirmation", with: last_message[:from][:body]
       within(".Confirm_form_container") do
         click_on "Log In"
       end
