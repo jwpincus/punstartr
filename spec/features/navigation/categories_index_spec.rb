@@ -11,13 +11,13 @@ describe "As a user" do
       visit '/'
       click_link "Categories"
       find('.category_dropdown_link').click
-      expect(current_path).to eq('/categories')
+      expect(current_path).to match(/categories/)
       expect(page).to have_css("div.nav-wrapper")
     end
     it 'I expect to see a list of category names' do
       category_1, category_2 = create_list(:category, 2)
       visit '/categories'
-      expect(page).to have_css('categories')
+      expect(page).to have_css('.categories')
       expect(page).to have_selector(:link_or_button, category_1.name)
       expect(page).to have_selector(:link_or_button, category_2.name)
     end
