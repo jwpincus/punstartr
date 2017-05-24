@@ -8,4 +8,10 @@ module ApplicationHelper
     end
   end
 
+  def top_project_card
+    if @top_project
+      render "helpers/top_project"
+    end
+  end
+
 end
