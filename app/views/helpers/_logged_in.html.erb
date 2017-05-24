@@ -1,5 +1,6 @@
 <ul id="nav-mobile user_nav" class="right hide-on-med-and-down">
-  <li><a href="about.html" >About Us</a></li>
-  <li><%= link_to current_user.name, root_path %></li>
+
+  <li><%= link_to current_user.name, user_path(current_user) %></li>
+
   <li><%= link_to "Log out", logout_path, id: "logout_link" %></li>
 </ul>
