@@ -2,12 +2,12 @@ require "rails_helper"
 
 RSpec.feature "As a guest user" do
   context "they can click on project" do
-    xit "and can visit project page" do
+    it "and can visit project page" do
       project = create(:project)
 
       visit root_path
 
-      click_link project.title
+      click_link(project.title, match: :first)
 
       expect(current_path).to eq(project_path(project))
       expect(page).to have_content("Log In")
