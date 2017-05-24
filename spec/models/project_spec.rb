@@ -60,10 +60,10 @@ RSpec.describe Project, type: :model do
 
   end
   
-  describe "#time_remaining" do
-    it "returns the time remaining in days" do
+  describe "#days_remaining" do
+    it "returns the days remaining as a string" do
       project = create(:project)
-      expect(project.time_remaining).to match(/\d/)
+      expect(project.days_remaining).to match(/\d/)
     end
   end
 end
