@@ -1,2 +1,21 @@
-<h3>Your Projects</h3>
+<h3>Pledged Rewards</h3>
+
+<div class="row container">
+  <% @rewards.each do |reward| %>
+    <div class="card blue-grey darken-1 ">
+      <div class="card-content white-text">
+        <span class="card-title"><%= reward.project.title %> | <%= reward.title %> | <%= reward.price %> | </span>
+        <p><%= reward.description %></p>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <%= link_to 'View Project', project_path(reward.project) %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+<h3>Your Puntd Projects</h3>
 <%= render "helpers/project_card" %>

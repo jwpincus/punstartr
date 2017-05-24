@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'sorcery'
 gem 'redis', '~> 3.0'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'shoulda-matchers'
