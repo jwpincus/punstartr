@@ -12,8 +12,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # @category = Category.find_by(name: params[:project][:category])
-    # @country = Country.find_by(name: params[:project][:country])
     @project = current_user.projects.new(project_params)
 
     if @project.save
