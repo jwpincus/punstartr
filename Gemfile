@@ -15,7 +15,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'sorcery'
-
+gem 'rails-erd'
 group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
