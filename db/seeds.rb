@@ -96,12 +96,10 @@ class Seed
   def generate_cities
     cities = ["New York", "Paris", "Denver", "Chicago", "San Francisco"]
       cities.each do |city|
-        City.create(name: city)
+        City.create(name: city, country_id: rand(1..4))
       puts "City #{City.name} created"
     end
-  end
-
-  
+  end 
 end
 
 Seed.start

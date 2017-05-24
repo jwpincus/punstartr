@@ -22,9 +22,5 @@ FactoryGirl.define do
     factory :project_with_city do
       city {create(:city)}
     end
-
-    def project_location
-      self.project  
-    end
   end
 end
