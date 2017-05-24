@@ -7,8 +7,8 @@ class Project < ApplicationRecord
   has_many   :project_owners
   has_many   :owners, through: :project_owners, source: :user
   has_many   :rewards
-  has_many :project_backers
-  has_many :backers, through: :project_backers, source: :user
+  has_many   :project_backers
+  has_many   :backers, through: :project_backers, source: :user
 
   validates  :title,
              :description,
@@ -48,5 +48,9 @@ class Project < ApplicationRecord
 
   def self.most_funded
     # Project.group('project_backers').order('sum(pledge_amount)')
+  end
+  
+  def days_remaining
+   (Date.parse(end_date) - Date.today).to_s
   end
 end
