@@ -1,12 +1,4 @@
 
-<a class='categories dropdown-button btn col s12 m12 l12' href='#' data-activates='dropdown1'>Categories</a>
-  <ul id='dropdown1' class='dropdown-content'>
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.name, "/categories/#{category.name}" %>
-      </li>
-    <% end %>
-  </ul>
 <% @categories.each do |category| %>
   <div class="<%=category.name%> row container">
     <h3><%= category.name %></h3>
@@ -16,13 +8,13 @@
           <%= image_tag project.image_url, class: "activator responsive-img" %>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= project.title %><i class="material-icons right">more_vert</i></span>
+          <span class="card-title activator grey-text text-darken-4"><%= link_to project.title, project_path(project) %><i class="material-icons right">more_vert</i></span>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
           <%= project.description %>
         </div>
-      </div>
+    </div>
     <% end %>
   </div>
 <% end %>

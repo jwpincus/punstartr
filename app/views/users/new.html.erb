@@ -13,6 +13,10 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, placeholder: "Re-enter password" %>
   </div>
+  <div class="field">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone, placeholder: "Enter phone number" %>
+  </div>
   <%= f.submit "Create account" %>
   <% end %>
 </div>
