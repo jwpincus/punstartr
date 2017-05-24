@@ -53,7 +53,7 @@ class Seed
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample,
         rewards: generate_rewards,
-        country_id: rand(1..3),
+        country_id: rand(1..4),
         city_id: rand(1..5)
       )
       puts "Project #{Project.all.last.title} created"
@@ -77,7 +77,7 @@ class Seed
   end
 
   def generate_countries
-    countries = ['United States', 'Canada', 'Mexico']
+    countries = ['United States', 'Canada', 'Mexico', "France"]
     countries.each do |country|
       Country.create(name: country)
     end
