@@ -24,4 +24,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :payments, only: [:create]
+
+  mount ActionCable.server => '/cable'
+
+  resources :chatrooms, only: [:new, :create, :show]
+  resources :messages, only: [:new, :create]
 end

@@ -26,6 +26,10 @@
           <div class="card-action">
             <a class="waves-effect waves-light btn" href="<%= projects_rewards_path(@project) %>">Back this project</a>
           </div>
+          <div class="card-action">
+            <a class="waves-effect waves-light btn" href="<%= chatrooms_path(user_1: @project.owners.first.id,
+                                                                             user_2: current_user.id) %>">Chat with Project Owner</a>
+          </div>
           <p class="flow-text">
           <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by <%= @project.end_date_time %>.</p>
         </div>
@@ -38,7 +42,7 @@
   <div class="col s8">
   <h5>About this project</h5><br>
     <%= @project.description %><br>
-    
+
 <div class="map_box">
   <h5>Project location</h5><br>
   <iframe
