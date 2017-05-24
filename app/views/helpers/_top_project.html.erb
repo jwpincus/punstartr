@@ -1,0 +1,13 @@
+<div class="col s4">
+    <div class="card-image waves-effect waves-block waves-light">
+	      <%= image_tag @top_project.image_url, class: "activator responsive-img" %>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= link_to @top_project.title, project_path(@top_project) %><i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= @top_project.title %><i class="material-icons right">close</i></span>
+      <%= @top_project.description %>
+    </div>
+  </div>
+</div>
