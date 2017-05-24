@@ -57,7 +57,21 @@ RSpec.describe Project, type: :model do
       project = create(:project)
       expect(project.end_date_time).to match(%r{at})
     end
-
   end
 
+  describe "#total_pleged" do
+    it "returns total pleged amount of the the project" do
+      project = create(:project_with_backers)
+      expect(project.total_pledged).to match(60)
+    end
+  end
+
+  describe ".top_project" do
+    it "returns top project by amount funded" do
+      project_1 = create(:project_with_backers)
+      project_1.project_backers.first.update(pledge_amount: 50)
+      project_2 = create(:project_with_backers)
+      expect(Project.top_project).to match(project_1)
+    end
+  end
 end
