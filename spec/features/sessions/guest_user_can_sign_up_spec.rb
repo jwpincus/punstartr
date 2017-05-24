@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "as a guest user" do
   context "when visiting /signup" do
+    before :each do
+      create(:project)
+    end
     it "can create account" do
       visit signup_path
 
@@ -13,7 +16,7 @@ RSpec.feature "as a guest user" do
       click_on "Create account"
 
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("Puntstartr")
+      expect(page).to have_content("User Name")
     end
 
     it "validates all form fields" do

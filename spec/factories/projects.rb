@@ -18,5 +18,9 @@ FactoryGirl.define do
     factory :project_with_backers do
       project_backers {create_list(:project_backer, 3)}
     end
+
+    factory :project_with_city do
+      city {create(:city)}
+    end
   end
 end

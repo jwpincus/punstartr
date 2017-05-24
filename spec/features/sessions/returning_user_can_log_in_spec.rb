@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "returning user can log in" do
+
+  before :each do
+    create(:project)
+  end
+
   feature "an existing user can log in" do
     it "logs in successfully" do
 
@@ -26,7 +31,7 @@ RSpec.feature "returning user can log in" do
       user = create(:user)
 
       visit login_path
-      
+
       fill_in "Email", with: user.email
       fill_in "Password", with: "password"
       within(".login_form_container") do

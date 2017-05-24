@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523003915) do
+ActiveRecord::Schema.define(version: 20170524163037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,7 +65,9 @@ ActiveRecord::Schema.define(version: 20170523003915) do
     t.datetime "completion_date"
     t.string   "slug"
     t.integer  "country_id"
+    t.integer  "city_id"
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
+    t.index ["city_id"], name: "index_projects_on_city_id", using: :btree
     t.index ["country_id"], name: "index_projects_on_country_id", using: :btree
   end
 
@@ -88,6 +96,7 @@ ActiveRecord::Schema.define(version: 20170523003915) do
   add_foreign_key "project_owners", "projects"
   add_foreign_key "project_owners", "users"
   add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "cities"
   add_foreign_key "projects", "countries"
   add_foreign_key "rewards", "projects"
 end

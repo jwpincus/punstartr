@@ -74,4 +74,21 @@ RSpec.describe Project, type: :model do
       expect(Project.top_project).to match(project_1)
     end
   end
+  
+  describe "#days_remaining" do
+    it "returns the days remaining as a string" do
+      project = create(:project)
+      expect(project.days_remaining).to match(/\d/)
+    end
+  end
+
+  describe ".find_by_city" do
+    it "returns a city that dispays on a map" do
+      project = create(:project_with_city)
+      expect(project.city['name']).to match("city3")
+      expect
+    end
+  end
+
+
 end

@@ -10,12 +10,14 @@ class Seed
 
   def self.start
     seed = Seed.new
+    seed.generate_countries
+    seed.generate_cities
     seed.generate_categories
     seed.generate_projects
-    seed.generate_countries
     seed.generate_user_with_projects
     seed.generate_users
     seed.generate_project_backers
+   
   end
 
   def generate_project_backers
@@ -44,13 +46,15 @@ class Seed
   def generate_projects
     50.times do
       Project.create!(
-        title: Faker::Commerce.product_name,
+        title: Faker::Commerce.product_name + rand(0..1000).to_s,
         description: Faker::Hipster.paragraph,
         image_url: "https://unsplash.it/600/400?image=#{rand(0..100)}",
         target_amount: rand(1000..100000).to_f,
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample,
-        rewards: generate_rewards
+        rewards: generate_rewards,
+        country_id: rand(1..3),
+        city_id: rand(1..5)
       )
       puts "Project #{Project.all.last.title} created"
     end
@@ -89,6 +93,15 @@ class Seed
     user.projects << Project.all.shuffle[0..4]
   end
 
+  def generate_cities
+    cities = ["New York", "Paris", "Denver", "Chicago", "San Francisco"]
+      cities.each do |city|
+        City.create(name: city)
+      puts "City #{City.name} created"
+    end
+  end
+
+  
 end
 
 Seed.start
