@@ -41,4 +41,8 @@ class Project < ApplicationRecord
   def end_date_time
    "#{end_date} at #{end_time}"
   end
+  
+  def time_remaining
+   (Date.parse(end_date) - Date.today).to_i
+  end
 end
