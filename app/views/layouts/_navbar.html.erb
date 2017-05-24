@@ -1,8 +1,10 @@
 <ul id="dropdown1" class="dropdown-content">
-  <% @categories.each do |category| %>
-    <li>
-      <%= link_to category.name, "/categories/#{category.name}" %>
-    </li>
+  <% if @categories %>
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category.name, "/categories/#{category.name}", class: "category_dropdown_link" %>
+      </li>
+    <% end %>
   <% end %>
   <li class="divider"></li>
   <li><a href='/categories'>All Categoies</a></li>
