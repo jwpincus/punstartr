@@ -13,6 +13,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+
+
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.backtrace_exclusion_patterns << /\.rvm\/gems/
 # The settings below are suggested to provide a good initial experience
@@ -64,4 +66,7 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.before(:each) do
+    stub_const("Twilio::REST::Client", FakeSMS)
+  end
 end
