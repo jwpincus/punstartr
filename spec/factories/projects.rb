@@ -20,7 +20,7 @@ FactoryGirl.define do
     end
 
     factory :project_with_city do
-      city {create(:city)}
+      city {create(:city_with_country)}
     end
   end
 end
