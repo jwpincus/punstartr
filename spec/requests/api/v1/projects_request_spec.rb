@@ -7,9 +7,8 @@ describe "Projects API" do
     get "/api/v1/projects"
 
     expect(response).to be_success
-  
+    
     projects = JSON.parse(response.body)
-    binding.pry
     expect(projects.count).to eq(3)
     expect(projects.first["title"]).to eq(project_list.first.title)
     expect(projects.first["description"]).to eq(project_list.first.description)
