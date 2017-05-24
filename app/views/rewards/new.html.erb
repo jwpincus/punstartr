@@ -4,7 +4,7 @@
 
   <%= f.label :description %>
   <%= f.text_field :description, placeholder: "Description" %>
-  
+
 	<div class="field">
     <%= f.label :pledge_amount %>
     <%= f.number_field :pledge_amount, placeholder: "Pledge Amount" %>
@@ -13,5 +13,6 @@
     <%= f.label :limit %>
     <%= f.number_field :limit, placeholder: "Limit" %>
   </div>
+	<%= hidden_field_tag 'project_id', params[:project_id] %>
 	<%= f.submit "Save and Continue" %>
- <% end %> 
+ <% end %>
