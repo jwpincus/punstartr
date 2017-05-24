@@ -1,12 +1,4 @@
 
-<a class='categories dropdown-button btn col s12 m12 l12' href='#' data-activates='dropdown1'>Categories</a>
-  <ul id='dropdown1' class='dropdown-content'>
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.name, "/categories/#{category.name}" %>
-      </li>
-    <% end %>
-  </ul>
 <% @categories.each do |category| %>
   <div class="<%=category.name%> row container">
     <h3><%= category.name %></h3>
