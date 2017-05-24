@@ -43,14 +43,18 @@ class Project < ApplicationRecord
   end
 
   def total_pledged
-    self.project_backers.sum("pledge_amount")  
+    self.project_backers.sum("pledge_amount")
   end
 
   def self.most_funded
     # Project.group('project_backers').order('sum(pledge_amount)')
   end
-  
+
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
+  end
+
+  def self.top_project
+    
   end
 end
