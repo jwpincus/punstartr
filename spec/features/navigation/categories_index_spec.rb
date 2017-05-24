@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "As a user" do
+
+  before :each do
+    create(:project)
+  end
+
   context "When I visit the root path and click categories in Navbar" do
     it "I expect to be taken to the categories index and see navbar" do
       visit '/'
@@ -26,15 +31,3 @@ describe "As a user" do
     end
   end
 end
-
-
-
-# As a guest user
-# when I visit the root path
-# and I click on the Categories button in the navbar
-#
-# I expect to be taken the categories index
-#
-# I expect to see the navbar
-# I expect to see a list of category names such as "Art",  "Film", "Technology", etc.
-# I expect each category name to be a clickable link to the show page for that category

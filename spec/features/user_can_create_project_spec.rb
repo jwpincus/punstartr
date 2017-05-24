@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe "user can create a project" do
+  before :each do
+    create(:project)
+  end
   context "when a user is logged in" do
     it "takes user to new project page" do
       user = create(:user)
