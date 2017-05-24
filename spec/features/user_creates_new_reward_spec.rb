@@ -13,15 +13,16 @@ RSpec.feature "User adds a new reward to the database" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit new_project_path
 
-      fill_in 'project[category]',         with: category.name
+      select category.name,                from: 'project_category_id'
       fill_in 'project[title]',            with: 'Crafters Paradise'
       fill_in 'project[description]',      with: 'Lots of paint'
       fill_in 'project[image_url]',        with: image_url
       fill_in 'project[target_amount]',    with: '10000'
-      fill_in 'project[country]',          with: country.name
+      select country.name,                 from: 'project_country_id'
 
       click_on 'Save and continue'
 
+      expect(current_path).to eq('/rewards/new')
       fill_in "reward[title]", with: "Raw Denim Romphim"
       fill_in "reward[description]", with: "24 ounce Kahari Mills left-hand twill denim"
       fill_in "reward[pledge_amount]", with: 475
