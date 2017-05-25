@@ -79,7 +79,7 @@ class Seed
     puts "making user with projects"
     user = User.create!(
                         name: "Sample User",
-                        email: "email_user_with_projects#{rand(5000)}@email.com",
+                        email: "user_with_projects@email.com",
                         password: "password",
                         password_confirmation: "password"
                         )
