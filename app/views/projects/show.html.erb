@@ -16,11 +16,11 @@
         <div class="card-stacked">
           <div class="card-content">
             <div class="divider green lighten-0" ></div><br>
-              <div class="amount"><%= @project.formatted_price %></div>
+              <div class="amount">$ <%= @project.total_pledged %></div>
               pledged of <%= @project.formatted_price %> goal
-              <h5>157</h5>
+              <h5><%= @project.backer_count %></h5>
               backers
-              <h5>7</h5>
+              <h5><%= @project.days_remaining %></h5>
               days to go<br><br>
           </div>
           <div class="card-action">
@@ -38,7 +38,7 @@
   <div class="col s8">
   <h5>About this project</h5><br>
     <%= @project.description %><br>
-    
+
 <div class="map_box">
   <h5>Project location</h5><br>
   <iframe

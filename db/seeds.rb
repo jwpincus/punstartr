@@ -14,35 +14,29 @@ class Seed
     seed.generate_projects
     seed.generate_countries
     seed.generate_user_with_projects
-    seed.generate_users
-    seed.generate_project_backers
   end
 
   def generate_project_backers
-    50.times do
-      proj = ProjectBacker.create!(
-                            project: Project.all.shuffle.first,
-                            user: User.all.shuffle.first,
+    rand(3..10).times.map do |n|
+      ProjectBacker.create!(
+                            user: generate_user,
                             reward: Reward.all.shuffle.first,
                             pledge_amount: rand(10..1000),
                             created_at: Faker::Time.backward(60)
       )
-      puts "ProjectBacker #{proj.user} backing #{proj.project.title} created"
     end
   end
 
-  def generate_users
-    10.times do |n|
-      u = User.create!(name: "user #{n}",
-                   email: "user#{n}@example.com",
-                   password: "password",
-                   password_confirmation: "password"
-                   )
-      puts "User #{u.name}, #{u.email} created"
-    end
+  def generate_user
+    User.create!(name: Faker::Name.name,
+                 email: "user#{rand(0..100000)}@example.com",
+                 password: "password",
+                 password_confirmation: "password"
+                 )
   end
 
   def generate_projects
+    puts "generating projects"
     50.times do
       Project.create!(
         title: Faker::Commerce.product_name + rand(0..1000).to_s,
@@ -51,7 +45,8 @@ class Seed
         target_amount: rand(1000..100000).to_f,
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample,
-        rewards: generate_rewards
+        rewards: generate_rewards,
+        project_backers: generate_project_backers
       )
       puts "Project #{Project.all.last.title} created"
     end
@@ -81,12 +76,13 @@ class Seed
   end
 
   def generate_user_with_projects
+    puts "making user with projects"
     user = User.create!(
-    name: "Sample User",
-    email: "email#{rand(5000)}@email.com",
-    password: "password",
-    password_confirmation: "password"
-    )
+                        name: "Sample User",
+                        email: "email_user_with_projects#{rand(5000)}@email.com",
+                        password: "password",
+                        password_confirmation: "password"
+                        )
     user.projects << Project.all.shuffle[0..4]
   end
 
