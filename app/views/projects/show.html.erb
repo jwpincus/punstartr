@@ -6,10 +6,10 @@
     <div class="row">
       <div class="col s8 m16">
         <%= image_tag @project.image_url %><br>
-
-        <i class="small material-icons">view_module</i><%=@project.category['name']%>
-        <i class="small material-icons">location_on</i>hello
-
+        <i class="small material-icons">view_module</i><%=link_to @project.category.name, category_path(@project.category)%>
+        <% if @project.city %>
+          <i class="small material-icons">location_on</i><%= @project.city.name %>, <%= @project.city.country.name %>
+        <% end %>
       </div>
 
       <div class="col s4 m16">
@@ -48,22 +48,24 @@
   <div class="col s8">
   <h5>About this project</h5><br>
     <%= @project.description %><br>
-
-<div class="map_box">
-  <h5>Project location</h5><br>
-  <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3kyyZa_6q0s1dqTdI93pSxImIR3qewjM&q=Denver,CO" allowfullscreen>
-  </iframe>
   </div>
-</div>
+
+<% if @project.city %>
+  <div class="map_box">
+    <h5>Project location</h5><br>
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3kyyZa_6q0s1dqTdI93pSxImIR3qewjM&q=<%= @project.city['name'] %>" allowfullscreen>
+    </iframe>
+
+  </div>
+  <% end %>
 
   <div class="col s4">
     <h5>Support this project</h5><br>
     <%= render partial: "rewards/rewards_list" %>
   </div>
 </div>
-
 </div>

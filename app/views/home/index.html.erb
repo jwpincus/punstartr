@@ -1,20 +1,20 @@
 
+
 <div class="container row">
-	<%= top_project_card %>
-  <div class="col s3 center-align">
-    <h5>Nearly Funded</h5>
-  </div>
-  <div class="col s3 center-align">
-    <div class="categories">
-      <div class="card-panel teal ">
-        <span class="white-text">
-	     		<h5>Categories</h5>
-	       		<% @categories.each do |category| %>
-		    			<li><%= link_to category.name, category_path(category) %></li>
-            <% end %>
-	   		</span>
-      </div>
+  <div class="card center-align medium col s6 ">
+   <h5>Most funded</h5>
+   <%if @most_funded %>
+    <div class="card-image waves-effect waves-block waves-light center-align">
+      <%= image_tag @most_funded.image_url, class: "activator responsive-img" %>
     </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= link_to @most_funded.title, project_path(@most_funded) %><i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= @most_funded.title %><i class="material-icons right">close</i></span>
+      <%= @most_funded.description %>
+    </div>
+    <%end%>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 
  include ActionView::Helpers::NumberHelper
-
+  belongs_to :city
   belongs_to :country
   belongs_to :category, required: false
   has_many   :project_owners
@@ -47,19 +47,17 @@ class Project < ApplicationRecord
   end
 
   def self.most_funded
-    # Project.group('project_backers').order('sum(pledge_amount)')
+    Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').first
   end
-  
+
+
   def self.most_funded_list
     Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').limit(5)
   end
 
+
   def days_remaining
    (Date.parse(end_date) - Date.today).to_i.to_s
-  end
-
-  def self.top_project
-
   end
 
   def backer_count

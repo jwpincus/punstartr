@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20170525000350) do
     t.string "topic"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
+  end
+
   create_table "countries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -71,7 +79,9 @@ ActiveRecord::Schema.define(version: 20170525000350) do
     t.datetime "completion_date"
     t.string   "slug"
     t.integer  "country_id"
+    t.integer  "city_id"
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
+    t.index ["city_id"], name: "index_projects_on_city_id", using: :btree
     t.index ["country_id"], name: "index_projects_on_country_id", using: :btree
   end
 
@@ -95,6 +105,7 @@ ActiveRecord::Schema.define(version: 20170525000350) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "cities", "countries"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "project_backers", "projects"
@@ -103,6 +114,7 @@ ActiveRecord::Schema.define(version: 20170525000350) do
   add_foreign_key "project_owners", "projects"
   add_foreign_key "project_owners", "users"
   add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "cities"
   add_foreign_key "projects", "countries"
   add_foreign_key "rewards", "projects"
 end
