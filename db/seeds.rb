@@ -24,7 +24,8 @@ class Seed
                             project: Project.all.shuffle.first,
                             user: User.all.shuffle.first,
                             reward: Reward.all.shuffle.first,
-                            pledge_amount: rand(10..1000)
+                            pledge_amount: rand(10..1000),
+                            created_at: Faker::Time.backward(60)
       )
       puts "ProjectBacker #{proj.user} backing #{proj.project.title} created"
     end
