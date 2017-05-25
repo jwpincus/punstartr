@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(params[:user][:email], params[:user][:password])
+      set_chat_id(@user.id)
       flash[:success] = "You have signed up!"
       redirect_to root_path
     else
@@ -17,9 +18,6 @@ class UsersController < ApplicationController
       redirect_to signup_path
     end
   end
-
-
-
 
   private
     def user_params

@@ -24,3 +24,6 @@ module Puntstartr
   end
 end
 # config.assets.initialize_on_precompile = false
+Rails.application.configure do
+  config.action_cable.url = "ws://localhost:3000/cable"
+end

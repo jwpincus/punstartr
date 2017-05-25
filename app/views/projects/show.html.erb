@@ -6,25 +6,35 @@
     <div class="row">
       <div class="col s8 m16">
         <%= image_tag @project.image_url %><br>
-        <i class="small material-icons">view_module</i><%=link_to @project.category['name'], category_path(@project.category)%>
-      
-        <i class="small material-icons">location_on</i><%= @project.city['name'] %>, <%= @project.city.country['name'] %>
-       
+        <i class="small material-icons">view_module</i><%=link_to @project.category.name, category_path(@project.category)%>
+        <% if @project.city %>
+          <i class="small material-icons">location_on</i><%= @project.city.name %>, <%= @project.city.country.name %>
+        <% end %>
       </div>
 
       <div class="col s4 m16">
         <div class="card-stacked">
           <div class="card-content">
-            <div class="divider green lighten-0" ></div><br>
+            <div class="divider teal lighten-0" ></div><br>
               <div class="amount"><%= @project.total_pledged %></div>
               pledged of <%= @project.formatted_price %> goal
-              <h5>157</h5>
+              <h5><%= @project.backer_count %></h5>
               backers
-              <h5>7</h5>
+              <h5><%= @project.days_remaining %></h5>
               days to go<br><br>
           </div>
           <div class="card-action">
             <a class="waves-effect waves-light btn" href="<%= projects_rewards_path(@project) %>">Back this project</a>
+          </div>
+          <div class="card-action">
+          <% if @project.owners.first %>
+            <%= link_to "Chat with Project Owner",
+                chatrooms_path(user_1: @project.owners.first.id,
+                               user_2: current_user.id,
+                               project_id: @project.id),
+                               method: :post,
+                               class: "waves-effect waves-light btn" %>
+          <% end %>
           </div>
           <p class="flow-text">
           <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by <%= @project.end_date_time %>.</p>
@@ -38,7 +48,8 @@
   <div class="col s8">
   <h5>About this project</h5><br>
     <%= @project.description %><br>
-    
+
+<% if @project.city %>
   <div class="map_box">
     <h5>Project location</h5><br>
     <iframe
@@ -47,8 +58,10 @@
       frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3kyyZa_6q0s1dqTdI93pSxImIR3qewjM&q=<%= @project.city['name'] %>" allowfullscreen>
     </iframe>
+
   </div>
 </div>
+  <% end %>
 
   <div class="col s4">
     <h5>Support this project</h5><br>

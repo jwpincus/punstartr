@@ -10,11 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require chartkick
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require_tree ./channels
 //= require jquery2
 //= require materialize
+
+
 $(document).ready(function() {
     $('select').material_select();
     $(".dropdown-button").dropdown();

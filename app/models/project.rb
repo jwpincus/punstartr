@@ -43,18 +43,24 @@ class Project < ApplicationRecord
   end
 
   def total_pledged
-    self.project_backers.sum("pledge_amount")
+  number_to_currency(self.project_backers.sum("pledge_amount"), unit: "$", format: "%u%n", precision: 0)
   end
 
   def self.most_funded
     Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').first
   end
-  
-  def days_remaining
-   (Date.parse(end_date) - Date.today).to_s
+
+
+  def self.most_funded_list
+    Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').limit(5)
   end
 
+
   def days_remaining
-   (Date.parse(end_date) - Date.today).to_s
+   (Date.parse(end_date) - Date.today).to_i.to_s
+  end
+
+  def backer_count
+    project_backers.count
   end
 end

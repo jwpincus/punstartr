@@ -1,10 +1,10 @@
 
 
 <div class="container row">
-  <div class="card medium col s4">
+  <div class="card center-align col s6">
    <h5>Most funded</h5>
    <%if @most_funded %>
-    <div class="card-image waves-effect waves-block waves-light">
+    <div class="card-image waves-effect waves-block waves-light center-align">
       <%= image_tag @most_funded.image_url, class: "activator responsive-img" %>
     </div>
     <div class="card-content">
@@ -15,21 +15,6 @@
       <%= @most_funded.description %>
     </div>
     <%end%>
-  </div>
-  <div class="card medium col s4">
-    <h5>Nearly Funded</h5>
-  </div>
-  <div class="col s3 offset-s1">
-    <div class="categories">
-      <div class="card-panel teal ">
-        <span class="white-text">
-	     		<h5>Categories</h5>
-	       		<% @categories.each do |category| %>
-		    			<li><%= link_to category.name, category_path(category) %></li>
-            <% end %>
-	   		</span>
-      </div>
-    </div>
   </div>
 </div>
 

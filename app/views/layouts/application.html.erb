@@ -2,11 +2,13 @@
 <html>
   <head>
     <title>Puntstartr</title>
+    <%= action_cable_meta_tag %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
   </head>
 
   <body class='<%= controller.controller_name %>'>
@@ -14,7 +16,7 @@
    <% flash.each do |flash, message| %>
     <%= content_tag :div, message, class: "alert-#{flash}" %>
    <% end %>
-   
+
     <%= yield %>
   </body>
 </html>
