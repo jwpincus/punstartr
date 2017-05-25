@@ -1,12 +1,13 @@
 class ChatroomsController < ApplicationController
   def create
     search_params = format_chatroom_params(chatroom_params)
+    @project = Project.find_by(id: params[:project_id])
     @chatroom = Chatroom.find_by(topic: search_params)
     if @chatroom
-      redirect_to chatroom_path(@chatrooom)
+      redirect_to chatroom_path(@chatrooom, @project)
     else
       @chatroom = Chatroom.create(topic: search_params)
-      redirect_to chatroom_path(@chatroom)
+      redirect_to chatroom_path(@chatroom, @project)
     end
   end
 
