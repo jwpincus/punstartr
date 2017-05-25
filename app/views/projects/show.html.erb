@@ -27,12 +27,14 @@
             <a class="waves-effect waves-light btn" href="<%= projects_rewards_path(@project) %>">Back this project</a>
           </div>
           <div class="card-action">
-          <%= link_to "Chat with Project Owner",
-              chatrooms_path(user_1: @project.owners.first.id,
-                             user_2: current_user.id,
-                             project_id: @project.id),
-                             method: :post,
-                             class: "waves-effect waves-light btn" %>
+          <% if @project.owners.first %>
+            <%= link_to "Chat with Project Owner",
+                chatrooms_path(user_1: @project.owners.first.id,
+                               user_2: current_user.id,
+                               project_id: @project.id),
+                               method: :post,
+                               class: "waves-effect waves-light btn" %>
+          <% end %>
           </div>
           <p class="flow-text">
           <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by <%= @project.end_date_time %>.</p>

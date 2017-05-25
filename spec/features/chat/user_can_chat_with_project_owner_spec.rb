@@ -10,7 +10,7 @@ describe "chat" do
     visit project_path(project)
     click_on "Chat with Project Owner"
 
-    expect(current_path).to eq("/user/1/chat")
+    expect(current_path).to eq("/chatrooms/1")
 
   end
 end
