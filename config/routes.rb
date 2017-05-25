@@ -41,6 +41,9 @@ Rails.application.routes.draw do
 			namespace :projects do
 				get "/most_funded", to: "most_funded#index"
 			end
+      namespace :users do
+        get "/search", to: "users_search#show"
+      end
 		end
 	end
 
