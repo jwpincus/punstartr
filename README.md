@@ -12,6 +12,10 @@ The TwilioSender.send service can take an optional parameter of a user phone num
 
 - For user authentication, we're using [sorcery](https://github.com/NoamB/sorcery)
 - [this guide](https://www.sitepoint.com/magical-authentication-sorcery/) is what got it working. Top notch!
+- to prep the project, clone it down, `bundle`, and then `rake db:create`.
+- we always "reset" the database instead of seeding, so your go-to workflow should be `rake db:reset`. (you run into uniqueness validation problems if you try to seed twice in a row)
+- We used Materialize for styling.
+- if you want to see a sample user with projects, log in with `user_with_projects@email.com`, and `password`
 
 
 ### Mark
