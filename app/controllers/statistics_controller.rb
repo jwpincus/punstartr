@@ -1,7 +1,7 @@
 class StatisticsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = Project.all.limit(20)
     @project = Project.find(2)
   end
 
@@ -12,7 +12,6 @@ class StatisticsController < ApplicationController
     end
     render json: [{name: 'Count', data: result}]
   end
-
 
 
 end
