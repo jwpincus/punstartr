@@ -26,4 +26,12 @@ Rails.application.routes.draw do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
+
+	namespace :api, defaults: {format: :jason} do
+		namespace :v1 do
+			namespace :projects do
+				get "/most_funded", to: "most_funded#index"
+			end
+		end
+	end
 end
