@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   get '/checkout/:reward_id', to: "payments#new", as: "checkout"
 
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy] do
+    post :authorization, on: :collection
+  end
   resources :payments, only: [:create]
 
   mount ActionCable.server => '/cable'

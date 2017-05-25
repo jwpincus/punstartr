@@ -17,6 +17,8 @@ gem 'bcrypt'
 gem 'sorcery'
 gem 'redis', '~> 3.0'
 gem 'rails-erd'
+gem 'twilio-ruby'
+gem 'figaro'
 
 group :development, :test do
   gem 'shoulda-matchers'

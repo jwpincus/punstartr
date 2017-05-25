@@ -1,7 +1,7 @@
 <h3>Log In</h3>
 
 <div class="login_form_container">
-  <%= form_tag sessions_path, method: :post do %>
+  <%= form_tag authorization_sessions_path, method: :post do %>
     <div class="field">
       <%= label_tag :email %>
       <%= email_field_tag :email, nil, required: true %>
