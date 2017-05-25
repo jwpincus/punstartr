@@ -1,7 +1,9 @@
 
+
 <div class="container row">
   <div class="card medium col s4">
    <h5>Most funded</h5>
+   <%if @most_funded %>
     <div class="card-image waves-effect waves-block waves-light">
       <%= image_tag @most_funded.image_url, class: "activator responsive-img" %>
     </div>
@@ -12,6 +14,7 @@
       <span class="card-title grey-text text-darken-4"><%= @most_funded.title %><i class="material-icons right">close</i></span>
       <%= @most_funded.description %>
     </div>
+    <%end%>
   </div>
   <div class="card medium col s4">
     <h5>Nearly Funded</h5>

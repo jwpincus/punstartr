@@ -27,7 +27,7 @@ class Project < ApplicationRecord
   end
 
   def formatted_price
-    number_to_currency(target_amount, unit: "€", format: "%u%n", precision: 0)
+    number_to_currency(target_amount, unit: "$", format: "%u%n", precision: 0)
   end
 
   def end_date
@@ -43,7 +43,7 @@ class Project < ApplicationRecord
   end
 
   def total_pledged
-    number_to_currency(self.project_backers.sum("pledge_amount"), unit: "€", format: "%u%n", precision: 0)
+    self.project_backers.sum("pledge_amount")
   end
 
   def self.most_funded
