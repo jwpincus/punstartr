@@ -27,7 +27,7 @@ class Project < ApplicationRecord
   end
 
   def formatted_price
-    number_to_currency(target_amount, unit: "$", format: "%u%n", precision: 0)
+    number_to_currency(target_amount, unit: "€", format: "%u%n", precision: 0)
   end
 
   def end_date
@@ -43,11 +43,11 @@ class Project < ApplicationRecord
   end
 
   def total_pledged
-    self.project_backers.sum("pledge_amount")
+    number_to_currency(self.project_backers.sum("pledge_amount"), unit: "€", format: "%u%n", precision: 0)
   end
 
   def self.most_funded
-    # Project.group('project_backers').order('sum(pledge_amount)')
+    Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').first
   end
   
   def days_remaining
@@ -56,9 +56,5 @@ class Project < ApplicationRecord
 
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
-  end
-
-  def self.top_project
-    
   end
 end

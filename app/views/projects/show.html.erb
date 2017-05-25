@@ -7,7 +7,7 @@
       <div class="col s8 m16">
         <%= image_tag @project.image_url %><br>
         <i class="small material-icons">view_module</i><%=link_to @project.category['name'], category_path(@project.category)%>
-        
+      
         <i class="small material-icons">location_on</i><%= @project.city['name'] %>, <%= @project.city.country['name'] %>
       </div>
 
@@ -15,7 +15,7 @@
         <div class="card-stacked">
           <div class="card-content">
             <div class="divider green lighten-0" ></div><br>
-              <div class="amount"><%= @project.formatted_price %></div>
+              <div class="amount"><%= @project.total_pledged %></div>
               pledged of <%= @project.formatted_price %> goal
               <h5>157</h5>
               backers

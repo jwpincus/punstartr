@@ -66,12 +66,12 @@ RSpec.describe Project, type: :model do
     end
   end
 
-  xdescribe ".top_project" do
+  describe ".most_funded" do
     it "returns top project by amount funded" do
       project_1 = create(:project_with_backers)
       project_1.project_backers.first.update(pledge_amount: 50)
       project_2 = create(:project_with_backers)
-      expect(Project.top_project).to match(project_1)
+      expect(Project.most_funded).to match(project_1)
     end
   end
 
