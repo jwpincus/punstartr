@@ -26,4 +26,9 @@ Rails.application.routes.draw do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
+
+  mount ActionCable.server => '/cable'
+
+  resources :chatrooms, only: [:new, :create, :show, :index]
+  resources :messages, only: [:new, :create]
 end
