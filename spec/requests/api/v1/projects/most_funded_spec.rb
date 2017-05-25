@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Most funded projects" do
   it "returns a list of the top 5 projects by funding amount" do
 		
-		project_list = create_list(:project_with_backers, 6)
+    project_list = create_list(:project_with_backers, 6)
     project_list.first.project_backers.first.update(pledge_amount: 14920)
     project_list.last.project_backers.first.update(pledge_amount: -4844334)
     project1 = project_list.first
