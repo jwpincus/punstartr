@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
   resources :payments, only: [:create]
 
+
   get '/statistics', to: 'statistics#index'
 
   resources :charts, only: [] do
@@ -34,4 +35,13 @@ Rails.application.routes.draw do
       get 'donations_by_date'
     end
   end
+
+  namespace :api, defaults: {format: :json} do
+		namespace :v1 do
+			namespace :projects do
+				get "/most_funded", to: "most_funded#index"
+			end
+		end
+	end
+
 end
