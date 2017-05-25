@@ -26,4 +26,12 @@ Rails.application.routes.draw do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
+
+  get '/statistics', to: 'statistics#index'
+
+  resources :charts, only: [] do
+    collection do
+      get 'donations_by_date'
+    end
+  end
 end

@@ -13,7 +13,6 @@ class PaymentsController < ApplicationController
                                         pledge_amount: @reward.pledge_amount
                                         )
     if transaction.save
-      flash[:success] = "thanks!"
       redirect_to confirmation_path(reward_id: @reward.id)
     else
       flash[:error] = "unsuccessful transaction. :( "

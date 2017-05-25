@@ -62,7 +62,7 @@ RSpec.describe Project, type: :model do
   describe "#total_pleged" do
     it "returns total pleged amount of the the project" do
       project = create(:project_with_backers)
-      expect(project.total_pledged).to match(60)
+      expect(project.total_pledged).to match(/[\d]+/)
     end
   end
 

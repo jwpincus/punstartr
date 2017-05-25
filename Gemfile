@@ -18,6 +18,9 @@ gem 'sorcery'
 gem 'rails-erd'
 gem 'twilio-ruby'
 gem 'figaro'
+gem 'chartkick'
+gem 'hightop'
+gem 'groupdate'
 
 group :development, :test do
   gem 'shoulda-matchers'

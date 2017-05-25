@@ -1,0 +1,21 @@
+<div class="statistics container center-align">
+
+
+  <h1>PuntStartr Statistics</h1>
+
+  
+  <h3>Projects by current dollars pledged </h3>
+
+  <%= bar_chart @projects.map { |project|
+    {name: project.title, data: project.project_backers.group(:user).sum("pledge_amount")}
+  } %>
+
+  <h3>Projects by Total Donations</h3>
+  <p>
+
+  </p>
+  <%= line_chart @projects.map { |project|
+    {name: project.title, data: project.project_backers.group_by_day(:created_at).sum(:pledge_amount)}
+  } %>
+
+</div>

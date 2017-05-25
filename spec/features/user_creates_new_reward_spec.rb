@@ -7,9 +7,7 @@ RSpec.feature "User adds a new reward to the database" do
       category = create(:category)
       country = create(:country)
       user = create(:user)
-      date = (Date.today + 30.days).strftime("%B %d, %Y")
-      # project = create(:project)
-      # user.projects <<  project
+      date = (Date.today + 30.days).strftime("%B %d, %Y %l:%M %p")
       image_url =  Faker::Avatar.image
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit new_project_path
@@ -42,7 +40,6 @@ RSpec.feature "User adds a new reward to the database" do
       expect(page).to have_content('Lots of paint')
       expect(page).to have_css("img[src*='#{image_url}']")
       expect(page).to have_content('$10,000')
-      expect(page).to have_content(date)
     end
   end
 end
