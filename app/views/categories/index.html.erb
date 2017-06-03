@@ -1,7 +1,6 @@
-
 <% @categories.each do |category| %>
   <div class="<%=category.name%> row container">
-    <h3><%= category.name %></h3>
+    <h3><%= link_to category.name, category_path(category.name) %></h3>
     <% category.projects.all[0..3].each do |project| %>
       <div class="card medium col s4 m3 l3">
         <div class="card-image waves-effect waves-block waves-light">
