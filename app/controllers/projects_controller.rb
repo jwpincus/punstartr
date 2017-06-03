@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
       name: params[:project][:city],
       country_id: params[:project][:country_id])
     params[:project].merge!({city_id: city.id})
-    @project = current_user.projects.new(project_params)
+    @project = current_user.projects.create(project_params)
 
     if @project.save
       redirect_to new_reward_path(project_id: @project.id)
