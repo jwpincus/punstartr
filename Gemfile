@@ -18,6 +18,7 @@ gem 'sorcery'
 gem 'rails-erd'
 gem 'twilio-ruby'
 gem 'figaro'
+gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
   gem 'shoulda-matchers'

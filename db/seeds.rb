@@ -17,7 +17,7 @@ class Seed
     seed.generate_user_with_projects
     seed.generate_users
     seed.generate_project_backers
-   
+
   end
 
   def generate_project_backers
@@ -33,7 +33,7 @@ class Seed
   end
 
   def generate_users
-    10.times do |n|
+    1000.times do |n|
       u = User.create!(name: "user #{n}",
                    email: "user#{n}@example.com",
                    password: "password",
@@ -77,20 +77,19 @@ class Seed
   end
 
   def generate_countries
-    countries = ['United States', 'Canada', 'Mexico', "France"]
-    countries.each do |country|
-      Country.create(name: country)
-    end
+    Country.create(name:'United States')
   end
 
   def generate_user_with_projects
     user = User.create!(
     name: "Sample User",
-    email: "email#{rand(5000)}@email.com",
+    email: "admin@admin.com",
     password: "password",
     password_confirmation: "password"
     )
-    user.projects << Project.all.shuffle[0..4]
+    User.all.each do |user|
+      user.projects << Project.all.shuffle[0..4]
+    end
   end
 
   def generate_cities
@@ -99,7 +98,7 @@ class Seed
         City.create(name: city, country_id: rand(1..4))
       puts "City #{City.name} created"
     end
-  end 
+  end
 end
 
 Seed.start
