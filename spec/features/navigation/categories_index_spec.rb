@@ -20,24 +20,22 @@ describe "As a user" do
       expect(page).to have_css("div.nav-wrapper")
     end
     it 'I expect to see a list of category names in the navbar on every page' do
+      category_1, category_2 = create_list(:category, 2)
+
       visit '/'
 
       find('.dropdown-button').click
 
-      expect(page).to have_selector(:link_or_button, "Art")
-      expect(page).to have_selector(:link_or_button, "Technology")
-      expect(page).to have_selector(:link_or_button, "Design")
-      expect(page).to have_selector(:link_or_button, "Games")
+      expect(page).to have_selector(:link_or_button, category_1.name)
+      expect(page).to have_selector(:link_or_button, category_2.name)
       expect(page).to have_selector(:link_or_button, "All Categories")
 
       visit '/categories'
 
       find('.dropdown-button').click
 
-      expect(page).to have_selector(:link_or_button, "Art")
-      expect(page).to have_selector(:link_or_button, "Technology")
-      expect(page).to have_selector(:link_or_button, "Design")
-      expect(page).to have_selector(:link_or_button, "Games")
+      expect(page).to have_selector(:link_or_button, category_1.name)
+      expect(page).to have_selector(:link_or_button, category_2.name)
       expect(page).to have_selector(:link_or_button, "All Categories")
     end
     it "I expect to see three projects from each category" do
