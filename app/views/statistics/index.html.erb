@@ -3,7 +3,7 @@
 
   <h1>PuntStartr Statistics</h1>
 
-  
+
   <h3>Projects by current dollars pledged </h3>
 
   <%= bar_chart @projects.map { |project|
@@ -17,5 +17,6 @@
   <%= line_chart @projects.map { |project|
     {name: project.title, data: project.project_backers.group_by_day(:created_at).sum(:pledge_amount)}
   } %>
+
 
 </div>

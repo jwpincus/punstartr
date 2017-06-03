@@ -16,7 +16,7 @@ The TwilioSender.send service can take an optional parameter of a user phone num
 - we always "reset" the database instead of seeding, so your go-to workflow should be `rake db:reset`. (you run into uniqueness validation problems if you try to seed twice in a row)
 - We used Materialize for styling.
 - if you want to see a sample user with projects, log in with `user_with_projects@email.com`, and `password`
-
+- using [highcharts]() and found [this tutorial](https://www.sitepoint.com/make-easy-graphs-and-charts-on-rails-with-chartkick/) very helpful, if you choose to extend this.
 
 ### Mark
 
