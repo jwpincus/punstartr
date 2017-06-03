@@ -1,13 +1,11 @@
 <ul id="dropdown1" class="dropdown-content">
-  <% if @categories %>
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to category.name, "/categories/#{category.name}", class: "category_dropdown_link" %>
-      </li>
-    <% end %>
-  <% end %>
+  <li><%= link_to "Art", "/categories/Art", class: "category_dropdown_link" %></li>
+  <li><%= link_to "Technology", "/categories/Technology", class: "category_dropdown_link" %></li>
+  <li><%= link_to "Design", "/categories/Design", class: "category_dropdown_link" %></li>
+  <li><%= link_to "Games", "/categories/Games", class: "category_dropdown_link" %></li>
+  <li><%= link_to "Fashion", "/categories/Fashion", class: "category_dropdown_link" %></li>
   <li class="divider"></li>
-  <li><a href='/categories'>All Categoies</a></li>
+  <li><a href='/categories'>All Categories</a></li>
 </ul>
 <nav>
   <div class="nav-wrapper grey">
