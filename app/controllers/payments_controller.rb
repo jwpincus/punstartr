@@ -1,7 +1,6 @@
 class PaymentsController < ApplicationController
 
   def new
-
     @reward = Reward.find(params[:reward_id])
   end
 
