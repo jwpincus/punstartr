@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 RSpec.feature "User adds a new reward to the database" do
-  context "user can fill out a form and generate a new reward" do
-
+  context "when city does not exist yet" do
     it "can create rewards" do
       category = create(:category)
       country = create(:country)
       user = create(:user)
       date = (Date.today + 30.days).strftime("%B %d, %Y")
-      # project = create(:project)
-      # user.projects <<  project
       image_url =  Faker::Avatar.image
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user)
+        .and_return(user)
       visit new_project_path
 
       select category.name,                from: 'project_category_id'
@@ -19,6 +18,7 @@ RSpec.feature "User adds a new reward to the database" do
       fill_in 'project[description]',      with: 'Lots of paint'
       fill_in 'project[image_url]',        with: image_url
       fill_in 'project[target_amount]',    with: '10000'
+      fill_in 'project[city]',             with: 'Paris'
       select country.name,                 from: 'project_country_id'
 
       click_on 'Save and continue'
