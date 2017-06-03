@@ -1,4 +1,7 @@
 <div class="container">
+
+  <h1>Create a New Project</h1>
+
   <%= form_for @project do |f| %>
 
     <%= f.label :title %>
@@ -18,7 +21,10 @@
     @categories.order(:name),
     :id,
     :name,
-    include_blank: true %><br>  
+    include_blank: true %><br>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
 
     <%= f.label :country %>
     <%= f.collection_select :country_id,

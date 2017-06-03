@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    city = City.find_or_create_by(
+      name: params[:project][:city],
+      country_id: params[:project][:country_id])
+    params[:project].merge!({city_id: city.id})
     @project = current_user.projects.new(project_params)
 
     if @project.save
@@ -33,6 +37,7 @@ class ProjectsController < ApplicationController
                                       :image_url,
                                       :target_amount,
                                       :category_id,
+                                      :city_id,
                                       :country_id,
                                       :completion_date)
     end
