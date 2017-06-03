@@ -1,5 +1,8 @@
 <div class="card blue-grey lighten-3 rewards_list container">
 
+<% if current_user == nil %>
+  <%= link_to "Please log in to continue", login_path %>
+<% else %>
   <% @project.rewards.each do |reward| %>
   <div class="card-content">
     <span class="card-title"> <%= reward.title %></span>
@@ -8,4 +11,5 @@
       <%= link_to "Continue", checkout_path(reward), class: "waves-effect waves-light btn" %>
   </div>
   <% end %>
+<% end %>
 </div>
