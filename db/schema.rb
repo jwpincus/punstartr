@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524214342) do
+ActiveRecord::Schema.define(version: 20170604235937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 20170524214342) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "vote_type"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_votes_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
+  end
+
   add_foreign_key "cities", "countries"
   add_foreign_key "project_backers", "projects"
   add_foreign_key "project_backers", "rewards"
@@ -103,4 +113,6 @@ ActiveRecord::Schema.define(version: 20170524214342) do
   add_foreign_key "projects", "cities"
   add_foreign_key "projects", "countries"
   add_foreign_key "rewards", "projects"
+  add_foreign_key "votes", "projects"
+  add_foreign_key "votes", "users"
 end
