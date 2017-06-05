@@ -15,8 +15,6 @@ class SessionsController < ApplicationController
     if confirmation_matches && login(params[:email], params[:password])
       flash[:success] = 'Welcome back!'
       redirect_to root_path
-      # redirect_to request.referer || root_path
-      # redirect_back(fallback_location: root_path)
     else
       flash.now[:warning] = 'E-mail and/or password is incorrect.'
       render 'new'
