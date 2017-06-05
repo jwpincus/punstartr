@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :require_login, only: [:new]
+  before_action :require_login, only: [:new, :edit]
   before_action :set_categories, only: [:new]
   before_action :set_countries, only: [:new]
 

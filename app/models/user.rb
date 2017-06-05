@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :backed_projects, through: :project_backers, source: :project
 
   has_many :rewards, through: :project_backers
+
+  def owner?(project)
+    projects.include?(project)
+  end
 end
