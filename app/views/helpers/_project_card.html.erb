@@ -9,7 +9,8 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
-      <%= project.description %>
+      <p><%= project.description %></p>
+      <%= render partial: 'helpers/project_edit', locals: {project: project} if current_user.owner?(project) %>
     </div>
   </div>
   <% end %>

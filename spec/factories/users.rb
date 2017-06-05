@@ -10,5 +10,8 @@ FactoryGirl.define do
     factory :user_with_projects do
       projects {create_list(:project, 2)}
     end
+    factory :user_with_a_project do
+      projects {create_list(:project, 1)}
+    end
   end
 end

@@ -29,7 +29,7 @@ RSpec.feature "User adds a new reward to the database" do
       fill_in "reward[pledge_amount]", with: 475
       fill_in "reward[limit]", with: 1
 
-      click_on "Save and Continue"
+      click_on 'Save and Continue'
 
       expect(current_path).to eq('/projects/1')
       expect(Reward.last.title).to eq("Raw Denim Romphim")
