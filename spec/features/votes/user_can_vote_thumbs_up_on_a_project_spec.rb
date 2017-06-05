@@ -71,6 +71,7 @@ RSpec.feature "as a user" do
 
       expect(user.votes.projects.find_by(project.id).id).to eq(project.id)
       expect(user.votes.projects.find_by(project.id).vote_type).to eq("downvote")
+    end
   end
 
   scenario "user can change an upvote to a downvote and vice versa" do
