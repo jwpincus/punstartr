@@ -28,7 +28,25 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    check_project_owner(@project)
   end
+
+  def update
+    city = City.find_or_create_by(
+      name: params[:project][:city],
+      country_id: params[:project][:country_id])
+    params[:project].merge!({city_id: city.id})
+    @project = Project.find(params[:id])
+    @project.update(project_params)
+
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      redirect_to new_project_path
+      flash[:warning] = "Please fill in all fields."
+    end
+  end
+
 
   private
     def project_params
