@@ -52,6 +52,10 @@ class Project < ApplicationRecord
   def self.most_funded
     Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').first
   end
+  
+  def self.most_funded_list
+    Project.joins(:project_backers).group(:id).order('sum(pledge_amount)desc').limit(5)
+  end
 
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
