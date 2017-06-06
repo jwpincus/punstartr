@@ -16,11 +16,8 @@ require 'rails_helper'
 RSpec.feature "As a logged-in user" do
   scenario "they can add a comment to a project" do
 
-    # Create a comment?
-
     project = create(:project)
     user = create(:user)
-    # comment = create(:comment)
     allow_any_instance_of(ApplicationController)
       .to receive(:current_user)
       .and_return(user)

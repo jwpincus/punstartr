@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524214342) do
+ActiveRecord::Schema.define(version: 20170605232908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20170524214342) do
     t.datetime "updated_at", null: false
     t.integer  "country_id"
     t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_comments_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "countries", force: :cascade do |t|
@@ -94,6 +104,8 @@ ActiveRecord::Schema.define(version: 20170524214342) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
   add_foreign_key "project_backers", "projects"
   add_foreign_key "project_backers", "rewards"
   add_foreign_key "project_backers", "users"
