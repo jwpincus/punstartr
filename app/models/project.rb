@@ -60,4 +60,12 @@ class Project < ApplicationRecord
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
   end
+
+  def self.most_backers(limit)
+    joins(:project_backers)
+      .select("projects.*, COUNT(project_backers.id) AS backer_count")
+      .group(:id)
+      .order('backer_count DESC')
+      .limit(limit)
+  end
 end

@@ -26,4 +26,14 @@ Rails.application.routes.draw do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
+
+  namespace :api do
+    namespace :v1 do
+      namespace :projects do
+        get 'most_backers', to: 'most_backers#index'
+      end
+    end
+  end
+
+
 end
