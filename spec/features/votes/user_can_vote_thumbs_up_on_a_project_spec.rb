@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "as a user" do
-  scenario "guest user can view project votes on project page" do
+  xscenario "guest user can view project votes on project page" do
     project = create(:project_with_votes, 4)
 
     visit project_path(project.id)
@@ -11,7 +11,7 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "guest user has to log in if she wishes to upvote a project" do
+  xscenario "guest user has to log in if she wishes to upvote a project" do
     project = create(:project_with_votes, 4)
 
     visit project_path(project.id)
@@ -26,7 +26,7 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "logged-in user can upvote a project by clicking the thumbs up icon" do
+  xscenario "logged-in user can upvote a project by clicking the thumbs up icon" do
     project = create(:project)
     user = create(:user)
 
@@ -50,7 +50,7 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "user can downvote a project by clicking the thumbs down icon" do
+  xscenario "user can downvote a project by clicking the thumbs down icon" do
     project = create(:project)
     user = create(:user)
 
@@ -74,7 +74,7 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "user can change an upvote to a downvote and vice versa" do
+  xscenario "user can change an upvote to a downvote and vice versa" do
     project = create(:project)
     user = create(:user)
     vote = user.votes.create(:vote, vote_type: 0, project_id: project.id)
@@ -102,7 +102,7 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "user can remove vote status from a project by clicking on an existing upvote or downvote thumb icon" do
+  xscenario "user can remove vote status from a project by clicking on an existing upvote or downvote thumb icon" do
     project = create(:project)
     user = create(:user)
     vote = user.votes.create(:vote, vote_type: 0, project_id: project.id)
