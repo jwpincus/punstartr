@@ -58,4 +58,8 @@ class Project < ApplicationRecord
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
   end
+
+  def upvotes
+    self.votes.where(vote_type: :upvote).count
+  end
 end

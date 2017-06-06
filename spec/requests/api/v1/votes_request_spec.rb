@@ -36,6 +36,8 @@ describe "votes api" do
     user = create(:user)
     project = create(:project)
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     post "/api/v1/votes?vote_type=upvote&user_id=#{user.id}&project_id=#{project.id}"
 
     expect(response.code).to eq("201")

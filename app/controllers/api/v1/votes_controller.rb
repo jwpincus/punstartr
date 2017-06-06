@@ -1,4 +1,5 @@
 class Api::V1::VotesController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
     render json: Vote.all
@@ -9,7 +10,8 @@ class Api::V1::VotesController < ApplicationController
   end
 
   def create
-    vote = User.find(params[:user_id]).votes.create(vote_params)
+    byebug
+    vote = current_user.votes.create(vote_params)
     render status: 201, json: {
       message: "Successfully create a vote.",
       vote: vote
@@ -19,7 +21,7 @@ class Api::V1::VotesController < ApplicationController
   private
 
   def vote_params
-    params.permit(:vote_type, :project_id)
+    params.require(:post).permit(:vote_type, :project_id)
   end
 
 end
