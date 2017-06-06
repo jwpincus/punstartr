@@ -36,5 +36,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :graphs, only: [:index]
 
 end
