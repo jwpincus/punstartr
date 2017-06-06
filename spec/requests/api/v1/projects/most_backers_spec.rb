@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 describe 'projects with most backers' do
+  attr_reader :backers, :max_backers
   before :each do
-    create_list(:project_with_random_amt_of_backers, 10)
+    create_list(:project_with_random_amt_of_backers, 15)
+    @backers = Project.all.map {|project| project.project_backers.count }
+    @max_backers = backers.max
   end
   it "returns x number of project" do
     limit = 6
-    backers = Project.all.map {|project| project.project_backers.count }
-    max_backers = backers.max
     min_backers = backers.sort.reverse.take(limit).last
 
     get "/api/v1/projects/most_backers", params: {limit: limit}
@@ -19,17 +20,16 @@ describe 'projects with most backers' do
     expect(projects.first[:backers]).to eq(max_backers)
     expect(projects.last[:backers]).to eq(min_backers)
   end
-  # xit "returns default (10) number of properties" do
-  #
-  #   get "/api/v1/properties/most_guests"
-  #
-  #   expect(response).to be_success
-  #   properties = JSON.parse(response.body, symbolize_names: true)
-  #
-  #   expect(properties.count).to eq(10)
-  #   expect(properties.first[:number_of_guests]).to eq(30)
-  #   expect(properties.first[:city]).to eq("Tulsa")
-  #   expect(properties.last[:number_of_guests]).to eq(21)
-  #   expect(properties.last[:city]).to eq("Denver")
-  # end
+  it "returns default (10) number of projects" do
+    min_backers = backers.sort.reverse.take(10).last
+
+    get "/api/v1/projects/most_backers"
+
+    expect(response).to be_success
+    projects = JSON.parse(response.body, symbolize_names: true)
+
+    expect(projects.count).to eq(10)
+    expect(projects.first[:backers]).to eq(max_backers)
+    expect(projects.last[:backers]).to eq(min_backers)
+  end
 end

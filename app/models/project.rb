@@ -62,6 +62,7 @@ class Project < ApplicationRecord
   end
 
   def self.most_backers(limit)
+    limit = 10 if limit.nil?
     joins(:project_backers)
       .select("projects.*, COUNT(project_backers.id) AS backer_count")
       .group(:id)

@@ -78,6 +78,9 @@ class Seed
 
   def generate_countries
     Country.create(name:'United States')
+    Country.create(name:'Mexico')
+    Country.create(name:'France')
+    Country.create(name:'Canada')
   end
 
   def generate_user_with_projects
