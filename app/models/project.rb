@@ -69,4 +69,9 @@ class Project < ApplicationRecord
       .order('backer_count DESC')
       .limit(limit)
   end
+
+  def self.ending_soon(limit)
+    limit = 10 if limit.nil?
+    order(completion_date: :desc).limit(limit)
+  end
 end

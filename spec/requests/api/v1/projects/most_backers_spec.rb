@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'projects with most backers' do
+describe 'projects ending soon' do
   attr_reader :backers, :max_backers
   before :each do
     create_list(:project_with_random_amt_of_backers, 15)

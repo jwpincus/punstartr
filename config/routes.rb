@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :projects do
         get 'most_backers', to: 'most_backers#index'
+        get 'ending_soon', to: 'ending_soon#index'
       end
     end
   end
