@@ -8,13 +8,14 @@
         <%= image_tag @project.image_url %><br>
         <i class="small material-icons">view_module</i><%=link_to @project.category['name'], category_path(@project.category)%>
 
-        <i class="small material-icons">location_on</i><%= @project.city.name %>, <%= @project.city.country.name %>
+        <i class="small material-icons">location_on</i><%= @project.city.name %>, <%= @project.city.country.name %><br><br>
+
         <div class="votes_section">
           <% if current_user %>
           <%= render partial: "votes" %>
           <%= hidden_field(:project, :id) %>
           <% else %>
-          <p><i>HEY! Please log in to support this project with a vote.</i></p>
+          <p><i>HEY! Please <%= link_to "sign up", signup_path %> or <%= link_to "log in", login_path %> to support this project with a vote.</i></p>
           <% end %>
           <p><%= @project.upvotes %> people love this project.</p>
         </div>
