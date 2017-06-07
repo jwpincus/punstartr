@@ -51,10 +51,22 @@
 
   <div class="comments-section">
     <h5>Comments</h5>
-    <%= button_to "Add a Comment" %>
-    <div id="comment-form" style="display:none;"></div>
-    <div class="comments-list">
+    <% if current_user %>
+      <div id="comment-form">
+        <form class="post-form form-group">
+          <textarea name="comment[body]" placeholder="Add a comment" class="form-control"></textarea><br/><br/>
+          <%= hidden_field(:project, :id) %>
+          <input type="submit" class="btn btn-primary" value="Submit Comment">
+        </form>
+      </div>
+    <% else %>
+      <p><em>Please log in or create an account to add a comment</em></p>
+    <% end %>
 
+    <div id="comments-list">
+      <!-- <% @project.comments.each do |comment| %>
+        <%#= comment.body %>
+      <% end %> -->
     </div>
   </div>
 </div>
@@ -65,3 +77,5 @@
   </div>
 </div>
 </div>
+
+<%= javascript_include_tag "comments" %>
