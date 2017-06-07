@@ -48,6 +48,15 @@
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3kyyZa_6q0s1dqTdI93pSxImIR3qewjM&q=<%= @project.city['name'] %>" allowfullscreen>
     </iframe>
   </div>
+
+  <div class="comments-section">
+    <h5>Comments</h5>
+    <%= button_to "Add a Comment" %>
+    <div id="comment-form" style="display:none;"></div>
+    <div class="comments-list">
+
+    </div>
+  </div>
 </div>
 
   <div class="col s4">
