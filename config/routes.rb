@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   get '/logout',    to: "sessions#destroy"
   get '/confirmation', to: "confirmation#show"
 
+
   namespace :users, as: :user, path: 'users' do
     get '/:user_id/projects', to: "projects#index"
   end
+
   resources :users, only: [:new, :create, :index]
 
   resources :categories, only: [:index, :show]
@@ -21,15 +23,17 @@ Rails.application.routes.draw do
 
   get '/checkout/:reward_id', to: "payments#new", as: "checkout"
 
-
   resources :sessions, only: [:new, :create, :destroy] do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :comments, only: [:index, :create], defaults: {format: :json}
+      resources :votes, only: [:index, :show, :create]
+      resources :users
+      resources :comments, only: [:index, :create]
     end
   end
+
 end

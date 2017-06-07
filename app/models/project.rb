@@ -10,6 +10,7 @@ class Project < ApplicationRecord
   has_many   :project_backers
   has_many   :backers, through: :project_backers, source: :user
   has_many   :comments
+  has_many   :votes, dependent: :destroy
 
   validates  :title,
              :description,
@@ -57,5 +58,9 @@ class Project < ApplicationRecord
 
   def days_remaining
    (Date.parse(end_date) - Date.today).to_s
+  end
+
+  def upvotes
+    self.votes.where(vote_type: :upvote).count
   end
 end

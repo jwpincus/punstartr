@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170605232908) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +21,10 @@ ActiveRecord::Schema.define(version: 20170605232908) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "topic"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -43,6 +49,14 @@ ActiveRecord::Schema.define(version: 20170605232908) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "chatroom_id"
+    t.integer "user_id"
+    t.string  "content"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "project_backers", force: :cascade do |t|
@@ -103,9 +117,21 @@ ActiveRecord::Schema.define(version: 20170605232908) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "vote_type"
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_votes_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
+  end
+
   add_foreign_key "cities", "countries"
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "project_backers", "projects"
   add_foreign_key "project_backers", "rewards"
   add_foreign_key "project_backers", "users"
@@ -115,4 +141,6 @@ ActiveRecord::Schema.define(version: 20170605232908) do
   add_foreign_key "projects", "cities"
   add_foreign_key "projects", "countries"
   add_foreign_key "rewards", "projects"
+  add_foreign_key "votes", "projects"
+  add_foreign_key "votes", "users"
 end
