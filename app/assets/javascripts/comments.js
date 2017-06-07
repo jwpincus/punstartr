@@ -1,3 +1,19 @@
+$(document).ready(function(){
+  $.ajax({
+    url: '/api/v1/comments',
+    method: 'GET',
+    dataType: 'json'
+  }).done(function(data) {
+    $('#comments-list').html("");
+    for (var i = 0; i < data.length; i++) {
+      $('#comments-list').append('<p class="comment" id=' + data[i].id + '>' + data[i].body + '</p>');
+    }
+  }).fail(function(error) {
+    console.log(error);
+  });
+});
+
+
 $('.post-form input[type="submit"]').on('click', createComment);
 
 function createComment() {
