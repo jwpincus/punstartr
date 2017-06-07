@@ -2,9 +2,10 @@
 
   <% @project.rewards.each do |reward| %>
   <div class="card-content">
-    <span class="card-title"> <%= reward.title %></span>
+    <span class="card-title"> <%= reward.title %><p><%= reward.price %></p></span>
       <p>remaining <%= reward.limit %></p>
       <p><%= reward.description %></p>
+      <p><%= reward.price %></p>
       <%= link_to "Continue", checkout_path(reward), class: "waves-effect waves-light btn" %>
   </div>
   <% end %>
