@@ -6,6 +6,8 @@ RSpec.feature "as a user", js: true do
 
     visit project_path(project.id)
 
+    sleep(6)
+
     within(".votes_section") do
       expect(page).to have_content("#{project.upvotes} people love this project.")
     end
@@ -15,6 +17,8 @@ RSpec.feature "as a user", js: true do
     project = create(:project_with_votes)
 
     visit project_path(project.id)
+
+    sleep(2)
 
     within(".votes_section") do
       expect(page).to have_content("Please log in to support this project with a vote.")
@@ -29,10 +33,8 @@ RSpec.feature "as a user", js: true do
 
     visit "projects/#{project.id}"
 
-
     within(".votes_section") do
       find("#thumbup").click
-
     end
     sleep(2)
     expect(user.votes.first.project).to eq(project)
@@ -60,6 +62,7 @@ RSpec.feature "as a user", js: true do
 
       click_on "upvote_icon"
 
+      sleep(2)
       expect(user.votes.find_by(project.id).vote_type).to eq(nil)
     end
   end

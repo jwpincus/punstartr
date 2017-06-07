@@ -38,7 +38,9 @@ describe "votes api" do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    post "/api/v1/votes?vote_type=upvote&user_id=#{user.id}&project_id=#{project.id}"
+    vote_params = { vote_type: "upvote", project_id: project.id }
+
+    post "/api/v1/votes", params: { post: vote_params}
 
     expect(response.code).to eq("201")
 
@@ -46,6 +48,8 @@ describe "votes api" do
 
     expect(vote).to be_a(Hash)
     expect(vote["vote"]["vote_type"]).to eq("upvote")
+    expect(vote["vote"]["project_id"]).to eq(project.id)
+    expect(vote["vote"]["user_id"]).to eq(user.id)
   end
 # can create one vote by its id
 # can update one vote by its id

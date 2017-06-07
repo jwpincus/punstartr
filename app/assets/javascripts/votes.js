@@ -13,6 +13,7 @@ $(document).ready(function() {
         $('#thumbup').addClass("green-thumb")
         // come back to change color of thumb to show upvote recorded properly
         // come back and append text for "you have upvoted this project!"
+        // message for "you have already voted!"
       }).fail(function(error) {
         console.log(error);
       });
