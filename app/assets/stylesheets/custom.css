@@ -1,0 +1,16 @@
+svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#plot-container {
+  text-align: center;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
