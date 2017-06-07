@@ -26,4 +26,9 @@ Rails.application.routes.draw do
     post :authorization, on: :collection
   end
   resources :payments, only: [:create]
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resources :users
+    end
+  end
 end
