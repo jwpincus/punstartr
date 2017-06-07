@@ -34,7 +34,7 @@ group :development, :test do
   gem 'materialize-rails'
   gem 'launchy'
   gem 'byebug', platform: :mri
-  gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
 

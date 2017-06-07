@@ -274,7 +274,7 @@ DEPENDENCIES
   rails-erd
   rspec-rails
   sass-rails (~> 5.0)
-  selenium-webdriver (~> 2.53.4)
+  selenium-webdriver
   shoulda-matchers
   simplecov
   sorcery

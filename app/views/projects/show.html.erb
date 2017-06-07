@@ -14,7 +14,7 @@
           <%= render partial: "votes" %>
           <%= hidden_field(:project, :id) %>
           <% else %>
-          <p>Please log in to support this project with a vote.</p>
+          <p><i>HEY! Please log in to support this project with a vote.</i></p>
           <% end %>
           <p><%= @project.upvotes %> people love this project.</p>
         </div>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "as a user" do
+RSpec.feature "as a user", js: true do
   scenario "guest user can view project votes on project page" do
     project = create(:project_with_votes)
 
@@ -21,18 +21,20 @@ RSpec.feature "as a user" do
     end
   end
 
-  scenario "logged-in user can upvote a project by clicking the thumbs up icon", :js => true do
+  scenario "logged-in user can upvote a project by clicking the thumbs up icon" do
     project = create(:project)
     user = create(:user)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit project_path(project.id)
+    visit "projects/#{project.id}"
+
 
     within(".votes_section") do
       find("#thumbup").click
-#ajax call here to create new vote
+
     end
+    sleep(2)
     expect(user.votes.first.project).to eq(project)
   end
 

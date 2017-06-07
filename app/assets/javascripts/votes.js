@@ -10,7 +10,9 @@ $(document).ready(function() {
         { post:
           { vote_type: "upvote", project_id: $("input#project_id").val() } }
       }).done(function(data) {
+        $('#thumbup').addClass("green-thumb")
         // come back to change color of thumb to show upvote recorded properly
+        // come back and append text for "you have upvoted this project!"
       }).fail(function(error) {
         console.log(error);
       });
