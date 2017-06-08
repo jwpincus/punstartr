@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'support/factory_girl'
 require 'database_cleaner'
 require 'faker'
+require 'support/mailer_macros'
 
 
 include ActionView::Helpers::NumberHelper
@@ -22,6 +23,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
 end
 
 Capybara.register_driver :selenium_chrome do |app|
