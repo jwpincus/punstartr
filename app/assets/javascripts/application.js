@@ -12,10 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require jquery2
+//= require d3
 //= require materialize
 //= require owl.carousel
+//= require_tree .
+
 $(document).ready(function() {
     $('select').material_select();
     $(".dropdown-button").dropdown();
