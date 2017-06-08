@@ -6,7 +6,7 @@ RSpec.feature "as a user", js: true do
 
     visit project_path(project.id)
 
-    sleep(6)
+    sleep(2)
 
     within(".votes_section") do
       expect(page).to have_content("#{project.upvotes} people love this project.")
@@ -21,7 +21,7 @@ RSpec.feature "as a user", js: true do
     sleep(2)
 
     within(".votes_section") do
-      expect(page).to have_content("Please log in to support this project with a vote.")
+      expect(page).to have_content("HEY! Please sign up or log in to support this project with a vote.")
     end
   end
 
@@ -40,42 +40,20 @@ RSpec.feature "as a user", js: true do
     expect(user.votes.first.project).to eq(project)
   end
 
-  xscenario "user can remove vote status from a project by clicking on an existing upvote icon" do
+  scenario "user can remove vote status from a project by clicking on an existing upvote icon" do
     project = create(:project)
     user = create(:user)
-    vote = user.votes.create(:vote, project_id: project.id)
+    vote = create(:vote, project_id: project.id, user_id: user.id)
 
-    visit root_path
-    click_on "Login"
-
-    expect(current_path).to eq(login_path)
-    fill_in "username", with: user.email
-    fill_in "password", with: user.password
-    click_on "submit"
-
-    expect(page).to have_content("Welcome back!")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit project_path(project.id)
 
     within(".votes_section") do
-      expect(user.votes.find_by(project.id).vote_type).to eq("upvote")
-
-      click_on "upvote_icon"
-
-      sleep(2)
-      expect(user.votes.find_by(project.id).vote_type).to eq(nil)
+      find("#thumbdown").click
     end
+
+    sleep(2)
+    expect(user.votes.find_by(project_id: @project_id)).to eq(nil)
   end
-
 end
-
-
-# As a guest user
-# When I visit an individual project page
-# I can see a total number of likes on each project as a guest (but will be prompted to log in if i want to vote as a guest user)
-# As a logged-in user
-# I can "like" the project by clicking the thumbs up icon
-# and i can dislike the project by clicking on the thumbs down icon
-# I can change my like to a dislike and vice versa
-# and I can remove my like or dislike by clicking on it
-# and i can see this happen in real-time (ajax)

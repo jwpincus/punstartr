@@ -51,7 +51,20 @@ describe "votes api" do
     expect(vote["vote"]["project_id"]).to eq(project.id)
     expect(vote["vote"]["user_id"]).to eq(user.id)
   end
-# can create one vote by its id
-# can update one vote by its id
-# can delete one vote by its id
+
+  it "can delete a vote" do
+    user = create(:user)
+    project = create(:project)
+    vote = create(:vote, user_id: user.id, project_id: project.id)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    expect(Vote.count).to eq(1)
+
+    delete "/api/v1/votes/#{vote.id}"
+
+    expect(response.code).to eq("204")
+    expect(Vote.count).to eq(0)
+    expect{ Vote.find(vote.id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
 end
