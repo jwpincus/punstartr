@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :comments, only: [:index, :create]
       resources :votes, only: [:index, :show, :create, :destroy]
       resource :user, only: [:update]
       namespace :projects do

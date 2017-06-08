@@ -17,8 +17,20 @@ class Seed
     seed.generate_user_with_projects
     seed.generate_users
     seed.generate_project_backers
+    seed.generate_comments
     seed.generate_votes
+  end
 
+
+
+  def generate_comments
+    500.times do |n|
+      comment = Comment.create!(body: Faker::Hipster.sentence,
+                                user: User.all.shuffle.first,
+                                project: Project.all.shuffle.first
+                                )
+      puts "User #{comment.user.name} commented on project #{comment.project.title}"
+    end
   end
 
   def generate_project_backers

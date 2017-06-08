@@ -61,6 +61,25 @@
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC3kyyZa_6q0s1dqTdI93pSxImIR3qewjM&q=<%= @project.city['name'] %>" allowfullscreen>
     </iframe>
   </div>
+
+  <div class="comments-section">
+    <h5>Comments (<%= @project.comments.count %>)</h5>
+    <% if current_user %>
+      <div id="comment-form">
+        <form class="post-form form-group">
+          <textarea name="comment[body]" placeholder="Add a comment" class="form-control"></textarea><br/><br/>
+          <%= hidden_field(:project, :id) %>
+          <input type="submit" class="btn btn-primary" value="Submit Comment">
+        </form>
+      </div>
+    <% else %>
+      <p><em>Please log in or create an account to add a comment</em></p>
+    <% end %>
+
+    <div id="comments-list">
+      
+    </div>
+  </div>
 </div>
 
   <div class="col s4">
@@ -70,4 +89,6 @@
 </div>
 </div>
 
+
+<%= javascript_include_tag "comments" %>
 <%= javascript_include_tag 'votes' %>

@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   has_many :rewards, through: :project_backers
 
+  has_many :comments
+
   has_many :votes, dependent: :destroy
 
 

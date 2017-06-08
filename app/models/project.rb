@@ -9,6 +9,7 @@ class Project < ApplicationRecord
   has_many   :rewards
   has_many   :project_backers
   has_many   :backers, through: :project_backers, source: :user
+  has_many   :comments
   has_many   :votes, dependent: :destroy
 
   validates  :title,

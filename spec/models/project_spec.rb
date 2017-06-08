@@ -26,6 +26,7 @@ RSpec.describe Project, type: :model do
     it { should have_many(:rewards) }
     it { should have_many(:project_backers) }
     it { should have_many(:backers).through(:project_backers) }
+    it { should have_many(:comments) }
   end
 
   describe "#target_amount" do
