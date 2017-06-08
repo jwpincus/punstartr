@@ -36,8 +36,12 @@ Rails.application.routes.draw do
         get 'most_backers', to: 'most_backers#index'
         get 'ending_soon', to: 'ending_soon#index'
       end
+      namespace :categories do
+        get 'count_by_project', to: 'count_by_project#index'
+      end
     end
   end
 
+  resources :graphs, only: [:index]
 
 end
