@@ -22,18 +22,20 @@ gem 'simplecov', :require => false, :group => :test
 gem 'will_paginate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'owlcarousel-rails'
+gem 'materialize-rails'
+gem 'faker'
+gem 'harry_potter_faker'
+gem 'sidekiq'
+gem 'redis'
 
 group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'harry_potter_faker'
   gem 'pry'
   gem 'awesome_print'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'faker'
-  gem 'materialize-rails'
   gem 'launchy'
   gem 'byebug', platform: :mri
   gem 'selenium-webdriver'

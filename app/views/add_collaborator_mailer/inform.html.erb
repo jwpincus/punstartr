@@ -1,0 +1,9 @@
+Hello, <%= @contact.name%>
+
+<%= @owner.name %> has invited you to join his project on PuntStarter.
+
+You can view the project <%= link_to "Here", project_url(@project, host: 'localhost:3000') %>
+
+Click this link to confirm that you would like to join this project
+
+Link will expire in 24 hours.

@@ -6,7 +6,7 @@ RSpec.feature "as a user", js: true do
 
     visit project_path(project.id)
 
-    sleep(2)
+    # sleep(2)
 
     within(".votes_section") do
       expect(page).to have_content("#{project.upvotes} people love this project.")
