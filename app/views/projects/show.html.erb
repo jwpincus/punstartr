@@ -17,6 +17,9 @@
           <% else %>
           <p><i>HEY! Please <%= link_to "sign up", signup_path %> or <%= link_to "log in", login_path %> to support this project with a vote.</i></p>
           <% end %>
+          <div id="votes_count">
+
+          </div>
           <p><%= @project.upvotes %> people love this project.</p>
         </div>
       </div>

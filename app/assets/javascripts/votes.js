@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
   $('#thumbup').on('click', function() {
     function createVote() {
@@ -12,11 +12,8 @@ $(document).ready(function() {
           { vote_type: "upvote", project_id: $("input#project_id").val() } }
       }).done(function(data) {
         $('#thumbup').addClass("aqua-thumb");
-        $('#votes_section').append('<p class="post>' + "Your vote has been saved!" + '</p>');
-
-        // come back to change color of thumb to show upvote recorded properly
-        // come back and append text for "you have upvoted this project!"
-        // message for "you have already voted!"
+        $('#thumbdown').removeClass("red-thumb");
+        $('#votes_count').text('Yeah! Your vote has been saved!');
       }).fail(function(error) {
         console.log(error);
       });
@@ -32,6 +29,8 @@ $(document).ready(function() {
           method: 'DELETE',
         }).done(function(data) {
           $('#thumbup').removeClass("aqua-thumb");
+          $('#thumbdown').addClass("red-thumb");
+          $('#votes_count').text('Boooo. Your vote has been removed.');
         }).fail(function(error) {
           console.log(error);
         });
@@ -39,8 +38,4 @@ $(document).ready(function() {
       deleteVote();
     });
 
-    $('form').on('submit', function(event){
-    event.preventDefault();
-  });
-
-});
+// });
