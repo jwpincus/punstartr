@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
   resources :rewards, only: [:index, :create, :new]
-  resources :projects, only: [:index, :show, :edit, :new, :create]
+  resources :projects, only: [:index, :show, :edit, :new, :create, :update]
 
   namespace :projects do
     get '/:project_id/rewards', to: "rewards#index", as: "rewards"
@@ -31,7 +31,13 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :votes, only: [:index, :show, :create, :destroy]
+      resource :user, only: [:update]
+      namespace :projects do
+        get 'most_backers', to: 'most_backers#index'
+        get 'ending_soon', to: 'ending_soon#index'
+      end
     end
   end
+
 
 end

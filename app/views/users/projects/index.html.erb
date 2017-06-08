@@ -1,3 +1,33 @@
+<% if @user %>
+<h3>Your Account information</h3>
+<table>
+    <thead>
+      <tr>
+          <th></th>
+          <th><h5>Click Field to Edit:</h5><br> your information will save automagically</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><h5>Name:</h5></td>
+        <td class='user-edit-field' id='name-field' contenteditable="true"><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td><h5>Email:</h5></td>
+        <td class='user-edit-field' id='email-field' contenteditable="true"><%= @user.email %></td>
+
+      </tr>
+      <tr>
+        <td><h5>Phone:</h5></td>
+        <td class='user-edit-field' id='phone-field' contenteditable="true"><%= @user.phone %></td>
+
+      </tr>
+
+    </tbody>
+  </table>
+<% end %>
 <h3>Pledged Rewards</h3>
 
 <div class="row container">
@@ -16,6 +46,8 @@
   <% end %>
 </div>
 
-
 <h3>Your Puntd Projects</h3>
-<%= render "helpers/project_card" %>
+
+<div class="user-projects">
+  <%= render "helpers/project_card" %>
+</div>
