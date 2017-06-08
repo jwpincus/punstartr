@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
   resources :rewards, only: [:index, :create, :new]
-  resources :projects, only: [:index, :show, :edit, :new, :create, :update]
+  resources :projects, only: [:index, :show, :edit, :new, :create, :update] do
+    resources :collaborators, only: [:new, :create]
+  end
 
   namespace :projects do
     get '/:project_id/rewards', to: "rewards#index", as: "rewards"
