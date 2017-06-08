@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'simplecov', :require => false, :group => :test
 gem 'will_paginate'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'owlcarousel-rails'
 
 group :development, :test do
   gem 'shoulda-matchers'
