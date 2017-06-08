@@ -17,6 +17,8 @@ RSpec.feature 'user adds a collaborator to a project' do
     click_on "Add Collaborator"
 
     expect(current_path).to eq(project_path(project))
-    expect(project.owners).to eq([user1, user2])
+    expect(page).to have_content("Email sent to #{user2.name}")
+    expect(last_email).to have_content(user2.name)
+    # expect(project.owners).to eq([user1, user2])
   end
 end

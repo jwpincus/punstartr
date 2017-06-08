@@ -6,7 +6,16 @@ class CollaboratorsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @project.owners << User.find_by(email: params[:user][:email])
+
+    if user = User.find_by(email: params[:user][:email])
+      flash[:success] = "Email sent to #{user.name}"
+      AddCollaboratorMailer.inform(user, current_user, @project).deliver_now
+
+      # @project.owners << User.find_by(email: params[:user][:email])
+    else
+      flash[:error] = "This email does not match any registered users"
+    end
+
     redirect_to project_path(@project)
   end
 end
