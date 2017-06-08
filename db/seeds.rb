@@ -72,7 +72,7 @@ class Seed
       Project.create!(
         title: Faker::Commerce.product_name + rand(0..1000).to_s,
         description: Faker::Hipster.paragraph,
-        image_url: "https://unsplash.it/600/400?image=#{rand(0..100)}",
+        image_url: "https://unsplash.it/600/400?image=#{rand(0..85)}",
         target_amount: rand(1000..100000).to_f,
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample,
