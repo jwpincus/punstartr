@@ -4,9 +4,12 @@ $(document).ready(function(){
     method: 'GET',
     dataType: 'json'
   }).done(function(data) {
+    var project_id = $(".post-form input[type='hidden']").val();
     $('#comments-list').html("");
     for (var i = 0; i < data.length; i++) {
-      $('#comments-list').append('<p class="comment" id=' + data[i].id + '>' + data[i].body + '</p>');
+      if (data[i].project_id === +project_id) {
+        $('#comments-list').prepend('<p class="comment" id=' + data[i].id + '>' + data[i].body + '</p>');
+      }
     }
   }).fail(function(error) {
     console.log(error);
@@ -31,8 +34,15 @@ function createComment() {
       }
     }
   }).done(function(data){
+
+    var str = $('.comments-section h5').text();
+    var old_num = +str.split("(")[1].split(")")[0];
+    var new_num = old_num + 1;
+    var new_string = "Comments (" + new_num + ")";
+    $('.comments-section h5').text(new_string);
+
     $('textarea[name="comment[body]"]').val('');
-    return $('#comments-list').append('<p class="comment">' + body + '</p>');
+    return $('#comments-list').prepend('<p class="comment">' + body + '</p>');
   }).fail(function(error){
     console.log(error);
   });
