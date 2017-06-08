@@ -17,6 +17,7 @@ class Seed
     seed.generate_user_with_projects
     seed.generate_users
     seed.generate_project_backers
+    seed.generate_votes
 
   end
 
@@ -29,6 +30,17 @@ class Seed
                             pledge_amount: rand(10..1000)
       )
       puts "ProjectBacker #{proj.user} backing #{proj.project.title} created"
+    end
+  end
+
+  def generate_votes
+    1.times do
+      User.all.each do |user|
+        user.votes.create!(
+                           vote_type: "upvote", project_id: Project.all.shuffle.first.id
+        )
+        puts "Vote for #{user.name} for project id #{user.votes.last.project.id} created"
+      end
     end
   end
 
@@ -82,10 +94,10 @@ class Seed
 
   def generate_user_with_projects
     user = User.create!(
-    name: "Sample User",
-    email: "admin@admin.com",
-    password: "password",
-    password_confirmation: "password"
+                        name: "Sample User",
+                        email: "admin@admin.com",
+                        password: "password",
+                        password_confirmation: "password"
     )
     User.all.each do |user|
       user.projects << Project.all.shuffle[0..4]
