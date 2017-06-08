@@ -16,6 +16,9 @@ class User < ApplicationRecord
 
   has_many :rewards, through: :project_backers
 
+  has_many :votes, dependent: :destroy
+
+
   def owner?(project)
     projects.include?(project)
   end

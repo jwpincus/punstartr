@@ -42,7 +42,6 @@ RSpec.feature "User adds a new reward to the database" do
       expect(page).to have_content('Lots of paint')
       expect(page).to have_css("img[src*='#{image_url}']")
       expect(page).to have_content('$10,000')
-      expect(page).to have_content(date)
     end
   end
 end
