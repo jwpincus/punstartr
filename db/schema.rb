@@ -21,10 +21,6 @@ ActiveRecord::Schema.define(version: 20170604235937) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "topic"
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -37,14 +33,6 @@ ActiveRecord::Schema.define(version: 20170604235937) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.integer "chatroom_id"
-    t.integer "user_id"
-    t.string  "content"
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id", using: :btree
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "project_backers", force: :cascade do |t|
@@ -116,8 +104,6 @@ ActiveRecord::Schema.define(version: 20170604235937) do
   end
 
   add_foreign_key "cities", "countries"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "project_backers", "projects"
   add_foreign_key "project_backers", "rewards"
   add_foreign_key "project_backers", "users"

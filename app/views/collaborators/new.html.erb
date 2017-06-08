@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Invite to collaborate</h1>
+
+  <%= form_for @project, url: project_collaborators_path, html: {method: 'post'} do |f| %>
+    <%= fields_for @collaborator do |c| %>
+      <%= c.label :email %>
+      <%= c.text_field :email %>
+    <% end %>
+
+    <%= f.submit "Add Collaborator" %>
+  <% end %>
+
+</div>
