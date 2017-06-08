@@ -45,13 +45,15 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     awesome_print (1.7.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
-    capybara (2.14.0)
+    capybara (2.14.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -60,17 +62,22 @@ GEM
       xpath (~> 2.0)
     case_transform (0.2)
       activesupport
+    childprocess (0.7.0)
+      ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    chromedriver-helper (1.1.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     coderay (1.1.1)
-    coffee-rails (4.2.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
+      railties (>= 4.0.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    database_cleaner (1.5.3)
+    database_cleaner (1.6.1)
     diff-lcs (1.3)
     docile (1.1.5)
     erubis (2.7.0)
@@ -90,9 +97,10 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     harry_potter_faker (0.0.1)
-    i18n (0.8.1)
-    jbuilder (2.6.4)
-      activesupport (>= 3.0.0)
+    i18n (0.8.4)
+    io-like (0.3.0)
+    jbuilder (2.7.0)
+      activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
@@ -117,15 +125,15 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.1.0)
+    mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    nio4r (2.0.0)
-    nokogiri (1.7.2)
-      mini_portile2 (~> 2.1.0)
-    oauth (0.5.2)
+    nio4r (2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
+    oauth (0.5.3)
     oauth2 (1.3.1)
       faraday (>= 0.8, < 0.12)
       jwt (~> 1.0)
@@ -138,7 +146,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.8.2)
+    puma (3.9.1)
     rack (2.0.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -157,7 +165,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.5.0)
+    rails-erd (1.5.2)
       activerecord (>= 3.2)
       activesupport (>= 3.2)
       choice (~> 0.2.0)
@@ -191,14 +199,19 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    ruby-graphviz (1.2.2)
-    sass (3.4.23)
+    ruby-graphviz (1.2.3)
+    rubyzip (1.2.1)
+    sass (3.4.24)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.4.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     simplecov (0.14.1)
@@ -234,11 +247,12 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    will_paginate (3.1.5)
-    xpath (2.0.0)
+    will_paginate (3.1.6)
+    xpath (2.1.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
@@ -250,6 +264,7 @@ DEPENDENCIES
   bcrypt
   byebug
   capybara
+  chromedriver-helper
   coffee-rails (~> 4.2)
   database_cleaner
   factory_girl_rails
@@ -268,6 +283,7 @@ DEPENDENCIES
   rails-erd
   rspec-rails
   sass-rails (~> 5.0)
+  selenium-webdriver
   shoulda-matchers
   simplecov
   sorcery
@@ -278,4 +294,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.15.0
+   1.14.3

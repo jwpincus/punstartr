@@ -15,6 +15,10 @@ FactoryGirl.define do
       rewards {create_list(:reward, 3)}
     end
 
+    factory :project_with_votes do
+      votes {create_list(:vote, 3)}
+    end
+
     factory :project_with_backers do
       project_backers {create_list(:project_backer, 3)}
     end

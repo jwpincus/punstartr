@@ -4,14 +4,12 @@ class Project < ApplicationRecord
   belongs_to :city
   belongs_to :country
   belongs_to :category, required: false
-
   has_many   :project_owners
   has_many   :owners, through: :project_owners, source: :user
-
   has_many   :rewards
-
   has_many   :project_backers
   has_many   :backers, through: :project_backers, source: :user
+  has_many   :votes, dependent: :destroy
 
   validates  :title,
              :description,
@@ -57,10 +55,6 @@ class Project < ApplicationRecord
    (Date.parse(end_date) - Date.today).to_s
   end
 
-  def days_remaining
-   (Date.parse(end_date) - Date.today).to_s
-  end
-
   def self.most_backers(limit)
     limit = 10 if limit.nil?
     joins(:project_backers)
@@ -73,5 +67,9 @@ class Project < ApplicationRecord
   def self.ending_soon(limit)
     limit = 10 if limit.nil?
     order(completion_date: :desc).limit(limit)
+  end
+
+  def upvotes
+    self.votes.where(vote_type: :upvote).count
   end
 end

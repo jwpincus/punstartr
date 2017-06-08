@@ -53,7 +53,7 @@ class Seed
         completion_date: Faker::Time.forward(30),
         category: Category.all.sample,
         rewards: generate_rewards,
-        country_id: rand(1..4),
+        country_id: 1,
         city_id: rand(1..5)
       )
       puts "Project #{Project.all.last.title} created"
@@ -98,7 +98,7 @@ class Seed
   def generate_cities
     cities = ["New York", "Paris", "Denver", "Chicago", "San Francisco"]
       cities.each do |city|
-        City.create(name: city, country_id: rand(1..4))
+        City.create(name: city, country_id: 1)
       puts "City #{City.name} created"
     end
   end
