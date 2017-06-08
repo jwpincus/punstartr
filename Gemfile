@@ -22,6 +22,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'will_paginate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'owlcarousel-rails'
+gem 'materialize-rails'
 
 group :development, :test do
   gem 'shoulda-matchers'
@@ -33,7 +34,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'materialize-rails'
   gem 'launchy'
   gem 'byebug', platform: :mri
   gem 'selenium-webdriver'
