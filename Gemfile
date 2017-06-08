@@ -25,6 +25,8 @@ gem 'owlcarousel-rails'
 gem 'materialize-rails'
 gem 'faker'
 gem 'harry_potter_faker'
+gem 'sidekiq'
+gem 'redis'
 
 group :development, :test do
   gem 'shoulda-matchers'

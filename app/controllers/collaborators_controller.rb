@@ -9,7 +9,9 @@ class CollaboratorsController < ApplicationController
 
     if user = User.find_by(email: params[:user][:email])
       flash[:success] = "Email sent to #{user.name}"
-      AddCollaboratorMailer.inform(user, current_user, @project).deliver_now
+      EmailJob.perform_later(user, current_user, @project)
+
+      # AddCollaboratorMailer.inform(user, current_user, @project).deliver_now
 
       # @project.owners << User.find_by(email: params[:user][:email])
     else
