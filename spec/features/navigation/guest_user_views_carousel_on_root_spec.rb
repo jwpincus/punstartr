@@ -12,11 +12,7 @@ RSpec.feature "As a guest user" do
 
       visit root_path
 
-      within("div.categories") do
-        expect(page).to have_content("Categories")
-        expect(page).to have_selector(:link_or_button, category1.name)
-        expect(page).to have_selector(:link_or_button, category2.name)
-      end
+      expect(page).to have_css(".owl-carousel")
     end
   end
 end
