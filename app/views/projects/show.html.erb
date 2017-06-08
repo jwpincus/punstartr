@@ -41,6 +41,7 @@
           <p class="flow-text">
           <%= link_to "All or nothing."%> This project will only be funded if it reaches its goal by <%= @project.end_date_time %>.</p>
           <%= render partial: 'helpers/project_edit', locals: {project: @project} if current_user && current_user.owner?(@project) %>
+          <%= render partial: 'helpers/project_collaborators', locals: {project: @project} if current_user && current_user.owner?(@project) %>
         </div>
     </div>
   </div>
