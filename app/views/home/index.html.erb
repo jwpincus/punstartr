@@ -1,37 +1,25 @@
-<div class="container row">
-  <div class="card medium col s4">
-   <h5>Most funded</h5>
-   <%if @most_funded %>
-    <div class="card-image waves-effect waves-block waves-light">
-      <%= image_tag @most_funded.image_url, class: "activator responsive-img" %>
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><%= link_to @most_funded.title, project_path(@most_funded) %><i class="material-icons right">more_vert</i></span>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><%= @most_funded.title %><i class="material-icons right">close</i></span>
-      <%= @most_funded.description %>
-    </div>
-    <%end%>
-  </div>
-  <div class="card medium col s4">
-    <h5>Nearly Funded</h5>
-  </div>
-  <div class="col s3 offset-s1">
-    <div class="categories">
-      <div class="card-panel teal ">
-        <span class="white-text">
-	     		<h5>Categories</h5>
-	       		<% @categories.each do |category| %>
-		    			<li><%= link_to category.name, category_path(category) %></li>
-            <% end %>
-	   		</span>
+<div class="container row container">
+  <h1>Featured Projects</h1>
+  <div class="owl-carousel">
+    <% @projects.shuffle[0..10].each do |project| %>
+    <div class="card medium grey lighten-2">
+      <div class="card-image waves-effect waves-block waves-light">
+        <%= image_tag project.image_url, class: "activator responsive-img" %>
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= link_to project.title, project_path(project) %><i class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= project.title %><i class="material-icons right">close</i></span>
+        <%= project.description %>
       </div>
     </div>
-  </div>
+    <% end %>
 </div>
 
+
 <div class="project-list row container">
+  <h1>All Projects</h1>
   <% @projects.each do |project| %>
   <div class="card medium col s4 m3 l3">
     <div class="card-image waves-effect waves-block waves-light">

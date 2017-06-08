@@ -56,8 +56,18 @@ class Project < ApplicationRecord
    (Date.parse(end_date) - Date.today).to_s
   end
 
-  def days_remaining
-   (Date.parse(end_date) - Date.today).to_s
+  def self.most_backers(limit)
+    limit = 10 if limit.nil?
+    joins(:project_backers)
+      .select("projects.*, COUNT(project_backers.id) AS backer_count")
+      .group(:id)
+      .order('backer_count DESC')
+      .limit(limit)
+  end
+
+  def self.ending_soon(limit)
+    limit = 10 if limit.nil?
+    order(completion_date: :desc).limit(limit)
   end
 
   def upvotes

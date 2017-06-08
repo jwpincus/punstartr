@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= owl.carousel
+ *= owl.theme
+
  */
+@import "owl.carousel";
+@import "owl.theme";
 @import "materialize";
 .projects-show {
   .card.horizontal {
@@ -52,6 +57,16 @@
   }
 }
 
-i.green-thumb {
-  color: green;
+i.aqua-thumb {
+  color: aqua;
+}
+i.red-thumb {
+  color: red;
+}
+.category-link:hover {
+  color: orange;
+}
+
+.category-title {
+  margin-left: 150px;
 }

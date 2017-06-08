@@ -17,6 +17,11 @@ class Api::V1::VotesController < ApplicationController
     }.to_json
   end
 
+  def destroy
+    vote = current_user.votes.find_by(project_id: params[:id])
+    vote.delete
+  end
+
   private
 
   def vote_params
