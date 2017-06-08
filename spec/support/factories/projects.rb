@@ -22,6 +22,10 @@ FactoryGirl.define do
     factory :project_with_backers do
       project_backers {create_list(:project_backer, 3)}
     end
+
+    factory :project_with_random_amt_of_backers do
+      project_backers {create_list(:project_backer, rand(1..10))}
+    end
     association :city, :strategy => :build
     association :country, :strategy => :build
     # city { |city| city.association :city, :strategy => :build }
