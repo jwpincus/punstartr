@@ -4,7 +4,7 @@ svg {
   display: block;
 }
 
-#plot-container {
+#plot-container, #pie-container {
   text-align: center;
 }
 
@@ -13,4 +13,13 @@ svg {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+.arc text {
+  font: 12px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
 }
